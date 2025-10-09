@@ -1,7 +1,7 @@
 @use "../mixins/index.scss" as mixins;
 @use "../variables/index.scss" as variables;
 
-.soroot {
+.smaroot {
   @include mixins.base();
   box-sizing: border-box;
   font-family: var(--#{variables.$prefix}font-family-sans-serif);
