@@ -1,0 +1,28 @@
+@use "../variables/index.scss" as variables;
+
+$line-height: 0.2rem;
+
+@mixin chevron() {
+  display: inline-block;
+  width: 1rem;
+  aspect-ratio: 5/3;
+  clip-path: polygon(
+    0 0,
+    0 #{$line-height},
+    50% 100%,
+    100% #{$line-height},
+    100% 0,
+    50% calc(100% - #{$line-height})
+  );
+  background: var(--#{variables.$prefix}color-default-fore);
+  @each $color in variables.$colors {
+    &.is-#{$color} {
+      background: var(--#{variables.$prefix}color-#{$color}-fore);
+    }
+  }
+  @content;
+}
+
+.chevron {
+  @include chevron();
+}

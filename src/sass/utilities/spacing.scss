@@ -1,0 +1,111 @@
+@use "sass:string";
+@use "../functions/index.scss" as functions;
+
+.margin-auto,
+.m-auto {
+  margin: auto;
+}
+
+.margin-top-auto,
+.mt-auto {
+  margin-top: auto;
+}
+
+.margin-right-auto,
+.mr-auto {
+  margin-right: auto;
+}
+
+.margin-bottom-auto,
+.mb-auto {
+  margin-bottom: auto;
+}
+
+.margin-left-auto,
+.ml-auto {
+  margin-left: auto;
+}
+
+.mx-auto {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.my-auto {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+@for $p from 0 through 100 {
+  $suffix: functions.strReplace(#{($p * 0.1)}, ".", "\\.");
+
+  .m-#{$suffix}rem,
+  .margin-#{$suffix} {
+    margin: $p * 0.1rem;
+  }
+
+  .mt-#{$suffix}rem,
+  .margin-top-#{$suffix} {
+    margin-top: $p * 0.1rem;
+  }
+
+  .mr-#{$suffix}rem,
+  .margin-right-#{$suffix} {
+    margin-right: $p * 0.1rem;
+  }
+
+  .mb-#{$suffix}rem,
+  .margin-bottom-#{$suffix} {
+    margin-bottom: $p * 0.1rem;
+  }
+
+  .ml-#{$suffix}rem,
+  .margin-left-#{$suffix} {
+    margin-left: $p * 0.1rem;
+  }
+
+  .mx-#{$suffix}rem {
+    margin-right: $p * 0.1rem;
+    margin-left: $p * 0.1rem;
+  }
+
+  .my-#{$suffix}rem {
+    margin-top: $p * 0.1rem;
+    margin-bottom: $p * 0.1rem;
+  }
+
+  .p-#{$suffix}rem,
+  .padding-#{$suffix} {
+    padding: $p * 0.1rem;
+  }
+
+  .pt-#{$suffix}rem,
+  .padding-top-#{$suffix} {
+    padding-top: $p * 0.1rem;
+  }
+
+  .pr-#{$suffix}rem,
+  .padding-right-#{$suffix} {
+    padding-right: $p * 0.1rem;
+  }
+
+  .pb-#{$suffix}rem,
+  .padding-bottom-#{$suffix} {
+    padding-bottom: $p * 0.1rem;
+  }
+
+  .pl-#{$suffix}rem,
+  .padding-left-#{$suffix} {
+    padding-left: $p * 0.1rem;
+  }
+
+  .px-#{$suffix}rem {
+    padding-right: $p * 0.1rem;
+    padding-left: $p * 0.1rem;
+  }
+
+  .py-#{$suffix}rem {
+    padding-top: $p * 0.1rem;
+    padding-bottom: $p * 0.1rem;
+  }
+}

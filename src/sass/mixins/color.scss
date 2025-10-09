@@ -1,0 +1,31 @@
+@mixin setCssVariableColorScheme($colorScheme: "") {
+  @if $colorScheme == "light" or $colorScheme == "dark" {
+    @media (prefers-color-scheme: $colorScheme) {
+      :root {
+        @content;
+      }
+    }
+    [data-color-scheme="#{$colorScheme}"] {
+      @content;
+    }
+  } @else {
+    [data-color-scheme="#{$colorScheme}"] {
+      @content;
+    }
+  }
+}
+
+@mixin setColorScheme($colorScheme: "") {
+  @if $colorScheme == "light" or $colorScheme == "dark" {
+    @media (prefers-color-scheme: $colorScheme) {
+      @content;
+    }
+    [data-color-scheme="#{$colorScheme}"] {
+      @content;
+    }
+  } @else {
+    [data-color-scheme="#{$colorScheme}"] {
+      @content;
+    }
+  }
+}

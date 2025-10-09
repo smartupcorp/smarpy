@@ -1,0 +1,5 @@
+@use "../../variables/index.scss" as variables;
+
+:root {
+  --#{variables.$prefix}breadcrumb-divider: "#{variables.$breadcrumb-divider}"
+}

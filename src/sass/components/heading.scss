@@ -1,0 +1,40 @@
+@use "../variables/index.scss" as variables;
+@use "../mixins/index.scss" as mixins;
+
+@mixin heading() {
+  @include mixins.base();
+  display: block;
+  font-family: var(--#{variables.$prefix}font-family-heading);
+  font-weight: var(--#{variables.$prefix}font-weight-semibold);
+  margin: 0;
+}
+
+.heading-1 {
+  @include heading();
+  font-size: var(--#{variables.$prefix}font-size-xxxlarge)
+}
+
+.heading-2 {
+  @include heading();
+  font-size: var(--#{variables.$prefix}font-size-xxlarge)
+}
+
+.heading-3 {
+  @include heading();
+  font-size: var(--#{variables.$prefix}font-size-xlarge)
+}
+
+.heading-4 {
+  @include heading();
+  font-size: var(--#{variables.$prefix}font-size-large)
+}
+
+.heading-5 {
+  @include heading();
+  font-size: var(--#{variables.$prefix}font-size-medium)
+}
+
+.heading-6 {
+  @include heading();
+  font-size: var(--#{variables.$prefix}font-size-normal)
+}

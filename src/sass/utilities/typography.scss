@@ -1,0 +1,97 @@
+@use "../variables/index.scss" as variables;
+
+.is-italic {
+  font-style: italic !important;
+}
+
+.is-oblique {
+  font-style: italic !important;
+}
+
+.is-capitalized {
+  text-transform: capitalize !important;
+}
+
+.is-lowercase {
+  text-transform: lowercase !important;
+}
+
+.is-uppercase {
+  text-transform: uppercase !important;
+}
+
+.is-text-align-left {
+  text-align: left !important;
+}
+
+.is-text-align-right {
+  text-align: right !important;
+}
+
+.is-text-align-center {
+  text-align: center !important;
+}
+
+.is-text-align-unset {
+  text-align: unset !important;
+}
+
+.is-white-space-nowrap {
+  white-space: nowrap !important;
+}
+
+.is-font-size-small {
+  font-size: var(--#{variables.$prefix}font-size-small) !important;
+}
+
+.is-font-size-normal {
+  font-size: var(--#{variables.$prefix}font-size-normal) !important;
+}
+
+.is-font-size-medium {
+  font-size: var(--#{variables.$prefix}font-size-medium) !important;
+}
+
+.is-font-size-large {
+  font-size: var(--#{variables.$prefix}font-size-large) !important;
+}
+
+.is-font-size-xlarge {
+  font-size: var(--#{variables.$prefix}font-size-xlarge) !important;
+}
+
+.is-font-size-xxlarge {
+  font-size: var(--#{variables.$prefix}font-size-xxlarge) !important;
+}
+
+.is-font-size-xxxlarge {
+  font-size: var(--#{variables.$prefix}font-size-xxxlarge) !important;
+}
+
+.is-font-size-xxxxlarge {
+  font-size: var(--#{variables.$prefix}font-size-xxxxlarge) !important;
+}
+
+.is-font-size-xxxxxlarge {
+  font-size: var(--#{variables.$prefix}font-size-xxxxxlarge) !important;
+}
+
+.is-font-weight-light {
+  font-weight: var(--#{variables.$prefix}font-weight-light) !important;
+}
+
+.is-font-weight-normal {
+  font-weight: var(--#{variables.$prefix}font-weight-normal) !important;
+}
+
+.is-font-weight-medium {
+  font-weight: var(--#{variables.$prefix}font-weight-medium) !important;
+}
+
+.is-font-weight-semibold {
+  font-weight: var(--#{variables.$prefix}font-weight-semibold) !important;
+}
+
+.is-font-weight-bold {
+  font-weight: var(--#{variables.$prefix}font-weight-bold) !important;
+}

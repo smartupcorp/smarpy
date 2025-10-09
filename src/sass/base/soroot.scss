@@ -1,0 +1,11 @@
+@use "../mixins/index.scss" as mixins;
+@use "../variables/index.scss" as variables;
+
+.soroot {
+  @include mixins.base();
+  box-sizing: border-box;
+  font-family: var(--#{variables.$prefix}font-family-sans-serif);
+  color: var(--#{variables.$prefix}color-default-fore);
+  background-color: var(--#{variables.$prefix}color-default-back);
+  z-index: var(--#{variables.$prefix}z-index-soroot);
+}

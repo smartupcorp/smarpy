@@ -1,0 +1,5 @@
+@use "../mixins/index.scss" as mixins;
+
+.element {
+  @include mixins.base();
+}

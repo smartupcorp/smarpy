@@ -1,0 +1,45 @@
+@use "../variables/index.scss" as variables;
+
+@each $borderStyle in variables.$borderStyles {
+  .has-border-#{$borderStyle} {
+    border-style: #{$borderStyle};
+    border-width: var(--#{variables.$prefix}border-width-medium);
+  }
+}
+
+@each $borderWidth in variables.$borderWidths {
+  .is-border-width-#{$borderWidth},
+  .border-width-#{$borderWidth} {
+    border-width: var(--#{variables.$prefix}border-width-#{$borderWidth});
+  }
+}
+
+@each $borderRadius in variables.$borderRadiuses {
+  .is-border-radius-#{$borderRadius},
+  .border-radius-#{$borderRadius} {
+    border-radius: var(--#{variables.$prefix}border-radius-#{$borderRadius});
+  }
+}
+
+.is-border-sepalated {
+  border-collapse: separate;
+}
+
+.is-border-collapted {
+  border-collapse: collapse;
+}
+
+@each $borderSide in variables.$borderSides {
+  @each $borderStyle in variables.$borderStyles {
+    .has-border-#{$borderSide}-#{$borderStyle} {
+      border-#{$borderSide}-style: #{$borderStyle};
+      border-#{$borderSide}-width: var(--#{variables.$prefix}border-width-medium);
+    }
+  }
+  @each $borderWidth in variables.$borderWidths {
+    .is-border-#{$borderSide}-width-#{$borderWidth},
+    .border-#{$borderSide}-width-#{$borderWidth} {
+      border-#{$borderSide}-width: var(--#{variables.$prefix}border-width-#{$borderWidth});
+    }
+  }
+}

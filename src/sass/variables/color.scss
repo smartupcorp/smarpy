@@ -1,0 +1,527 @@
+@use "sass:color";
+@use "sass:map";
+
+//#region define color settings
+
+// NOTE: set your base color
+
+$color-hue-gray: 274 !default;
+
+$color-hue-red: 0 !default;
+$color-hue-coral: 24 !default;
+$color-hue-orange: 54 !default;
+$color-hue-yellow: 94 !default;
+$color-hue-lime: 114 !default;
+$color-hue-green: 134 !default;
+$color-hue-cyan: 214 !default;
+$color-hue-blue: 274 !default;
+$color-hue-violet: 294 !default;
+$color-hue-magenta: 324 !default;
+
+$color-chroma-gray: 0.04 !default;
+$color-chroma-colorful: 0.12 !default;
+$color-chroma-colorful-offset-lighter: 0 !default;
+$color-chroma-colorful-offset-darker: 0 !default;
+
+$color-lightness-500: 60% !default;
+$color-lightness-offset-lighter: 4%;
+$color-lightness-offset-darker: 4%;
+
+$color-lightness-white: 98% !default;
+$color-lightness-black: 35% !default;
+
+$color-white: oklch(
+  $color-lightness-white $color-chroma-gray $color-hue-gray
+) !default;
+$color-black: oklch(
+  $color-lightness-black $color-chroma-gray $color-hue-gray
+) !default;
+
+//#endregion define color settings
+
+
+$colorLightShades: (
+  //#region plain
+  (
+    name: "plain",
+    fore: "050",
+    back: "950",
+    border: "600",
+    placeholder: "600",
+    shadow: "700",
+    dot: (
+      fore: "850",
+      back: "950",
+    ),
+    gingham: (
+      fore: "850",
+      back: "950",
+    ),
+    stripe: (
+      fore: "850",
+      back: "950",
+    ),
+    accordion: (
+      fore: "300",
+      back: "950",
+      border: "600",
+      accordionSummary: (
+        fore: "050",
+        back: "600",
+        border: "600",
+      ),
+      accordionDetails: (
+        fore: "050",
+        back: "950",
+        border: "600",
+      ),
+    ),
+    adminNav: (
+      fore: "050",
+      back: "600",
+      border: "600",
+      adminNavBrand: (
+        fore: "050",
+        back: "600",
+        border: "600",
+      ),
+      adminNavMenu: (
+        fore: "050",
+        back: "600",
+        border: "600",
+        adminNavMenuItem: (
+          fore: "050",
+          back: "600",
+          border: "600",
+        ),
+      ),
+    ),
+    breadcrumb: (
+      fore: "300",
+    ),
+    button: (
+      fore: "050",
+      back: "600",
+      border: "600",
+    ),
+    dialog: (
+      fore: "050",
+      back: "900",
+      border: "900",
+      dialogAvatar: (
+        fore: "050",
+        back: "900",
+        border: "900",
+      ),
+      dialogName: (
+        fore: "050",
+        back: "900",
+        border: "900",
+      ),
+      dialogMessage: (
+        fore: "050",
+        back: "900",
+        border: "900",
+      ),
+    ),
+  ),
+  //#endregion plain
+  //#region disabled
+  (
+    name: "disabled",
+    fore: "050",
+    back: "950",
+    border: "600",
+    placeholder: "650",
+    shadow: "700",
+    adminNav: (
+      adminNavMenu: (
+        adminNavMenuItem: (
+          fore: "400",
+          back: "600",
+          border: "600",
+        ),
+      ),
+    ),
+    button: (
+      fore: "400",
+      back: "600",
+      border: "600",
+    ),
+  ),
+  //#endregion disabled
+  //#region hover
+  (
+    name: "hover",
+    fore: "050",
+    back: "950",
+    border: "600",
+    placeholder: "650",
+    shadow: "700",
+    accordion: (
+      accordionSummary: (
+        fore: "050",
+        back: "550",
+        border: "550",
+      ),
+    ),
+    button: (
+      fore: "050",
+      back: "550",
+      border: "550",
+    ),
+  ),
+  //#endregion hover
+  //#region focus
+  (
+    name: "focus",
+    fore: "050",
+    back: "950",
+    border: "600",
+    placeholder: "650",
+    shadow: "700",
+    accordion: (
+      accordionSummary: (
+        fore: "050",
+        back: "600",
+        border: "600",
+      ),
+    ),
+    adminNav: (
+      adminNavMenu: (
+        adminNavMenuItem: (
+          fore: "050",
+          back: "600",
+          border: "600",
+        ),
+      ),
+    ),
+    button: (
+      fore: "050",
+      back: "600",
+      border: "600",
+    ),
+  ),
+  //#endregion focus
+  //#region active
+  (
+    name: "active",
+    fore: "050",
+    back: "950",
+    border: "600",
+    placeholder: "650",
+    shadow: "700",
+    accordion: (
+      accordionSummary: (
+        fore: "050",
+        back: "500",
+        border: "500",
+      ),
+    ),
+    adminNav: (
+      adminNavMenu: (
+        adminNavMenuItem: (
+          fore: "050",
+          back: "500",
+          border: "500",
+        ),
+      ),
+    ),
+    button: (
+      fore: "050",
+      back: "500",
+      border: "500",
+    ),
+  ),
+  //#endregion active
+  //#region visited
+  (
+    name: "visited",
+    fore: "050",
+    back: "950",
+    border: "600",
+    placeholder: "650",
+    shadow: "700",
+  ),
+  //#endregion visited
+);
+
+$colorDarkShades: (
+  //#region plain
+  (
+    name: "plain",
+    fore: "950",
+    back: "050",
+    border: "400",
+    placeholder: "400",
+    shadow: "300",
+    dot: (
+      fore: "150",
+      back: "050",
+    ),
+    gingham: (
+      fore: "150",
+      back: "050",
+    ),
+    stripe: (
+      fore: "150",
+      back: "050",
+    ),
+    accordion: (
+      fore: "950",
+      back: "050",
+      border: "400",
+      accordionSummary: (
+        fore: "950",
+        back: "400",
+        border: "400",
+      ),
+      accordionDetails: (
+        fore: "950",
+        back: "050",
+        border: "400",
+      ),
+    ),
+    adminNav: (
+      fore: "950",
+      back: "400",
+      border: "400",
+      adminNavBrand: (
+        fore: "950",
+        back: "400",
+        border: "400",
+      ),
+      adminNavMenu: (
+        fore: "950",
+        back: "400",
+        border: "400",
+        adminNavMenuItem: (
+          fore: "950",
+          back: "400",
+          border: "400",
+        ),
+      ),
+    ),
+    breadcrumb: (
+      fore: "700",
+    ),
+    button: (
+      fore: "950",
+      back: "400",
+      border: "400",
+    ),
+    dialog: (
+      fore: "950",
+      back: "100",
+      border: "100",
+      dialogAvatar: (
+        fore: "950",
+        back: "100",
+        border: "100",
+      ),
+      dialogName: (
+        fore: "950",
+        back: "100",
+        border: "100",
+      ),
+      dialogMessage: (
+        fore: "950",
+        back: "100",
+        border: "100",
+      ),
+    ),
+  ),
+  //#endregion plain
+  //#region disabled
+  (
+    name: "disabled",
+    fore: "950",
+    back: "050",
+    border: "600",
+    placeholder: "600",
+    shadow: "600",
+    adminNav: (
+      adminNavMenu: (
+        adminNavMenuItem: (
+          fore: "600",
+          back: "400",
+          border: "400",
+        ),
+      ),
+    ),
+    button: (
+      fore: "600",
+      back: "400",
+      border: "400",
+    ),
+  ),
+  //#endregion disabled
+  //#region hover
+  (
+    name: "hover",
+    fore: "950",
+    back: "050",
+    border: "600",
+    placeholder: "650",
+    shadow: "700",
+    accordion: (
+      accordionSummary: (
+        fore: "950",
+        back: "350",
+        border: "350",
+      ),
+    ),
+    adminNav: (
+      adminNavMenu: (
+        adminNavMenuItem: (
+          fore: "950",
+          back: "350",
+          border: "350",
+        ),
+      ),
+    ),
+    button: (
+      fore: "950",
+      back: "350",
+      border: "350",
+    ),
+  ),
+  //#endregion hover
+  //#region focus
+  (
+    name: "focus",
+    fore: "950",
+    back: "050",
+    border: "600",
+    placeholder: "650",
+    shadow: "700",
+    accordion: (
+      accordionSummary: (
+        fore: "950",
+        back: "400",
+        border: "400",
+      ),
+    ),
+    adminNav: (
+      adminNavMenu: (
+        adminNavMenuItem: (
+          fore: "950",
+          back: "400",
+          border: "400",
+        ),
+      ),
+    ),
+    button: (
+      fore: "950",
+      back: "400",
+      border: "400",
+    ),
+  ),
+  //#endregion focus
+  //#region active
+  (
+    name: "active",
+    fore: "050",
+    back: "950",
+    border: "600",
+    placeholder: "650",
+    shadow: "700",
+    accordion: (
+      accordionSummary: (
+        fore: "950",
+        back: "300",
+        border: "300",
+      ),
+    ),
+    adminNav: (
+      adminNavMenu: (
+        adminNavMenuItem: (
+          fore: "950",
+          back: "300",
+          border: "300",
+        ),
+      ),
+    ),
+    button: (
+      fore: "950",
+      back: "300",
+      border: "300",
+    ),
+  ),
+  //#endregion active
+  //#region visited
+  (
+    name: "visited",
+    fore: "950",
+    back: "050",
+    border: "600",
+    placeholder: "650",
+    shadow: "700",
+  ),
+  //#endregion visited
+);
+
+//#region define colors array
+
+$colors: (
+  "gray",
+  "red",
+  "coral",
+  "orange",
+  "yellow",
+  "lime",
+  "green",
+  "cyan",
+  "blue",
+  "violet",
+  "magenta"
+);
+
+$colorsWithProperties: (
+  (
+    "name": "gray",
+    "hue": $color-hue-gray,
+  ),
+  (
+    "name": "red",
+    "hue": $color-hue-red,
+  ),
+  (
+    "name": "coral",
+    "hue": $color-hue-coral,
+  ),
+  (
+    "name": "orange",
+    "hue": $color-hue-orange,
+  ),
+  (
+    "name": "yellow",
+    "hue": $color-hue-yellow,
+  ),
+  (
+    "name": "lime",
+    "hue": $color-hue-lime,
+  ),
+  (
+    "name": "green",
+    "hue": $color-hue-green,
+  ),
+  (
+    "name": "cyan",
+    "hue": $color-hue-cyan,
+  ),
+  (
+    "name": "blue",
+    "hue": $color-hue-blue,
+  ),
+  (
+    "name": "violet",
+    "hue": $color-hue-violet,
+  ),
+  (
+    "name": "magenta",
+    "hue": $color-hue-magenta,
+  )
+);
+
+//#endregion define colors array

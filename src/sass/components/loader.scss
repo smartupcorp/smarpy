@@ -1,0 +1,37 @@
+@use "../variables/index.scss" as variables;
+@use "../mixins/index.scss" as mixins;
+
+.loader {
+  @include mixins.base();
+  @include mixins.animation() {
+    animation-iteration-count: infinite;
+    animation-name: loader-lotate;
+    animation-timing-function: linear;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: var(--#{variables.$prefix}color-default-border);
+    mask: conic-gradient(#0000 10%, var(--#{variables.$prefix}color-default-back)),
+      linear-gradient(var(--#{variables.$prefix}color-default-back) 0 0) content-box;
+    mask-composite: subtract;
+    width: 2rem;
+    padding: 0.5rem;
+    &.is-small {
+      width: 1rem;
+      padding: 0.25rem;
+    }
+    &.is-large {
+      width: 4rem;
+    }
+
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        background: var(--#{variables.$prefix}color-#{$color}-border);
+      }
+    }
+  }
+}
+@keyframes loader-lotate {
+  to {
+    transform: rotate(1turn);
+  }
+}

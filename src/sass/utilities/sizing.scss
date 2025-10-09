@@ -1,0 +1,44 @@
+@use "sass:string";
+@use "../functions/index.scss" as functions;
+
+@for $p from 1 through 4 {
+  .width-#{$p * 25}percent {
+    width: $p * 25% !important;
+  }
+  .height-#{$p * 25}percent {
+    height: $p * 25% !important;
+  }
+  .max-width-#{$p * 25}percent {
+    max-width: $p * 25% !important;
+  }
+  .max-height-#{$p * 25}percent {
+    max-height: $p * 25% !important;
+  }
+  .min-width-#{$p * 25}percent {
+    min-width: $p * 25% !important;
+  }
+  .min-height-#{$p * 25}percent {
+    min-height: $p * 25% !important;
+  }
+}
+
+.width-auto {
+  width: auto !important;
+}
+
+.height-auto {
+  height: auto !important;
+}
+
+@for $p from 0 through 100 {
+  $escaped: functions.strReplace(#{($p * 0.1)}, ".", "\\.");
+
+  .is-width-#{$escaped}rem,
+  .width-#{$escaped}rem {
+    width: $p * 0.1rem;
+  }
+  .is-height-#{$escaped}rem,
+  .height-#{$escaped}rem {
+    height: $p * 0.1rem;
+  }
+}

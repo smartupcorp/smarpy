@@ -1,0 +1,153 @@
+@use "../mixins/index.scss" as mixins;
+@use "../variables/index.scss" as variables;
+
+$hamburger-size: 3.5rem;
+$hamburger-line-height: 0.2rem;
+$hamburger-line-color: var(--#{variables.$prefix}color-default-border);
+
+.hamburger {
+  @include mixins.base();
+  color: var(--#{variables.$prefix}color-default-fore);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: inline-block;
+  height: $hamburger-size;
+  position: relative;
+  width: $hamburger-size;
+  touch-action: manipulation;
+  .crown,
+  .upperpatty,
+  .club,
+  .lowerpatty,
+  .heel {
+    display: inline-block;
+    opacity: 1;
+    position: absolute;
+    transform-origin: center;
+    left: 0;
+    margin: 0 auto;
+    right: 0;
+  }
+  .crown {
+    font-size: 0.5em;
+    line-height: 1;
+    text-align: center;
+    top: 0.25em;
+    width: $hamburger-size;
+  }
+  .upperpatty {
+    animation: hamburger-upperpatty .75s forwards;
+    background-color: $hamburger-line-color;
+    height: $hamburger-line-height;
+    top: calc((-1 * #{$hamburger-line-height}) - (#{$hamburger-size} / 5) + 50%);
+    width: calc(#{$hamburger-size} / 5 * 3);
+  }
+  .club {
+    background-color: $hamburger-line-color;
+    height: $hamburger-line-height;
+    top: calc((-1 * #{$hamburger-line-height}) + 50%);
+    transition: all .25s .25s;
+    width: calc(#{$hamburger-size} / 5 * 3);
+  }
+  .lowerpatty {
+    animation: hamburger-lowerpatty .75s forwards;
+    background-color: $hamburger-line-color;
+    height: $hamburger-line-height;
+    top: calc((-1 * #{$hamburger-line-height}) + (#{$hamburger-size}/ 5) + 50%);
+    width: calc(#{$hamburger-size} / 5 * 3);
+  }
+  .heel {
+    bottom: 0.5em;
+    font-size: 0.5em;
+    line-height: 1;
+    text-align: center;
+    width: $hamburger-size;
+  }
+  &.is-active {
+    .upperpatty {
+      animation: hamburger-upperpatty-is-active .75s forwards;
+      top: 50%;
+    }
+    .club {
+      opacity: 0;
+    }
+    .lowerpatty {
+      animation: hamburger-lowerpatty-is-active .75s forwards;
+      top: 50%;
+    }
+  }
+  @each $color in variables.$colors {
+    &.is-#{$color} {
+      color: var(--#{variables.$prefix}color-#{$color}-fore);
+      .upperpatty {
+        background-color: var(--#{variables.$prefix}color-#{$color}-border);
+      }
+      .club {
+        background-color: var(--#{variables.$prefix}color-#{$color}-border);
+      }
+      .lowerpatty {
+        background-color: var(--#{variables.$prefix}color-#{$color}-border);
+      }
+    }
+  }
+}
+
+//#region keyframes
+@keyframes hamburger-upperpatty {
+  0% {
+    transform: rotate(45deg);
+    top: calc((-1 * #{$hamburger-line-height}) + 50%);
+  }
+  50% {
+    transform: rotate(0deg);
+    top: calc((-1 * #{$hamburger-line-height}) + 50%);
+  }
+  100% {
+    transform: rotate(0deg);
+    top: calc((-1 * #{$hamburger-line-height}) - (#{$hamburger-size} / 5) + 50%);
+  }
+}
+
+@keyframes hamburger-upperpatty-is-active{
+  0% {
+    transform: rotate(0deg);
+    top: calc((-1 * #{$hamburger-line-height}) - (#{$hamburger-size} / 5) + 50%);
+  }
+  50% {
+    transform: rotate(0deg);
+    top: calc((-1 * #{$hamburger-line-height}) + 50%);
+  }
+  100%{
+    transform: rotate(45deg);
+    top: calc((-1 * #{$hamburger-line-height}) + 50%);
+  }
+}
+@keyframes hamburger-lowerpatty {
+  0% {
+    transform: rotate(-45deg);
+    top: calc((-1 * #{$hamburger-line-height}) + 50%);
+  }
+  50% {
+    transform: rotate(0deg);
+    top: calc((-1 * #{$hamburger-line-height}) + 50%);
+  }
+  100% {
+    transform: rotate(0deg);
+    top: calc((-1 * #{$hamburger-line-height}) + (#{$hamburger-size} / 5) + 50%);
+  }
+}
+@keyframes hamburger-lowerpatty-is-active {
+  0% {
+    transform: rotate(0deg);
+    top: calc((-1 * #{$hamburger-line-height}) + (#{$hamburger-size} / 5) + 50%);
+  }
+  50% {
+    transform: rotate(0deg);
+    top: calc((-1 * #{$hamburger-line-height}) + 50%);
+  }
+  100% {
+    transform: rotate(-45deg);
+    top: calc((-1 * #{$hamburger-line-height}) + 50%);
+  }
+}
+//#endregion keyframes

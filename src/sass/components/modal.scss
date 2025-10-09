@@ -1,0 +1,37 @@
+@use "../variables/index.scss" as variables;
+@use "../mixins/index.scss" as mixins;
+
+.modal {
+  @include mixins.base();
+  align-items: center;
+  background-color: oklch(var(--#{variables.$prefix}color-default-back-oklch) / 0.75);
+  display: none;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  left: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: var(--#{variables.$prefix}z-index-modal);
+  &.is-active {
+    display: flex;
+  }
+  .modal-content {
+    @include mixins.base();
+    max-height: 100%;
+    max-width: 100%;
+    min-height: 2rem;
+    min-width: 2rem;
+    margin: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    z-index: var(--#{variables.$prefix}z-index-modal-content);
+  }
+  @each $color in variables.$colors {
+    &.is-#{$color} {
+      background-color: oklch(var(--#{variables.$prefix}color-#{$color}-back-oklch) / 0.75);
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@use "../mixins/index.scss" as mixins;
+@use "../variables/index.scss" as variables;
+
+.label {
+  @include mixins.base();
+  font-weight: var(--#{variables.$prefix}font-weight-semibold);
+}

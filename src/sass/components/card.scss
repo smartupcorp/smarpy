@@ -1,0 +1,66 @@
+@use "../mixins/index.scss" as mixins;
+@use "../variables/index.scss" as variables;
+
+.card {
+  @include mixins.base();
+  display: block;
+  border-color: var(--#{variables.$prefix}color-default-border);
+  border-style: solid;
+  border-width: var(--#{variables.$prefix}border-width-medium);
+  border-radius: 0;
+  box-shadow: 0 0.25rem 0.25rem var(--#{variables.$prefix}color-default-shadow);
+  padding: 0.5rem;
+
+  > .card-header {
+    @include mixins.base();
+    font-weight: var(--#{variables.$prefix}font-weight-semibold);
+    border-bottom: var(--#{variables.$prefix}border-width-medium) solid
+      var(--#{variables.$prefix}color-default-border);
+    margin: 0.125rem;
+    padding: 0.125rem;
+  }
+
+  > .card-body {
+    @include mixins.base();
+    margin: 0.125em;
+    padding: 0.125rem;
+  }
+
+  > .card-footer {
+    @include mixins.base();
+    border-top: var(--#{variables.$prefix}border-width-medium) solid
+      var(--#{variables.$prefix}color-default-border);
+    margin: 0.125rem;
+    padding: 0.125rem;
+  }
+
+  @each $color in variables.$colors {
+    &.is-#{$color} {
+      color: var(--#{variables.$prefix}color-#{$color}-fore);
+      border-color: var(--#{variables.$prefix}color-#{$color}-border);
+      background-color: var(--#{variables.$prefix}color-#{$color}-back);
+      box-shadow: 0
+        0.25rem
+        0.25rem
+        var(--#{variables.$prefix}color-#{$color}-shadow);
+
+      > .card-header {
+        color: var(--#{variables.$prefix}color-#{$color}-fore);
+        border-color: var(--#{variables.$prefix}color-#{$color}-border);
+        background-color: var(--#{variables.$prefix}color-#{$color}-back);
+      }
+
+      > .card-body {
+        color: var(--#{variables.$prefix}color-#{$color}-fore);
+        border-color: var(--#{variables.$prefix}color-#{$color}-border);
+        background-color: var(--#{variables.$prefix}color-#{$color}-back);
+      }
+
+      > .card-footer {
+        color: var(--#{variables.$prefix}color-#{$color}-fore);
+        border-color: var(--#{variables.$prefix}color-#{$color}-border);
+        background-color: var(--#{variables.$prefix}color-#{$color}-back);
+      }
+    }
+  }
+}

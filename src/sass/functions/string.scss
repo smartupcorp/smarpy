@@ -1,0 +1,31 @@
+@use "sass:string";
+
+@function zeroPadding($num, $length) {
+  $numString: #{$num};
+  $numLength: string.length($numString);
+
+  @while $numLength < $length {
+    $numString: "0" + $numString;
+    $numLength: string.length($numString);
+  }
+
+  @return $numString;
+}
+
+@function strReplace($str, $substr, $newsubstr, $all: false) {
+  $pos: string.index($str, $substr);
+
+  @while $pos != null {
+    $strlen: string.length($substr);
+    $start: string.slice($str, 0, $pos - 1);
+    $end: string.slice($str, $pos + $strlen);
+    $str: $start + $newsubstr + $end;
+
+    @if $all == true {
+      $pos: string.index($str, $substr);
+    } @else {
+      $pos: null;
+    }
+  }
+  @return $str;
+}

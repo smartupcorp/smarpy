@@ -1,0 +1,332 @@
+@use "sass:map";
+@use "../variables/index.scss" as variables;
+@use "../mixins/index.scss" as mixins;
+
+@mixin dialog-message-arrow-base() {
+  &::after,
+  &::before {
+    border-top-color: transparent;
+    border-top-style: solid;
+    border-top-width: calc(
+      var(--#{variables.$prefix}dialog-messege-arrow-height) / 2
+    );
+    border-bottom-color: transparent;
+    border-bottom-style: solid;
+    border-bottom-width: calc(
+      var(--#{variables.$prefix}dialog-messege-arrow-height) / 2
+    );
+    content: "";
+    display: block;
+    height: 0;
+    position: absolute;
+    top: var(--#{variables.$prefix}dialog-messege-arrow-top-offset);
+    right: auto;
+    width: 0;
+    z-index: -1;
+  }
+}
+
+.dialog {
+  @include mixins.base();
+  --#{variables.$prefix}dialog-avatar-size: var(
+    --#{variables.$prefix}dialog-avatar-size-default
+  );
+  --#{variables.$prefix}dialog-border-width: var(
+    --#{variables.$prefix}border-width-medium
+  );
+  --#{variables.$prefix}dialog-messege-top-offset: calc(
+    (
+        var(--#{variables.$prefix}dialog-name-padding-y) * 2 +
+          var(--#{variables.$prefix}dialog-border-width) * 2 +
+          var(--#{variables.$prefix}dialog-name-font-size)
+      ) / 2
+  );
+  --#{variables.$prefix}dialog-messege-arrow-top-offset: calc(
+    (-1 * var(--#{variables.$prefix}dialog-messege-top-offset)) +
+      (-1 * var(--#{variables.$prefix}dialog-border-width)) +
+      (-1 * var(--#{variables.$prefix}dialog-messege-arrow-height) / 2) +
+      var(--#{variables.$prefix}dialog-avatar-top-offset) +
+      (var(--#{variables.$prefix}dialog-avatar-size) / 2)
+  );
+
+  display: flex;
+  max-width: 100%;
+  margin: 0;
+  padding-bottom: var(--#{variables.$prefix}dialog-messege-top-offset);
+  position: relative;
+  width: 100%;
+  &.is-avatar-small {
+    --#{variables.$prefix}dialog-avatar-size: var(
+      --#{variables.$prefix}dialog-avatar-size-small
+    );
+  }
+  &.is-avatar-large {
+    --#{variables.$prefix}dialog-avatar-size: var(
+      --#{variables.$prefix}dialog-avatar-size-large
+    );
+  }
+  &.is-avatar-circle {
+    --#{variables.$prefix}dialog-messege-arrow-top-offset: calc(
+      (-1 * var(--#{variables.$prefix}dialog-messege-top-offset)) +
+        (-1 * var(--#{variables.$prefix}dialog-border-width)) +
+        (-1 * var(--#{variables.$prefix}dialog-messege-arrow-height) / 2) +
+        var(--#{variables.$prefix}dialog-avatar-top-offset) +
+        (
+          var(--#{variables.$prefix}dialog-avatar-size) +
+            var(--#{variables.$prefix}dialog-border-width) * 2
+        ) / 2
+    );
+    > .dialog-avatar-container {
+      > .dialog-avatar {
+        background-color: var(
+          --#{variables.$prefix}color-default-dialog-avatar-back
+        );
+        border-color: var(
+          --#{variables.$prefix}color-default-dialog-avatar-border
+        );
+        border-style: solid;
+        border-width: var(--#{variables.$prefix}dialog-border-width);
+        border-radius: var(--#{variables.$prefix}border-radius-circle);
+      }
+    }
+  }
+
+  @each $borderWidth in variables.$borderWidths {
+    &.is-border-width-#{$borderWidth} {
+      --#{variables.$prefix}dialog-border-width: var(
+        --#{variables.$prefix}border-width-#{$borderWidth}
+      );
+    }
+  }
+
+  > .dialog-avatar-container,
+  > .dialog-content-container {
+    @include mixins.base();
+    display: block;
+    max-width: 100%;
+    margin: 0;
+    position: relative;
+  }
+  > .dialog-avatar-container {
+    height: auto;
+    flex: 0 0 var(--#{variables.$prefix}dialog-avatar-size);
+    padding-top: var(--#{variables.$prefix}dialog-avatar-top-offset);
+    > .dialog-avatar {
+      @include mixins.base();
+      aspect-ratio: 1;
+      display: block;
+      align-items: center;
+      justify-content: center;
+      height: auto;
+      width: var(--#{variables.$prefix}dialog-avatar-size);
+      margin: 0 auto;
+      overflow: hidden;
+    }
+  }
+  > .dialog-content-container {
+    flex: 1 1 auto;
+    min-height: calc(var(--#{variables.$prefix}dialog-avatar-size) + 1.5rem);
+    > .dialog-name,
+    > .dialog-message {
+      min-height: 1rem;
+      border-radius: var(--#{variables.$prefix}border-radius-medium);
+      border-style: solid;
+      border-width: var(--#{variables.$prefix}dialog-border-width);
+    }
+    > .dialog-name {
+      @include mixins.base();
+      background-color: var(
+        --#{variables.$prefix}color-default-dialog-name-back
+      );
+      border-color: var(--#{variables.$prefix}color-default-dialog-name-border);
+      color: var(--#{variables.$prefix}color-default-dialog-name-fore);
+      font-size: var(--#{variables.$prefix}dialog-name-font-size);
+      position: absolute;
+      top: 0;
+      padding: var(--#{variables.$prefix}dialog-name-padding-y)
+        var(--#{variables.$prefix}dialog-name-padding-x);
+      font-weight: var(--#{variables.$prefix}font-weight-bold);
+      z-index: 1;
+    }
+    > .dialog-message {
+      @include mixins.base();
+      background-color: var(
+        --#{variables.$prefix}color-default-dialog-message-back
+      );
+      border-color: var(
+        --#{variables.$prefix}color-default-dialog-message-border
+      );
+      color: var(--#{variables.$prefix}color-default-dialog-message-fore);
+      position: relative;
+      top: var(--#{variables.$prefix}dialog-messege-top-offset);
+      padding-top: calc(
+        var(--#{variables.$prefix}dialog-messege-top-offset) / 2
+      );
+      width: auto;
+      z-index: 0;
+      > .dialog-message-inner {
+        padding: var(--#{variables.$prefix}dialog-message-inner-padding-y)
+          var(--#{variables.$prefix}dialog-message-inner-padding-x);
+      }
+    }
+  }
+
+  &.is-left {
+    > .dialog-content-container {
+      > .dialog-name {
+        right: auto;
+        left: var(--#{variables.$prefix}dialog-messege-arrow-width);
+      }
+      padding-left: var(--#{variables.$prefix}dialog-messege-arrow-width);
+      > .dialog-message {
+        right: auto;
+        @include dialog-message-arrow-base();
+        &::after,
+        &::before {
+          border-left: none;
+          right: auto;
+        }
+        &::before {
+          border-right-color: var(
+            --#{variables.$prefix}color-default-dialog-message-border
+          );
+          border-right-width: var(
+            --#{variables.$prefix}dialog-messege-arrow-width
+          );
+          border-right-style: solid;
+          left: calc(
+            (-1 * var(--#{variables.$prefix}dialog-messege-arrow-width))
+          );
+        }
+        &::after {
+          border-right-color: var(
+            --#{variables.$prefix}color-default-dialog-message-back
+          );
+          border-right-width: var(
+            --#{variables.$prefix}dialog-messege-arrow-width
+          );
+          border-right-style: solid;
+          left: calc(
+            (-1 * var(--#{variables.$prefix}dialog-messege-arrow-width)) +
+              var(--#{variables.$prefix}dialog-border-width) * 2
+          );
+        }
+      }
+    }
+  }
+  &.is-right {
+    > .dialog-content-container {
+      padding-right: var(--#{variables.$prefix}dialog-messege-arrow-width);
+      > .dialog-name {
+        left: auto;
+        right: var(--#{variables.$prefix}dialog-messege-arrow-width);
+      }
+      > .dialog-message {
+        left: auto;
+        @include dialog-message-arrow-base();
+        &::after,
+        &::before {
+          border-right: none;
+          left: auto;
+        }
+        &::before {
+          border-left-color: var(
+            --#{variables.$prefix}color-default-dialog-message-border
+          );
+          border-left-width: var(
+            --#{variables.$prefix}dialog-messege-arrow-width
+          );
+          border-left-style: solid;
+          right: calc(
+            (-1 * var(--#{variables.$prefix}dialog-messege-arrow-width))
+          );
+        }
+        &::after {
+          border-left-color: var(
+            --#{variables.$prefix}color-default-dialog-message-back
+          );
+          border-left-width: var(
+            --#{variables.$prefix}dialog-messege-arrow-width
+          );
+          border-left-style: solid;
+          right: calc(
+            (-1 * var(--#{variables.$prefix}dialog-messege-arrow-width)) +
+              var(--#{variables.$prefix}dialog-border-width) * 2
+          );
+        }
+      }
+    }
+  }
+  @each $borderStyle in variables.$borderStyles {
+    &.is-border-style-#{$borderStyle} {
+      &.is-avatar-circle {
+        > .dialog-avatar-container {
+          > .dialog-avatar {
+            border-style: #{$borderStyle};
+          }
+        }
+      }
+      > .dialog-content-container {
+        > .dialog-name,
+        > .dialog-message {
+          border-style: #{$borderStyle};
+        }
+      }
+    }
+  }
+
+  @each $color in variables.$colors {
+    &.is-#{$color} {
+      > .dialog-avatar-container {
+        > .dialog-avatar {
+          background-color: var(
+            --#{variables.$prefix}color-#{$color}-dialog-avatar-back
+          );
+          border-color: var(
+            --#{variables.$prefix}color-#{$color}-dialog-avatar-border
+          );
+        }
+      }
+      > .dialog-content-container {
+        > .dialog-name {
+          background-color: var(
+            --#{variables.$prefix}color-#{$color}-dialog-name-back
+          );
+          border-color: var(
+            --#{variables.$prefix}color-#{$color}-dialog-name-border
+          );
+          color: var(
+            --#{variables.$prefix}color-#{$color}-dialog-name-fore
+          );
+        }
+        > .dialog-message {
+          background-color: var(
+            --#{variables.$prefix}color-#{$color}-dialog-message-back
+          );
+          border-color: var(
+            --#{variables.$prefix}color-#{$color}-dialog-message-border
+          );
+          color: var(
+            --#{variables.$prefix}color-#{$color}-dialog-message-fore
+          );
+          &::after {
+            border-right-color: var(
+              --#{variables.$prefix}color-#{$color}-dialog-message-back
+            );
+            border-left-color: var(
+              --#{variables.$prefix}color-#{$color}-dialog-message-back
+            );
+          }
+          &::before {
+            border-right-color: var(
+              --#{variables.$prefix}color-#{$color}-dialog-message-border
+            );
+            border-left-color: var(
+              --#{variables.$prefix}color-#{$color}-dialog-message-border
+            );
+          }
+        }
+      }
+    }
+  }
+}

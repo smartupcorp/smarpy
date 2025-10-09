@@ -1,0 +1,7 @@
+@use "../../variables/index.scss" as variables;
+
+:root {
+  --#{variables.$prefix}header-backdrop-filter: #{variables.$header-backdrop-filter};
+  --#{variables.$prefix}header-z-index-is-sticky: #{variables.$header-z-index-is-sticky};
+  --#{variables.$prefix}header-z-index-is-fixed: #{variables.$header-z-index-is-fixed};
+}

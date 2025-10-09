@@ -1,0 +1,12 @@
+@use "../mixins/index.scss" as mixins;
+
+.centering {
+  @include mixins.base();
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  &.is-fullheight {
+    height: 100%;
+  }
+}

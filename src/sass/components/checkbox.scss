@@ -1,0 +1,73 @@
+@use "../variables/index.scss" as variables;
+
+.checkbox {
+  height: auto;
+  > .checkbox-input {
+    display: none;
+  }
+  > .checkbox-box {
+    background-color: var(--#{variables.$prefix}color-default-back);
+    border-width: var(--#{variables.$prefix}border-width-medium);
+    border-style: solid;
+    border-color: var(--#{variables.$prefix}color-default-border);
+    border-radius: 25%;
+    cursor: pointer;
+    display: inline-block;
+    height: 1rem;
+    line-height: 1.5;
+    position: relative;
+    vertical-align: middle;
+    width: 1em;
+    &:before {
+      background-color: transparent;
+      border-color: transparent;
+      border-radius: 25%;
+      border-style: solid;
+      border-width: 0 var(--#{variables.$prefix}border-width-medium) var(--#{variables.$prefix}border-width-medium) 0;
+      content: "";
+      display: block;
+      height: 1rem;
+      left: 0.25rem;
+      position: absolute;
+      top: -0.33rem;
+      transform: rotate(45deg);
+      width: 0.5rem;
+    }
+  }
+  > .checkbox-text {
+    border: 0.25em solid transparent;
+    display: inline-block;
+  }
+  > .checkbox-input:checked ~ .checkbox-box:before,
+  > .checkbox-input:checked ~ .checkbox-box:after {
+    border-color: var(--#{variables.$prefix}color-default-fore);
+  }
+  > .checkbox-input[disabled] ~ .checkbox-box,
+  fieldset[disabled] > .checkbox-box {
+    border-color: var(--#{variables.$prefix}color-default-border-disabled);
+  }
+  > .checkbox-input[disabled] ~ .checkbox-text,
+  fieldset[disabled] > .checkbox-text {
+    color: var(--#{variables.$prefix}color-default-fore-disabled);
+  }
+  > .checkbox-input[disabled]:checked
+    ~ .checkbox-box:before
+    fieldset[disabled]
+    .checkbox-input:checked
+    ~ .checkbox-box:before {
+    color: var(--#{variables.$prefix}color-default-fore-disabled);
+  }
+
+  @each $color in variables.$colors {
+    &.is-#{$color} {
+      > .checkbox-box {
+        background-color: var(--#{variables.$prefix}color-#{$color}-back);
+        border-color: var(--#{variables.$prefix}color-#{$color}-border);
+      }
+      > .checkbox-input:checked ~ .checkbox-box:before,
+      > .checkbox-input:checked ~ .checkbox-box:after {
+        border-color: var(--#{variables.$prefix}color-#{$color}-fore);
+      }
+    }
+  }
+}

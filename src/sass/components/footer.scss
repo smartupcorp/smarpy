@@ -1,0 +1,10 @@
+@use "../mixins/index.scss" as mixins;
+@use "../variables/index.scss" as variables;
+
+.footer {
+  @include mixins.base();
+  color: var(--#{variables.$prefix}color-white);
+  background-color: var(--#{variables.$prefix}color-gray-500);
+  padding: 2rem 0;
+  bottom: 0;
+}

@@ -1,0 +1,38 @@
+@use "../variables/index.scss" as variables;
+@use "../mixins/index.scss" as mixins;
+
+.progress {
+  @include mixins.base();
+  @include mixins.animation() {
+    border-radius: calc(var(--#{variables.$prefix}border-radius-medium) + 0.125rem);
+    border-style: solid;
+    border-width: var(--#{variables.$prefix}border-width-medium);
+    color: var(--#{variables.$prefix}color-default-border);
+    height: 1rem;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      margin: 0.125rem;
+      inset: 0 100% 0 0;
+      border-radius: var(--#{variables.$prefix}border-radius-medium);
+      background: currentColor;
+    }
+
+    @for $p from 0 through 100 {
+      &.is-#{$p}-percent {
+        $val: ((100 - $p) * 1%);
+        &::before {
+          inset: 0 $val 0 0;
+        }
+      }
+    }
+
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        background-color: var(--#{variables.$prefix}color-#{$color}-back);
+        color: var(--#{variables.$prefix}color-#{$color}-border);
+      }
+    }
+  }
+}

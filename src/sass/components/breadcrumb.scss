@@ -1,0 +1,46 @@
+@use "sass:map";
+@use "sass:string";
+@use "../variables/index.scss" as variables;
+@use "../mixins/index.scss" as mixins;
+
+.breadcrumb {
+  @include mixins.base();
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  > .breadcrumb-item {
+    @include mixins.base();
+    text-wrap: wrap;
+    color: var(--#{variables.$prefix}color-default-breadcrumb-fore);
+    + .breadcrumb-item {
+      &::before {
+        @include mixins.base();
+        content: var(--#{variables.$prefix}breadcrumb-divider);
+        margin: 0 0.5rem;
+        color: var(--#{variables.$prefix}color-default-breadcrumb-divider-fore);
+        user-select: none;
+      }
+    }
+  }
+
+  @each $color in variables.$colors {
+    &.is-#{$color} {
+      > .breadcrumb-item {
+        color: var(--#{variables.$prefix}color-#{$color}-breadcrumb-fore);
+        + .breadcrumb-item {
+          &::before {
+            color: var(
+              --#{variables.$prefix}color-#{$color}-breadcrumb-divider-fore
+            );
+          }
+        }
+      }
+    }
+  }
+}
+
+.breadcrumb-wrapper {
+  @include mixins.base();
+}

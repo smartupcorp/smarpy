@@ -1,0 +1,52 @@
+@use "../variables/index.scss" as variables;
+@use "../mixins/index.scss" as mixins;
+
+.gingham {
+  --#{variables.$prefix}gingham-color-fore: oklch(
+    var(--#{variables.$prefix}color-default-gingham-fore-oklch) / 0.5
+  );
+  --#{variables.$prefix}gingham-color-back: var(
+    --#{variables.$prefix}color-default-gingham-back
+  );
+  --#{variables.$prefix}gingham-degree: 0deg;
+
+  @include mixins.base();
+  background-size: auto auto;
+  background-color: var(--#{variables.$prefix}gingham-color-back);
+  background-image: repeating-linear-gradient(
+      var(--#{variables.$prefix}gingham-degree),
+      transparent,
+      transparent 0.75rem,
+      var(--#{variables.$prefix}gingham-color-fore)
+        0.75rem,
+      var(--#{variables.$prefix}gingham-color-fore)
+        1.5rem
+    ),
+    repeating-linear-gradient(
+      calc(var(--#{variables.$prefix}gingham-degree) + 90deg),
+      transparent,
+      transparent 0.75rem,
+      var(--#{variables.$prefix}gingham-color-fore)
+        0.75rem,
+      var(--#{variables.$prefix}gingham-color-fore)
+        1.5rem
+    );
+
+  @for $n from 0 through 6 {
+    $degree: $n * 15deg;
+    &.is-#{$degree} {
+      --#{variables.$prefix}gingham-degree: #{$degree};
+    }
+  }
+
+  @each $color in variables.$colors {
+    &.is-#{$color} {
+      --#{variables.$prefix}gingham-color-fore: oklch(
+        var(--#{variables.$prefix}color-#{$color}-gingham-fore-oklch) / 0.5
+      );
+      --#{variables.$prefix}gingham-color-back: var(
+        --#{variables.$prefix}color-#{$color}-gingham-back
+      );
+    }
+  }
+}

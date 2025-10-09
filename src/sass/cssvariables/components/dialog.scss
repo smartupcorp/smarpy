@@ -1,0 +1,15 @@
+@use "../../variables/index.scss" as variables;
+
+:root {
+  --#{variables.$prefix}dialog-avatar-size-default: #{variables.$dialog-avatar-size-default};
+  --#{variables.$prefix}dialog-avatar-size-small: #{variables.$dialog-avatar-size-small};
+  --#{variables.$prefix}dialog-avatar-size-large: #{variables.$dialog-avatar-size-large};
+  --#{variables.$prefix}dialog-avatar-top-offset: #{variables.$dialog-avatar-top-offset};
+  --#{variables.$prefix}dialog-name-font-size: #{variables.$dialog-name-font-size};
+  --#{variables.$prefix}dialog-name-padding-x: #{variables.$dialog-name-padding-x};
+  --#{variables.$prefix}dialog-name-padding-y: #{variables.$dialog-name-padding-y};
+  --#{variables.$prefix}dialog-messege-arrow-width: #{variables.$dialog-messege-arrow-width};
+  --#{variables.$prefix}dialog-messege-arrow-height: #{variables.$dialog-messege-arrow-height};
+  --#{variables.$prefix}dialog-message-inner-padding-x: #{variables.$dialog-message-inner-padding-x};
+  --#{variables.$prefix}dialog-message-inner-padding-y: #{variables.$dialog-message-inner-padding-y};
+}

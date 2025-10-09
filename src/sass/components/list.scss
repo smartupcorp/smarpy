@@ -1,0 +1,17 @@
+@use "../mixins/index.scss" as mixins;
+
+.list {
+  @include mixins.base();
+  display: block;
+  list-style: none;
+  &.is-style-decimal {
+    list-style: decimal;
+  }
+  &.is-style-disc {
+    list-style: disc;
+  }
+  .list-item {
+    @include mixins.base();
+    display: list-item;
+  }
+}

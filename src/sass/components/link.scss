@@ -1,0 +1,25 @@
+@use "../mixins/index.scss" as mixins;
+@use "../variables/index.scss" as variables;
+
+.link {
+  @include mixins.base();
+  color: var(--#{variables.$prefix}color-default-fore);
+  text-decoration: underline;
+  &:hover {
+    text-decoration: none;
+  }
+  &:visited {
+    color: var(--#{variables.$prefix}color-default-visited-fore);
+  }
+  @each $color in variables.$colors {
+    &.is-#{$color} {
+      color: var(--#{variables.$prefix}color-#{$color}-fore);
+      &:hover {
+        color: var(--#{variables.$prefix}color-#{$color}-hover-fore);
+      }
+      &:visited {
+        color: var(--#{variables.$prefix}color-#{$color}-visited-fore);
+      }
+    }
+  }
+}

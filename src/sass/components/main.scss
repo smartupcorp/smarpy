@@ -1,0 +1,8 @@
+@use "../mixins/index.scss" as mixins;
+
+.main {
+  @include mixins.base();
+  position: relative;
+  display: block;
+  width: 100%;
+}

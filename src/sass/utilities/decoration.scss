@@ -1,0 +1,31 @@
+.box-shadow {
+  box-shadow: 0 0.5rem 0.5rem var(--#{variables.$prefix}color-default-shadow);
+}
+
+.text-decoraton-none {
+  text-decoration: none !important;
+}
+
+.text-decoraton-style-underline {
+  text-decoration-style: underline !important;
+}
+
+.text-decoraton-style-dashed {
+  text-decoration-style: dashed !important;
+}
+
+.text-decoraton-style-dotted {
+  text-decoration-style: dotted !important;
+}
+
+.text-decoraton-style-line-through {
+  text-decoration-style: line-through !important;
+}
+
+.text-decoraton-style-double {
+  text-decoration-style: double !important;
+}
+
+.text-decoraton-style-wavy {
+  text-decoration-style: wavy !important;
+}

@@ -1,0 +1,216 @@
+@use "sass:string";
+@use "../variables/index.scss" as variables;
+@use "../mixins/index.scss" as mixins;
+
+@mixin colorUtilities($colorScheme: "") {
+  $derived: "";
+  @if $colorScheme != "" {
+    $derived: "-#{$colorScheme}"
+  }
+
+  @each $color in variables.$colors {
+    $numStr: "000" !default;
+    @for $p from 1 through 19 {
+      $numStr: ($p * 5) + "0";
+      @if (string.length($numStr) == 2) {
+        $numStr: "0" + $numStr;
+      }
+
+      //#region forecolor
+      .is-forecolor#{$derived}-#{$color}-#{$numStr},
+      .forecolor#{$derived}-#{$color}-#{$numStr} {
+        color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+      }
+      .is-forecolor#{$derived}-hover-#{$color}-#{$numStr},
+      .forecolor#{$derived}-hover-#{$color}-#{$numStr} {
+        &:hover {
+          color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+      }
+      .is-forecolor#{$derived}-#{$color}-focus-#{$numStr},
+      .forecolor#{$derived}-#{$color}-focus-#{$numStr} {
+        &:focus {
+          color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+      }
+      .is-forecolor#{$derived}-#{$color}-active-#{$numStr},
+      .forecolor#{$derived}-#{$color}-active-#{$numStr} {
+        &:active {
+          color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+      }
+      .is-forecolor#{$derived}-#{$color}-disabled-#{$numStr},
+      .forecolor#{$derived}-#{$color}-disabled-#{$numStr} {
+        &[disabled],
+        fieldset[disabled] {
+          color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+      }
+      //#endregion forecolor
+
+      //#region backcolor
+      .is-backcolor#{$derived}-#{$color}-#{$numStr},
+      .backcolor#{$derived}-#{$color}-#{$numStr} {
+        background-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+      }
+      .is-backcolor#{$derived}-hover-#{$color}-#{$numStr},
+      .backcolor#{$derived}-hover-#{$color}-#{$numStr} {
+        &:hover {
+          background-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+      }
+      .is-backcolor#{$derived}-#{$color}-focus-#{$numStr},
+      .backcolor#{$derived}-#{$color}-focus-#{$numStr} {
+        &:focus {
+          background-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+      }
+      .is-backcolor#{$derived}-#{$color}-active-#{$numStr},
+      .backcolor#{$derived}-#{$color}-active-#{$numStr} {
+        &:active {
+          background-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+      }
+      .is-backcolor#{$derived}-#{$color}-disabled-#{$numStr},
+      .backcolor#{$derived}-#{$color}-disabled-#{$numStr} {
+        &[disabled],
+        fieldset[disabled] {
+          background-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+      }
+      //#endregion backcolor
+
+      //#region bordercolor
+      .is-bordercolor#{$derived}-#{$color}-#{$numStr},
+      .bordercolor#{$derived}-#{$color}-#{$numStr} {
+        border-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+      }
+      .is-bordercolor#{$derived}-#{$color}-#{$numStr},
+      .bordercolor#{$derived}-#{$color}-#{$numStr} {
+        border-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+      }
+      .is-bordercolor#{$derived}-hover-#{$color}-#{$numStr},
+      .bordercolor#{$derived}-hover-#{$color}-#{$numStr} {
+        &:hover {
+          border-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+      }
+      .is-bordercolor#{$derived}-#{$color}-focus-#{$numStr},
+      .bordercolor#{$derived}-#{$color}-focus-#{$numStr} {
+        &:focus {
+          border-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+      }
+      .is-bordercolor#{$derived}-#{$color}-active-#{$numStr},
+      .bordercolor#{$derived}-#{$color}-active-#{$numStr} {
+        &:active {
+          border-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+      }
+      .is-bordercolor#{$derived}-#{$color}-disabled-#{$numStr},
+      .bordercolor#{$derived}-#{$color}-disabled-#{$numStr} {
+        &[disabled],
+        fieldset[disabled] {
+          border-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+      }
+
+      @each $borderSide in variables.$borderSides {
+        .is-bordercolor#{$derived}-#{$borderSide}-#{$color}-#{$numStr},
+        .bordercolor#{$derived}-#{$borderSide}-#{$color}-#{$numStr} {
+          border-#{$borderSide}-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+        }
+        .is-bordercolor#{$derived}-#{$borderSide}-hover-#{$color}-#{$numStr},
+        .bordercolor#{$derived}-#{$borderSide}-hover-#{$color}-#{$numStr} {
+          &:hover {
+            border-#{$borderSide}-color: var(
+              --#{variables.$prefix}color-#{$color}-#{$numStr}
+            ) !important;
+          }
+        }
+        .is-bordercolor#{$derived}-#{$borderSide}-#{$color}-focus-#{$numStr},
+        .bordercolor#{$derived}-#{$borderSide}-#{$color}-focus-#{$numStr} {
+          &:focus {
+            border-#{$borderSide}-color: var(
+              --#{variables.$prefix}color-#{$color}-#{$numStr}
+            ) !important;
+          }
+        }
+        .is-bordercolor#{$derived}-#{$borderSide}-#{$color}-active-#{$numStr},
+        .bordercolor#{$derived}-#{$borderSide}-#{$color}-active-#{$numStr} {
+          &:active {
+            border-color: var(--#{variables.$prefix}color-#{$color}-#{$numStr}) !important;
+          }
+        }
+        .is-bordercolor#{$derived}-#{$borderSide}-#{$color}-disabled-#{$numStr},
+        .bordercolor#{$derived}-#{$borderSide}-#{$color}-disabled-#{$numStr} {
+          &[disabled],
+          fieldset[disabled] {
+            border-#{$borderSide}-color: var(
+              --#{variables.$prefix}color-#{$color}-#{$numStr}
+            ) !important;
+          }
+        }
+      }
+      //#endregion bordercolor
+
+      //#region highlighter
+      .is-highlighter#{$derived}-#{$color}-#{$numStr},
+      .highlighter#{$derived}-#{$color}-#{$numStr} {
+        background: linear-gradient(
+          transparent 66.66%,
+          var(--#{variables.$prefix}color-#{$color}-#{$numStr}) 33.33%
+        ) !important;
+      }
+      .is-highlighter#{$derived}-hover-#{$color}-#{$numStr},
+      .highlighter#{$derived}-hover-#{$color}-#{$numStr} {
+        &:hover {
+          background: linear-gradient(
+            transparent 66.66%,
+            var(--#{variables.$prefix}color-#{$color}-#{$numStr}) 33.33%
+          ) !important;
+        }
+      }
+      .is-highlighter#{$derived}-#{$color}-focus-#{$numStr},
+      .highlighter#{$derived}-#{$color}-focus-#{$numStr} {
+        &:focus {
+          background: linear-gradient(
+            transparent 66.66%,
+            var(--#{variables.$prefix}color-#{$color}-#{$numStr}) 33.33%
+          ) !important;
+        }
+      }
+      .is-highlighter#{$derived}-#{$color}-active-#{$numStr},
+      .highlighter#{$derived}-#{$color}-active-#{$numStr} {
+        &:active {
+          background: linear-gradient(
+            transparent 66.66%,
+            var(--#{variables.$prefix}color-#{$color}-#{$numStr}) 33.33%
+          ) !important;
+        }
+      }
+      .is-highlighter#{$derived}-#{$color}-disabled-#{$numStr},
+      .highlighter#{$derived}-#{$color}-disabled-#{$numStr} {
+        &[disabled],
+        fieldset[disabled] {
+          background: linear-gradient(
+            transparent 66.66%,
+            var(--#{variables.$prefix}color-#{$color}-#{$numStr}) 33.33%
+          ) !important;
+        }
+      }
+      //#endregion highlighter
+    }
+  }
+
+}
+
+@include colorUtilities();
+
+@include mixins.setColorScheme("light") {
+  @include colorUtilities("light");
+}
+
+@include mixins.setColorScheme("dark") {
+  @include colorUtilities("dark");
+}

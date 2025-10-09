@@ -1,0 +1,14 @@
+@use "../variables/index.scss" as variables;
+
+:root {
+  --#{variables.$prefix}border-width-xthin: 0.05rem;
+  --#{variables.$prefix}border-width-thin: 0.1rem;
+  --#{variables.$prefix}border-width-medium: 0.125rem;
+  --#{variables.$prefix}border-width-thick: 0.25rem;
+  --#{variables.$prefix}border-width-xthick: 0.5rem;
+  --#{variables.$prefix}border-radius-small: 0.2rem;
+  --#{variables.$prefix}border-radius-medium: 0.25rem;
+  --#{variables.$prefix}border-radius-large: 0.5rem;
+  --#{variables.$prefix}border-radius-circle: 50%;
+  --#{variables.$prefix}border-radius-pill: 50rem;
+}

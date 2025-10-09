@@ -1,0 +1,41 @@
+@use "../mixins/index.scss" as mixins;
+
+//#region fade-in
+
+// style
+.fade-in {
+  @include mixins.animation() {
+    animation-name: fade-in;
+  }
+}
+
+// keyframes
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+//#endregion fade-in
+
+//#region fade-out
+
+// style
+.fade-out {
+  @include mixins.animation() {
+    animation-name: fade-out;
+  }
+}
+
+// keyframes
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+//#endregion fade-out

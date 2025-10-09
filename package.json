@@ -1,0 +1,53 @@
+{
+  "name": "@smartupcorp/smarpy",
+  "version": "0.0.0",
+  "description": "smartupcorp web design library written by scss.",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build-lib",
+    "build-lib": "npm run build-lib-clean && npm run build-lib-main && npm run build-lib-utilities",
+    "build-lib-main": "npm run build-lib-sass && npm run build-lib-copy-css && npm run build-lib-copy-map && npm run build-lib-postcss && npm run build-lib-postcss-min",
+    "build-lib-utilities": "npm run build-lib-utilities-sass && npm run build-lib-utilities-copy-css && npm run build-lib-utilities-copy-map && npm run build-lib-utilities-postcss && npm run build-lib-utilities-postcss-min",
+    "build-lib-clean": "rimraf dist",
+    "build-lib-sass": "sass src/sass/smarpy.scss dist/css/smarpy.css",
+    "build-lib-copy-css": "node -e \"require('fs').copyFileSync('./dist/css/smarpy.css', './dist/css/smarpy.min.css')\"",
+    "build-lib-copy-map": "node -e \"require('fs').copyFileSync('./dist/css/smarpy.css.map', './dist/css/smarpy.min.css.map')\"",
+    "build-lib-postcss": "postcss --output dist/css/smarpy.css dist/css/smarpy.css",
+    "build-lib-postcss-min": "postcss --output dist/css/smarpy.min.css dist/css/smarpy.min.css",
+    "build-lib-utilities-sass": "sass src/sass/smarpy-utilities.scss dist/css/smarpy-utilities.css",
+    "build-lib-utilities-copy-css": "node -e \"require('fs').copyFileSync('./dist/css/smarpy-utilities.css', './dist/css/smarpy-utilities.min.css')\"",
+    "build-lib-utilities-copy-map": "node -e \"require('fs').copyFileSync('./dist/css/smarpy-utilities.css.map', './dist/css/smarpy-utilities.min.css.map')\"",
+    "build-lib-utilities-postcss": "postcss --output dist/css/smarpy-utilities.css dist/css/smarpy-utilities.css",
+    "build-lib-utilities-postcss-min": "postcss --output dist/css/smarpy-utilities.min.css dist/css/smarpy-utilities.min.css",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smartupcorp/smarpy.git"
+  },
+  "keywords": [
+    "css",
+    "sass",
+    "scss"
+  ],
+  "files": [
+    "dist",
+    "src",
+    "LICENSE",
+    "README.md"
+  ],
+  "author": "smartupcorp",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/smartupcorp/smarpy/issues"
+  },
+  "homepage": "https://github.com/smartupcorp/smarpy#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "clean-css-cli": "^5.6.3",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "rimraf": "^6.0.1",
+    "sass": "^1.89.2"
+  }
+}

@@ -1,0 +1,237 @@
+@use "../variables/index.scss" as variables;
+
+@mixin mobile() {
+  $max-width: variables.$breakpoint-tablet - 0.02px;
+  @media screen and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin tablet() {
+  $min-width: variables.$breakpoint-tablet;
+  $max-width: variables.$breakpoint-desktop - 0.02px;
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin desktop() {
+  $min-width: variables.$breakpoint-desktop;
+  $max-width: variables.$breakpoint-widescreen - 0.02px;
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin widescreen() {
+  $min-width: variables.$breakpoint-widescreen;
+  $max-width: variables.$breakpoint-fullhd - 0.02px;
+  @media screen and (min-width: $min-width) and (max-width: $max-width) {
+    @content;
+  }
+}
+
+@mixin fullhd() {
+  $min-width: variables.$breakpoint-fullhd;
+  @media screen and (min-width: $min-width) {
+    @content;
+  }
+}
+
+@mixin reducemotion() {
+  @media (print), (prefers-reduced-motion: reduce) {
+    @content;
+  }
+}
+
+@mixin is-responsive($suffix: "", $prefix: "is-") {
+  @include mobile() {
+    &.#{$prefix}mobile#{$suffix},
+    &.#{$prefix}mobile-or-more#{$suffix},
+    &.#{$prefix}tablet-or-less#{$suffix},
+    &.#{$prefix}desktop-or-less#{$suffix},
+    &.#{$prefix}widescreen-or-less#{$suffix},
+    &.#{$prefix}fullhd-or-less#{$suffix} {
+      @content;
+    }
+  }
+  @include tablet() {
+    &.#{$prefix}mobile-or-more#{$suffix},
+    &.#{$prefix}tablet-or-less#{$suffix},
+    &.#{$prefix}tablet#{$suffix},
+    &.#{$prefix}tablet-or-more#{$suffix},
+    &.#{$prefix}desktop-or-less#{$suffix},
+    &.#{$prefix}widescreen-or-less#{$suffix},
+    &.#{$prefix}fullhd-or-less#{$suffix} {
+      @content;
+    }
+  }
+  @include desktop() {
+    &.#{$prefix}mobile-or-more#{$suffix},
+    &.#{$prefix}tablet-or-more#{$suffix},
+    &.#{$prefix}desktop-or-less#{$suffix},
+    &.#{$prefix}desktop#{$suffix},
+    &.#{$prefix}desktop-or-more#{$suffix},
+    &.#{$prefix}widescreen-or-less#{$suffix},
+    &.#{$prefix}fullhd-or-less#{$suffix} {
+      @content;
+    }
+  }
+  @include widescreen() {
+    &.#{$prefix}mobile-or-more#{$suffix},
+    &.#{$prefix}tablet-or-more#{$suffix},
+    &.#{$prefix}desktop-or-more#{$suffix},
+    &.#{$prefix}widescreen-or-less#{$suffix},
+    &.#{$prefix}widescreen#{$suffix},
+    &.#{$prefix}widescreen-or-more#{$suffix},
+    &.#{$prefix}fullhd-or-less#{$suffix} {
+      @content;
+    }
+  }
+  @include fullhd() {
+    &.#{$prefix}mobile-or-more#{$suffix},
+    &.#{$prefix}tablet-or-more#{$suffix},
+    &.#{$prefix}desktop-or-more#{$suffix},
+    &.#{$prefix}widescreen-or-more#{$suffix},
+    &.#{$prefix}fullhd-or-less#{$suffix},
+    &.#{$prefix}fullhd#{$suffix} {
+      @content;
+    }
+  }
+}
+
+@mixin add-responsible-visible() {
+  @content;
+  &.is-mobile {
+    @include tablet() {
+      display: none !important;
+    }
+    @include desktop() {
+      display: none !important;
+    }
+    @include widescreen() {
+      display: none !important;
+    }
+    @include fullhd() {
+      display: none !important;
+    }
+  }
+  &.is-tablet-or-less {
+    @include desktop() {
+      display: none !important;
+    }
+    @include widescreen() {
+      display: none !important;
+    }
+    @include fullhd() {
+      display: none !important;
+    }
+  }
+  &.is-tablet {
+    @include mobile() {
+      display: none !important;
+    }
+    @include desktop() {
+      display: none !important;
+    }
+    @include widescreen() {
+      display: none !important;
+    }
+    @include fullhd() {
+      display: none !important;
+    }
+  }
+  &.is-tablet-or-more {
+    @include mobile() {
+      display: none !important;
+    }
+  }
+  &.is-desktop-or-less {
+    @include widescreen() {
+      display: none !important;
+    }
+    @include fullhd() {
+      display: none !important;
+    }
+  }
+  &.is-desktop {
+    @include mobile() {
+      display: none !important;
+    }
+    @include tablet() {
+      display: none !important;
+    }
+    @include widescreen() {
+      display: none !important;
+    }
+    @include fullhd() {
+      display: none !important;
+    }
+  }
+  &.is-desktop-or-more {
+    @include mobile() {
+      display: none !important;
+    }
+    @include tablet() {
+      display: none !important;
+    }
+  }
+  &.is-widescreen-or-less {
+    @include fullhd() {
+      display: none !important;
+    }
+  }
+  &.is-widescreen {
+    @include mobile() {
+      display: none !important;
+    }
+    @include tablet() {
+      display: none !important;
+    }
+    @include desktop() {
+      display: none !important;
+    }
+    @include fullhd() {
+      display: none !important;
+    }
+  }
+  &.is-widescreen-or-more {
+    @include mobile() {
+      display: none !important;
+    }
+    @include tablet() {
+      display: none !important;
+    }
+    @include desktop() {
+      display: none !important;
+    }
+  }
+  &.is-fullhd {
+    @include mobile() {
+      display: none !important;
+    }
+    @include tablet() {
+      display: none !important;
+    }
+    @include desktop() {
+      display: none !important;
+    }
+    @include widescreen() {
+      display: none !important;
+    }
+  }
+}
+
+@mixin column() {
+  box-sizing: border-box;
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  padding-top: calc(var(--#{variables.$prefix}gutter-y));
+  padding-right: calc(var(--#{variables.$prefix}gutter-x) * 0.5);
+  padding-left: calc(var(--#{variables.$prefix}gutter-x) * 0.5);
+}

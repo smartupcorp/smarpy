@@ -1,0 +1,19 @@
+@use "../variables/index.scss" as variables;
+
+.check {
+  background-color: transparent;
+  border-color: var(--#{variables.$prefix}color-default-fore);
+  border-radius: 25%;
+  border-style: solid;
+  border-width: 0 var(--#{variables.$prefix}border-width-medium) var(--#{variables.$prefix}border-width-medium) 0;
+  content: "";
+  display: inline-block;
+  height: 1rem;
+  transform: rotate(45deg);
+  width: 0.5rem;
+  @each $color in variables.$colors {
+    &.is-#{$color} {
+      border-color: var(--#{variables.$prefix}color-#{$color}-fore);
+    }
+  }
+}

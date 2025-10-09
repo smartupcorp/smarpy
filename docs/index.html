@@ -1,0 +1,1050 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>smarpy</title>
+    <meta name="description" content="" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="format-detection" content="email=no,telephone=no,address=no" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="https://unpkg.com/smarpy/dist/css/smarpy.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="https://unpkg.com/smarpy/dist/css/smarpy-utilities.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="../dist/css/smarpy.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="all"
+      href="../dist/css/smarpy-utilities.min.css"
+    />
+  </head>
+  <body class="soroot">
+    <header class="header is-sticky">
+      <div class="container">
+        <nav class="nav" role="navigation" aria-label="main navigation">
+          <div class="nav-accordion is-tablet-or-less">
+            <div class="nav-brand">
+              <div class="left">
+                <div
+                  role="button"
+                  class="hamburger"
+                  aria-label="menu"
+                  aria-expanded="false"
+                  data-target="navbar-menu"
+                  onclick="toggleHamburger()"
+                >
+                  <span class="crown"></span
+                  ><span class="upperpatty" aria-hidden="true"></span
+                  ><span class="club" aria-hidden="true"></span
+                  ><span class="lowerpatty" aria-hidden="true"></span
+                  ><span class="heel"></span>
+                </div>
+              </div>
+              <span class="center"
+                ><a aria-current="page" hreflang="ja" href="/" class="link"
+                  >smarpy</a
+                ></span
+              >
+              <span class="right"></span>
+            </div>
+            <div id="nav-menu" class="nav-menu">
+              <a class="nav-menu-item" onclick="changeColorScheme(`light`)">
+                <span>light</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColorScheme(`dark`)">
+                <span>dark</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(``)">
+                <span>default</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-gray`)">
+                <span>gray</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-red`)">
+                <span>red</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-coral`)">
+                <span>coral</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-orange`)">
+                <span>orange</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-yellow`)">
+                <span>yellow</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-lime`)">
+                <span>lime</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-green`)">
+                <span>green</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-cyan`)">
+                <span>cyan</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-blue`)">
+                <span>blue</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-violet`)">
+                <span>violet</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-magenta`)">
+                <span>magenta</span>
+              </a>
+            </div>
+          </div>
+          <div class="nav-static is-desktop-or-more">
+            <div class="nav-brand">
+              <div class="left">
+                <a aria-current="page" hreflang="ja" href="/" class="link"
+                  >smarpy</a
+                >
+              </div>
+              <span class="right"></span>
+            </div>
+            <div id="nav-menu" class="nav-menu">
+              <a class="nav-menu-item" onclick="changeColorScheme(`light`)">
+                <span>light</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColorScheme(`dark`)">
+                <span>dark</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(``)">
+                <span>default</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-gray`)">
+                <span>gray</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-red`)">
+                <span>red</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-coral`)">
+                <span>coral</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-orange`)">
+                <span>orange</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-yellow`)">
+                <span>yellow</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-lime`)">
+                <span>lime</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-green`)">
+                <span>green</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-cyan`)">
+                <span>cyan</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-blue`)">
+                <span>blue</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-violet`)">
+                <span>violet</span>
+              </a>
+              <a class="nav-menu-item" onclick="changeColor(`is-magenta`)">
+                <span>magenta</span>
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="main">
+      <div class="container has-gutter-2rem">
+        <section class="my-1rem">
+          <div class="message is-blue">
+            <div class="message-header">Welcome to smarpy.css</div>
+            <div class="message-body">
+              <p class="paragraph">smarpy is sweet css written by scss.</p>
+              <p class="paragraph">
+                If you want to use "admin layout",
+                <a class="link" href="admin.html">here is an example</a>.
+              </p>
+            </div>
+          </div>
+        </section>
+        <section class="my-1rem">
+          <span class="badge">.badge</span>
+          <!-- <span class="badge is-small">.badge .is-small</span> -->
+        </section>
+        <section class="my-1rem">
+          <nav class="breadcrumb-wrapper">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item">.breadcrumb</li>
+              <li class="breadcrumb-item">.breadcrumb-item</li>
+            </ul>
+          </nav>
+        </section>
+        <section class="my-1rem">
+          <button class="button">.button</button>
+        </section>
+        <section class="my-1rem">
+          <label class="checkbox">
+            <input type="checkbox" class="checkbox-input" />
+            <span class="checkbox-box"></span>
+            <span class="checkbox-text">.checkbox</span>
+          </label>
+        </section>
+        <section class="my-1rem">
+          <div>
+            <label class="label">.label</label>
+          </div>
+          <div>
+            <input type="text" class="input" placeholder=".input" />
+          </div>
+          <div>
+            <input type="password" class="input" placeholder=".input" />
+          </div>
+          <div>
+            <textarea class="input" placeholder=".input"></textarea>
+          </div>
+          <div>
+            <input type="search" class="input" placeholder=".input" />
+          </div>
+          <div>
+            <input type="date" class="input" />
+          </div>
+          <div>
+            <input type="month" class="input" />
+          </div>
+          <div>
+            <input type="datetime-local" class="input" />
+          </div>
+          <div>
+            <input type="time" class="input" />
+          </div>
+          <div>
+            <input type="color" class="input" />
+          </div>
+          <div>
+            <input type="file" class="input" />
+          </div>
+          <div>
+            <input type="checkbox" class="input" />
+          </div>
+          <div>
+            <input type="radio" class="input" />
+          </div>
+          <div>
+            <input type="range" class="input" />
+          </div>
+        </section>
+        <section class="my-1rem">
+          <div class="dialog is-left is-avatar-circle">
+            <div class="dialog-avatar-container">
+              <img
+                class="image dialog-avatar"
+                src="./images/avatar/smartupcorp/smartupcorp.png"
+                alt="avatar"
+              />
+            </div>
+            <div class="dialog-content-container">
+              <div class="dialog-name">
+                <span
+                  class="forecolor-light-rainbow-70 forecolor-dark-rainbow-80"
+                  >smartupcorp</span
+                >
+              </div>
+              <div class="dialog-message">
+                <div class="dialog-message-inner">
+                  <p class="paragraph">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                    do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua.
+                  </p>
+                  <p class="paragraph">
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                    laboris nisi ut aliquip ex ea commodo consequat.
+                  </p>
+                  <p class="paragraph">
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur.
+                  </p>
+                  <p class="paragraph">
+                    Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="my-1rem">
+          <div>
+            <div class="loader"></div>
+          </div>
+          <div>
+            <div class="progress is-50-percent"></div>
+          </div>
+        </section>
+        <section class="my-1rem">
+          <div class="message">
+            <div class="message-header">.message</div>
+            <div class="message-body">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+          </div>
+        </section>
+        <section class="my-1rem">
+          <div class="card">
+            <div class="card-header">.card</div>
+            <div class="card-body">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </div>
+            <div class="card-footer">footer</div>
+          </div>
+        </section>
+        <section class="my-1rem">
+          <div class="dot is-gray" style="aspect-ratio: 16/9; width: 100%; height: auto;">
+            dot(default is not available)
+          </div>
+        </section>
+        <section class="my-1rem">
+          <div class="gingham is-gray is-45deg" style="aspect-ratio: 16/9; width: 100%; height: auto;">
+            gingham(default is not available)
+          </div>
+        </section>
+        <section class="my-1rem">
+          <div class="stripe is-gray is-45deg" style="aspect-ratio: 16/9; width: 100%; height: auto;">
+            stripe(default is not available)
+          </div>
+        </section>
+        <section class="my-1rem">
+          <div class="is-italic">.is-italic</div>
+          <div class="is-oblique">is-oblique</div>
+          <div class="is-capitalized">.is-capitalized</div>
+          <div class="is-lowercase">.is-lowercase</div>
+          <div class="is-uppercase">.is-uppercase</div>
+        </section>
+        <section class="my-1rem">
+          <div class="is-text-align-left">.is-text-align-left</div>
+          <div class="is-text-align-right">.is-text-align-right</div>
+          <div class="is-text-align-center">.is-text-align-center</div>
+          <div class="is-text-align-unset">.is-text-align-unset</div>
+        </section>
+        <section class="my-1rem">
+          <div class="is-white-space-nowrap">.is-white-space-nowrap</div>
+        </section>
+        <section class="my-1rem">
+          <div class="is-font-size-small">.is-font-size-small</div>
+          <div class="is-font-size-normal">.is-font-size-normal</div>
+          <div class="is-font-size-medium">.is-font-size-medium</div>
+          <div class="is-font-size-large">.is-font-size-large</div>
+          <div class="is-font-size-xlarge">.is-font-size-xlarge</div>
+          <div class="is-font-size-xxlarge">.is-font-size-xxlarge</div>
+          <div class="is-font-size-xxxlarge">.is-font-size-xxxlarge</div>
+          <div class="is-font-size-xxxxlarge">.is-font-size-xxxxlarge</div>
+          <div class="is-font-size-xxxxxlarge">.is-font-size-xxxxxlarge</div>
+        </section>
+        <section class="my-1rem">
+          <div class="is-white-space-nowrap">.is-white-space-nowrap</div>
+        </section>
+        <section class="my-1rem">
+          <div>
+            <div class="is-forecolor-gray-100">.is-forecolor-gray-100</div>
+            <div class="is-forecolor-gray-200">.is-forecolor-gray-200</div>
+            <div class="is-forecolor-gray-300">.is-forecolor-gray-300</div>
+            <div class="is-forecolor-gray-400">.is-forecolor-gray-400</div>
+            <div class="is-forecolor-gray-500">.is-forecolor-gray-500</div>
+            <div class="is-forecolor-gray-600">.is-forecolor-gray-600</div>
+            <div class="is-forecolor-gray-700">.is-forecolor-gray-700</div>
+            <div class="is-forecolor-gray-800">.is-forecolor-gray-800</div>
+            <div class="is-forecolor-gray-900">.is-forecolor-gray-900</div>
+          </div>
+          <div>
+            <div class="is-forecolor-red-100">.is-forecolor-red-100</div>
+            <div class="is-forecolor-red-200">.is-forecolor-red-200</div>
+            <div class="is-forecolor-red-300">.is-forecolor-red-300</div>
+            <div class="is-forecolor-red-400">.is-forecolor-red-400</div>
+            <div class="is-forecolor-red-500">.is-forecolor-red-500</div>
+            <div class="is-forecolor-red-600">.is-forecolor-red-600</div>
+            <div class="is-forecolor-red-700">.is-forecolor-red-700</div>
+            <div class="is-forecolor-red-800">.is-forecolor-red-800</div>
+            <div class="is-forecolor-red-900">.is-forecolor-red-900</div>
+          </div>
+          <div>
+            <div class="is-forecolor-coral-100">.is-forecolor-coral-100</div>
+            <div class="is-forecolor-coral-200">.is-forecolor-coral-200</div>
+            <div class="is-forecolor-coral-300">.is-forecolor-coral-300</div>
+            <div class="is-forecolor-coral-400">.is-forecolor-coral-400</div>
+            <div class="is-forecolor-coral-500">.is-forecolor-coral-500</div>
+            <div class="is-forecolor-coral-600">.is-forecolor-coral-600</div>
+            <div class="is-forecolor-coral-700">.is-forecolor-coral-700</div>
+            <div class="is-forecolor-coral-800">.is-forecolor-coral-800</div>
+            <div class="is-forecolor-coral-900">.is-forecolor-coral-900</div>
+          </div>
+          <div>
+            <div class="is-forecolor-orange-100">.is-forecolor-orange-100</div>
+            <div class="is-forecolor-orange-200">.is-forecolor-orange-200</div>
+            <div class="is-forecolor-orange-300">.is-forecolor-orange-300</div>
+            <div class="is-forecolor-orange-400">.is-forecolor-orange-400</div>
+            <div class="is-forecolor-orange-500">.is-forecolor-orange-500</div>
+            <div class="is-forecolor-orange-600">.is-forecolor-orange-600</div>
+            <div class="is-forecolor-orange-700">.is-forecolor-orange-700</div>
+            <div class="is-forecolor-orange-800">.is-forecolor-orange-800</div>
+            <div class="is-forecolor-orange-900">.is-forecolor-orange-900</div>
+          </div>
+          <div>
+            <div class="is-forecolor-yellow-100">.is-forecolor-yellow-100</div>
+            <div class="is-forecolor-yellow-200">.is-forecolor-yellow-200</div>
+            <div class="is-forecolor-yellow-300">.is-forecolor-yellow-300</div>
+            <div class="is-forecolor-yellow-400">.is-forecolor-yellow-400</div>
+            <div class="is-forecolor-yellow-500">.is-forecolor-yellow-500</div>
+            <div class="is-forecolor-yellow-600">.is-forecolor-yellow-600</div>
+            <div class="is-forecolor-yellow-700">.is-forecolor-yellow-700</div>
+            <div class="is-forecolor-yellow-800">.is-forecolor-yellow-800</div>
+            <div class="is-forecolor-yellow-900">.is-forecolor-yellow-900</div>
+          </div>
+          <div>
+            <div class="is-forecolor-lime-100">.is-forecolor-lime-100</div>
+            <div class="is-forecolor-lime-200">.is-forecolor-lime-200</div>
+            <div class="is-forecolor-lime-300">.is-forecolor-lime-300</div>
+            <div class="is-forecolor-lime-400">.is-forecolor-lime-400</div>
+            <div class="is-forecolor-lime-500">.is-forecolor-lime-500</div>
+            <div class="is-forecolor-lime-600">.is-forecolor-lime-600</div>
+            <div class="is-forecolor-lime-700">.is-forecolor-lime-700</div>
+            <div class="is-forecolor-lime-800">.is-forecolor-lime-800</div>
+            <div class="is-forecolor-lime-900">.is-forecolor-lime-900</div>
+          </div>
+          <div>
+            <div class="is-forecolor-green-100">.is-forecolor-green-100</div>
+            <div class="is-forecolor-green-200">.is-forecolor-green-200</div>
+            <div class="is-forecolor-green-300">.is-forecolor-green-300</div>
+            <div class="is-forecolor-green-400">.is-forecolor-green-400</div>
+            <div class="is-forecolor-green-500">.is-forecolor-green-500</div>
+            <div class="is-forecolor-green-600">.is-forecolor-green-600</div>
+            <div class="is-forecolor-green-700">.is-forecolor-green-700</div>
+            <div class="is-forecolor-green-800">.is-forecolor-green-800</div>
+            <div class="is-forecolor-green-900">.is-forecolor-green-900</div>
+          </div>
+          <div>
+            <div class="is-forecolor-cyan-100">.is-forecolor-cyan-100</div>
+            <div class="is-forecolor-cyan-200">.is-forecolor-cyan-200</div>
+            <div class="is-forecolor-cyan-300">.is-forecolor-cyan-300</div>
+            <div class="is-forecolor-cyan-400">.is-forecolor-cyan-400</div>
+            <div class="is-forecolor-cyan-500">.is-forecolor-cyan-500</div>
+            <div class="is-forecolor-cyan-600">.is-forecolor-cyan-600</div>
+            <div class="is-forecolor-cyan-700">.is-forecolor-cyan-700</div>
+            <div class="is-forecolor-cyan-800">.is-forecolor-cyan-800</div>
+            <div class="is-forecolor-cyan-900">.is-forecolor-cyan-900</div>
+          </div>
+          <div>
+            <div class="is-forecolor-blue-100">.is-forecolor-blue-100</div>
+            <div class="is-forecolor-blue-200">.is-forecolor-blue-200</div>
+            <div class="is-forecolor-blue-300">.is-forecolor-blue-300</div>
+            <div class="is-forecolor-blue-400">.is-forecolor-blue-400</div>
+            <div class="is-forecolor-blue-500">.is-forecolor-blue-500</div>
+            <div class="is-forecolor-blue-600">.is-forecolor-blue-600</div>
+            <div class="is-forecolor-blue-700">.is-forecolor-blue-700</div>
+            <div class="is-forecolor-blue-800">.is-forecolor-blue-800</div>
+            <div class="is-forecolor-blue-900">.is-forecolor-blue-900</div>
+          </div>
+          <div>
+            <div class="is-forecolor-violet-100">.is-forecolor-violet-100</div>
+            <div class="is-forecolor-violet-200">.is-forecolor-violet-200</div>
+            <div class="is-forecolor-violet-300">.is-forecolor-violet-300</div>
+            <div class="is-forecolor-violet-400">.is-forecolor-violet-400</div>
+            <div class="is-forecolor-violet-500">.is-forecolor-violet-500</div>
+            <div class="is-forecolor-violet-600">.is-forecolor-violet-600</div>
+            <div class="is-forecolor-violet-700">.is-forecolor-violet-700</div>
+            <div class="is-forecolor-violet-800">.is-forecolor-violet-800</div>
+            <div class="is-forecolor-violet-900">.is-forecolor-violet-900</div>
+          </div>
+        </section>
+        <section class="my-1rem">
+          <div>
+            <div class="is-backcolor-gray-100">.is-backcolor-gray-100</div>
+            <div class="is-backcolor-gray-200">.is-backcolor-gray-200</div>
+            <div class="is-backcolor-gray-300">.is-backcolor-gray-300</div>
+            <div class="is-backcolor-gray-400">.is-backcolor-gray-400</div>
+            <div class="is-backcolor-gray-500">.is-backcolor-gray-500</div>
+            <div class="is-backcolor-gray-600">.is-backcolor-gray-600</div>
+            <div class="is-backcolor-gray-700">.is-backcolor-gray-700</div>
+            <div class="is-backcolor-gray-800">.is-backcolor-gray-800</div>
+            <div class="is-backcolor-gray-900">.is-backcolor-gray-900</div>
+          </div>
+          <div>
+            <div class="is-backcolor-red-100">.is-backcolor-red-100</div>
+            <div class="is-backcolor-red-200">.is-backcolor-red-200</div>
+            <div class="is-backcolor-red-300">.is-backcolor-red-300</div>
+            <div class="is-backcolor-red-400">.is-backcolor-red-400</div>
+            <div class="is-backcolor-red-500">.is-backcolor-red-500</div>
+            <div class="is-backcolor-red-600">.is-backcolor-red-600</div>
+            <div class="is-backcolor-red-700">.is-backcolor-red-700</div>
+            <div class="is-backcolor-red-800">.is-backcolor-red-800</div>
+            <div class="is-backcolor-red-900">.is-backcolor-red-900</div>
+          </div>
+          <div>
+            <div class="is-backcolor-orange-100">.is-backcolor-orange-100</div>
+            <div class="is-backcolor-orange-200">.is-backcolor-orange-200</div>
+            <div class="is-backcolor-orange-300">.is-backcolor-orange-300</div>
+            <div class="is-backcolor-orange-400">.is-backcolor-orange-400</div>
+            <div class="is-backcolor-orange-500">.is-backcolor-orange-500</div>
+            <div class="is-backcolor-orange-600">.is-backcolor-orange-600</div>
+            <div class="is-backcolor-orange-700">.is-backcolor-orange-700</div>
+            <div class="is-backcolor-orange-800">.is-backcolor-orange-800</div>
+            <div class="is-backcolor-orange-900">.is-backcolor-orange-900</div>
+          </div>
+          <div>
+            <div class="is-backcolor-yellow-100">.is-backcolor-yellow-100</div>
+            <div class="is-backcolor-yellow-200">.is-backcolor-yellow-200</div>
+            <div class="is-backcolor-yellow-300">.is-backcolor-yellow-300</div>
+            <div class="is-backcolor-yellow-400">.is-backcolor-yellow-400</div>
+            <div class="is-backcolor-yellow-500">.is-backcolor-yellow-500</div>
+            <div class="is-backcolor-yellow-600">.is-backcolor-yellow-600</div>
+            <div class="is-backcolor-yellow-700">.is-backcolor-yellow-700</div>
+            <div class="is-backcolor-yellow-800">.is-backcolor-yellow-800</div>
+            <div class="is-backcolor-yellow-900">.is-backcolor-yellow-900</div>
+          </div>
+          <div>
+            <div class="is-backcolor-green-100">.is-backcolor-green-100</div>
+            <div class="is-backcolor-green-200">.is-backcolor-green-200</div>
+            <div class="is-backcolor-green-300">.is-backcolor-green-300</div>
+            <div class="is-backcolor-green-400">.is-backcolor-green-400</div>
+            <div class="is-backcolor-green-500">.is-backcolor-green-500</div>
+            <div class="is-backcolor-green-600">.is-backcolor-green-600</div>
+            <div class="is-backcolor-green-700">.is-backcolor-green-700</div>
+            <div class="is-backcolor-green-800">.is-backcolor-green-800</div>
+            <div class="is-backcolor-green-900">.is-backcolor-green-900</div>
+          </div>
+          <div>
+            <div class="is-backcolor-cyan-100">.is-backcolor-cyan-100</div>
+            <div class="is-backcolor-cyan-200">.is-backcolor-cyan-200</div>
+            <div class="is-backcolor-cyan-300">.is-backcolor-cyan-300</div>
+            <div class="is-backcolor-cyan-400">.is-backcolor-cyan-400</div>
+            <div class="is-backcolor-cyan-500">.is-backcolor-cyan-500</div>
+            <div class="is-backcolor-cyan-600">.is-backcolor-cyan-600</div>
+            <div class="is-backcolor-cyan-700">.is-backcolor-cyan-700</div>
+            <div class="is-backcolor-cyan-800">.is-backcolor-cyan-800</div>
+            <div class="is-backcolor-cyan-900">.is-backcolor-cyan-900</div>
+          </div>
+          <div>
+            <div class="is-backcolor-blue-100">.is-backcolor-blue-100</div>
+            <div class="is-backcolor-blue-200">.is-backcolor-blue-200</div>
+            <div class="is-backcolor-blue-300">.is-backcolor-blue-300</div>
+            <div class="is-backcolor-blue-400">.is-backcolor-blue-400</div>
+            <div class="is-backcolor-blue-500">.is-backcolor-blue-500</div>
+            <div class="is-backcolor-blue-600">.is-backcolor-blue-600</div>
+            <div class="is-backcolor-blue-700">.is-backcolor-blue-700</div>
+            <div class="is-backcolor-blue-800">.is-backcolor-blue-800</div>
+            <div class="is-backcolor-blue-900">.is-backcolor-blue-900</div>
+          </div>
+          <div>
+            <div class="is-backcolor-violet-100">.is-backcolor-violet-100</div>
+            <div class="is-backcolor-violet-200">.is-backcolor-violet-200</div>
+            <div class="is-backcolor-violet-300">.is-backcolor-violet-300</div>
+            <div class="is-backcolor-violet-400">.is-backcolor-violet-400</div>
+            <div class="is-backcolor-violet-500">.is-backcolor-violet-500</div>
+            <div class="is-backcolor-violet-600">.is-backcolor-violet-600</div>
+            <div class="is-backcolor-violet-700">.is-backcolor-violet-700</div>
+            <div class="is-backcolor-violet-800">.is-backcolor-violet-800</div>
+            <div class="is-backcolor-violet-900">.is-backcolor-violet-900</div>
+          </div>
+        </section>
+        <section class="my-1rem">
+          <div>
+            <div class="is-highlighter-gray-100">.is-highlighter-gray-100</div>
+            <div class="is-highlighter-gray-200">.is-highlighter-gray-200</div>
+            <div class="is-highlighter-gray-300">.is-highlighter-gray-300</div>
+            <div class="is-highlighter-gray-400">.is-highlighter-gray-400</div>
+            <div class="is-highlighter-gray-500">.is-highlighter-gray-500</div>
+            <div class="is-highlighter-gray-600">.is-highlighter-gray-600</div>
+            <div class="is-highlighter-gray-700">.is-highlighter-gray-700</div>
+            <div class="is-highlighter-gray-800">.is-highlighter-gray-800</div>
+            <div class="is-highlighter-gray-900">.is-highlighter-gray-900</div>
+          </div>
+          <div>
+            <div class="is-highlighter-red-100">.is-highlighter-red-100</div>
+            <div class="is-highlighter-red-200">.is-highlighter-red-200</div>
+            <div class="is-highlighter-red-300">.is-highlighter-red-300</div>
+            <div class="is-highlighter-red-400">.is-highlighter-red-400</div>
+            <div class="is-highlighter-red-500">.is-highlighter-red-500</div>
+            <div class="is-highlighter-red-600">.is-highlighter-red-600</div>
+            <div class="is-highlighter-red-700">.is-highlighter-red-700</div>
+            <div class="is-highlighter-red-800">.is-highlighter-red-800</div>
+            <div class="is-highlighter-red-900">.is-highlighter-red-900</div>
+          </div>
+          <div>
+            <div class="is-highlighter-orange-100">
+              .is-highlighter-orange-100
+            </div>
+            <div class="is-highlighter-orange-200">
+              .is-highlighter-orange-200
+            </div>
+            <div class="is-highlighter-orange-300">
+              .is-highlighter-orange-300
+            </div>
+            <div class="is-highlighter-orange-400">
+              .is-highlighter-orange-400
+            </div>
+            <div class="is-highlighter-orange-500">
+              .is-highlighter-orange-500
+            </div>
+            <div class="is-highlighter-orange-600">
+              .is-highlighter-orange-600
+            </div>
+            <div class="is-highlighter-orange-700">
+              .is-highlighter-orange-700
+            </div>
+            <div class="is-highlighter-orange-800">
+              .is-highlighter-orange-800
+            </div>
+            <div class="is-highlighter-orange-900">
+              .is-highlighter-orange-900
+            </div>
+          </div>
+          <div>
+            <div class="is-highlighter-yellow-100">
+              .is-highlighter-yellow-100
+            </div>
+            <div class="is-highlighter-yellow-200">
+              .is-highlighter-yellow-200
+            </div>
+            <div class="is-highlighter-yellow-300">
+              .is-highlighter-yellow-300
+            </div>
+            <div class="is-highlighter-yellow-400">
+              .is-highlighter-yellow-400
+            </div>
+            <div class="is-highlighter-yellow-500">
+              .is-highlighter-yellow-500
+            </div>
+            <div class="is-highlighter-yellow-600">
+              .is-highlighter-yellow-600
+            </div>
+            <div class="is-highlighter-yellow-700">
+              .is-highlighter-yellow-700
+            </div>
+            <div class="is-highlighter-yellow-800">
+              .is-highlighter-yellow-800
+            </div>
+            <div class="is-highlighter-yellow-900">
+              .is-highlighter-yellow-900
+            </div>
+          </div>
+          <div>
+            <div class="is-highlighter-green-100">
+              .is-highlighter-green-100
+            </div>
+            <div class="is-highlighter-green-200">
+              .is-highlighter-green-200
+            </div>
+            <div class="is-highlighter-green-300">
+              .is-highlighter-green-300
+            </div>
+            <div class="is-highlighter-green-400">
+              .is-highlighter-green-400
+            </div>
+            <div class="is-highlighter-green-500">
+              .is-highlighter-green-500
+            </div>
+            <div class="is-highlighter-green-600">
+              .is-highlighter-green-600
+            </div>
+            <div class="is-highlighter-green-700">
+              .is-highlighter-green-700
+            </div>
+            <div class="is-highlighter-green-800">
+              .is-highlighter-green-800
+            </div>
+            <div class="is-highlighter-green-900">
+              .is-highlighter-green-900
+            </div>
+          </div>
+          <div>
+            <div class="is-highlighter-cyan-100">.is-highlighter-cyan-100</div>
+            <div class="is-highlighter-cyan-200">.is-highlighter-cyan-200</div>
+            <div class="is-highlighter-cyan-300">.is-highlighter-cyan-300</div>
+            <div class="is-highlighter-cyan-400">.is-highlighter-cyan-400</div>
+            <div class="is-highlighter-cyan-500">.is-highlighter-cyan-500</div>
+            <div class="is-highlighter-cyan-600">.is-highlighter-cyan-600</div>
+            <div class="is-highlighter-cyan-700">.is-highlighter-cyan-700</div>
+            <div class="is-highlighter-cyan-800">.is-highlighter-cyan-800</div>
+            <div class="is-highlighter-cyan-900">.is-highlighter-cyan-900</div>
+          </div>
+          <div>
+            <div class="is-highlighter-blue-100">.is-highlighter-blue-100</div>
+            <div class="is-highlighter-blue-200">.is-highlighter-blue-200</div>
+            <div class="is-highlighter-blue-300">.is-highlighter-blue-300</div>
+            <div class="is-highlighter-blue-400">.is-highlighter-blue-400</div>
+            <div class="is-highlighter-blue-500">.is-highlighter-blue-500</div>
+            <div class="is-highlighter-blue-600">.is-highlighter-blue-600</div>
+            <div class="is-highlighter-blue-700">.is-highlighter-blue-700</div>
+            <div class="is-highlighter-blue-800">.is-highlighter-blue-800</div>
+            <div class="is-highlighter-blue-900">.is-highlighter-blue-900</div>
+          </div>
+          <div>
+            <div class="is-highlighter-violet-100">
+              .is-highlighter-violet-100
+            </div>
+            <div class="is-highlighter-violet-200">
+              .is-highlighter-violet-200
+            </div>
+            <div class="is-highlighter-violet-300">
+              .is-highlighter-violet-300
+            </div>
+            <div class="is-highlighter-violet-400">
+              .is-highlighter-violet-400
+            </div>
+            <div class="is-highlighter-violet-500">
+              .is-highlighter-violet-500
+            </div>
+            <div class="is-highlighter-violet-600">
+              .is-highlighter-violet-600
+            </div>
+            <div class="is-highlighter-violet-700">
+              .is-highlighter-violet-700
+            </div>
+            <div class="is-highlighter-violet-800">
+              .is-highlighter-violet-800
+            </div>
+            <div class="is-highlighter-violet-900">
+              .is-highlighter-violet-900
+            </div>
+          </div>
+        </section>
+        <section class="my-1rem">
+          <div>
+            <div class="has-border-solid">.has-border-solid</div>
+            <div class="has-border-dashed">.has-border-dashed</div>
+            <div class="has-border-dotted">.has-border-dotted</div>
+            <div class="has-border-solid is-border-width-xthin">
+              .is-border-width-xthin
+            </div>
+            <div class="has-border-solid is-border-width-thin">
+              .is-border-width-thin
+            </div>
+            <div class="has-border-solid is-border-width-medium">
+              .is-border-width-medium
+            </div>
+            <div class="has-border-solid is-border-width-thick">
+              .is-border-width-thick
+            </div>
+            <div class="has-border-solid is-border-width-xthick">
+              .is-border-width-xthick
+            </div>
+            <div class="has-border-solid is-border-radius-medium">
+              .is-border-radius-medium
+            </div>
+            <div class="has-border-solid is-border-radius-circle">
+              .is-border-radius-circle
+            </div>
+          </div>
+        </section>
+        <section class="my-1rem">
+          <div>
+            <div class="has-border-solid is-bordercolor-gray-100">
+              .is-bordercolor-gray-100
+            </div>
+            <div class="has-border-solid is-bordercolor-gray-200">
+              .is-bordercolor-gray-200
+            </div>
+            <div class="has-border-solid is-bordercolor-gray-300">
+              .is-bordercolor-gray-300
+            </div>
+            <div class="has-border-solid is-bordercolor-gray-400">
+              .is-bordercolor-gray-400
+            </div>
+            <div class="has-border-solid is-bordercolor-gray-500">
+              .is-bordercolor-gray-500
+            </div>
+            <div class="has-border-solid is-bordercolor-gray-600">
+              .is-bordercolor-gray-600
+            </div>
+            <div class="has-border-solid is-bordercolor-gray-700">
+              .is-bordercolor-gray-700
+            </div>
+            <div class="has-border-solid is-bordercolor-gray-800">
+              .is-bordercolor-gray-800
+            </div>
+            <div class="has-border-solid is-bordercolor-gray-900">
+              .is-bordercolor-gray-900
+            </div>
+          </div>
+          <div>
+            <div class="has-border-solid is-bordercolor-red-100">
+              .is-bordercolor-red-100
+            </div>
+            <div class="has-border-solid is-bordercolor-red-200">
+              .is-bordercolor-red-200
+            </div>
+            <div class="has-border-solid is-bordercolor-red-300">
+              .is-bordercolor-red-300
+            </div>
+            <div class="has-border-solid is-bordercolor-red-400">
+              .is-bordercolor-red-400
+            </div>
+            <div class="has-border-solid is-bordercolor-red-500">
+              .is-bordercolor-red-500
+            </div>
+            <div class="has-border-solid is-bordercolor-red-600">
+              .is-bordercolor-red-600
+            </div>
+            <div class="has-border-solid is-bordercolor-red-700">
+              .is-bordercolor-red-700
+            </div>
+            <div class="has-border-solid is-bordercolor-red-800">
+              .is-bordercolor-red-800
+            </div>
+            <div class="has-border-solid is-bordercolor-red-900">
+              .is-bordercolor-red-900
+            </div>
+          </div>
+          <div>
+            <div class="has-border-solid is-bordercolor-orange-100">
+              .is-bordercolor-orange-100
+            </div>
+            <div class="has-border-solid is-bordercolor-orange-200">
+              .is-bordercolor-orange-200
+            </div>
+            <div class="has-border-solid is-bordercolor-orange-300">
+              .is-bordercolor-orange-300
+            </div>
+            <div class="has-border-solid is-bordercolor-orange-400">
+              .is-bordercolor-orange-400
+            </div>
+            <div class="has-border-solid is-bordercolor-orange-500">
+              .is-bordercolor-orange-500
+            </div>
+            <div class="has-border-solid is-bordercolor-orange-600">
+              .is-bordercolor-orange-600
+            </div>
+            <div class="has-border-solid is-bordercolor-orange-700">
+              .is-bordercolor-orange-700
+            </div>
+            <div class="has-border-solid is-bordercolor-orange-800">
+              .is-bordercolor-orange-800
+            </div>
+            <div class="has-border-solid is-bordercolor-orange-900">
+              .is-bordercolor-orange-900
+            </div>
+          </div>
+          <div>
+            <div class="has-border-solid is-bordercolor-yellow-100">
+              .is-bordercolor-yellow-100
+            </div>
+            <div class="has-border-solid is-bordercolor-yellow-200">
+              .is-bordercolor-yellow-200
+            </div>
+            <div class="has-border-solid is-bordercolor-yellow-300">
+              .is-bordercolor-yellow-300
+            </div>
+            <div class="has-border-solid is-bordercolor-yellow-400">
+              .is-bordercolor-yellow-400
+            </div>
+            <div class="has-border-solid is-bordercolor-yellow-500">
+              .is-bordercolor-yellow-500
+            </div>
+            <div class="has-border-solid is-bordercolor-yellow-600">
+              .is-bordercolor-yellow-600
+            </div>
+            <div class="has-border-solid is-bordercolor-yellow-700">
+              .is-bordercolor-yellow-700
+            </div>
+            <div class="has-border-solid is-bordercolor-yellow-800">
+              .is-bordercolor-yellow-800
+            </div>
+            <div class="has-border-solid is-bordercolor-yellow-900">
+              .is-bordercolor-yellow-900
+            </div>
+          </div>
+          <div>
+            <div class="has-border-solid is-bordercolor-green-100">
+              .is-bordercolor-green-100
+            </div>
+            <div class="has-border-solid is-bordercolor-green-200">
+              .is-bordercolor-green-200
+            </div>
+            <div class="has-border-solid is-bordercolor-green-300">
+              .is-bordercolor-green-300
+            </div>
+            <div class="has-border-solid is-bordercolor-green-400">
+              .is-bordercolor-green-400
+            </div>
+            <div class="has-border-solid is-bordercolor-green-500">
+              .is-bordercolor-green-500
+            </div>
+            <div class="has-border-solid is-bordercolor-green-600">
+              .is-bordercolor-green-600
+            </div>
+            <div class="has-border-solid is-bordercolor-green-700">
+              .is-bordercolor-green-700
+            </div>
+            <div class="has-border-solid is-bordercolor-green-800">
+              .is-bordercolor-green-800
+            </div>
+            <div class="has-border-solid is-bordercolor-green-900">
+              .is-bordercolor-green-900
+            </div>
+          </div>
+          <div>
+            <div class="has-border-solid is-bordercolor-cyan-100">
+              .is-bordercolor-cyan-100
+            </div>
+            <div class="has-border-solid is-bordercolor-cyan-200">
+              .is-bordercolor-cyan-200
+            </div>
+            <div class="has-border-solid is-bordercolor-cyan-300">
+              .is-bordercolor-cyan-300
+            </div>
+            <div class="has-border-solid is-bordercolor-cyan-400">
+              .is-bordercolor-cyan-400
+            </div>
+            <div class="has-border-solid is-bordercolor-cyan-500">
+              .is-bordercolor-cyan-500
+            </div>
+            <div class="has-border-solid is-bordercolor-cyan-600">
+              .is-bordercolor-cyan-600
+            </div>
+            <div class="has-border-solid is-bordercolor-cyan-700">
+              .is-bordercolor-cyan-700
+            </div>
+            <div class="has-border-solid is-bordercolor-cyan-800">
+              .is-bordercolor-cyan-800
+            </div>
+            <div class="has-border-solid is-bordercolor-cyan-900">
+              .is-bordercolor-cyan-900
+            </div>
+          </div>
+          <div>
+            <div class="has-border-solid is-bordercolor-blue-100">
+              .is-bordercolor-blue-100
+            </div>
+            <div class="has-border-solid is-bordercolor-blue-200">
+              .is-bordercolor-blue-200
+            </div>
+            <div class="has-border-solid is-bordercolor-blue-300">
+              .is-bordercolor-blue-300
+            </div>
+            <div class="has-border-solid is-bordercolor-blue-400">
+              .is-bordercolor-blue-400
+            </div>
+            <div class="has-border-solid is-bordercolor-blue-500">
+              .is-bordercolor-blue-500
+            </div>
+            <div class="has-border-solid is-bordercolor-blue-600">
+              .is-bordercolor-blue-600
+            </div>
+            <div class="has-border-solid is-bordercolor-blue-700">
+              .is-bordercolor-blue-700
+            </div>
+            <div class="has-border-solid is-bordercolor-blue-800">
+              .is-bordercolor-blue-800
+            </div>
+            <div class="has-border-solid is-bordercolor-blue-900">
+              .is-bordercolor-blue-900
+            </div>
+          </div>
+          <div>
+            <div class="has-border-solid is-bordercolor-violet-100">
+              .is-bordercolor-violet-100
+            </div>
+            <div class="has-border-solid is-bordercolor-violet-200">
+              .is-bordercolor-violet-200
+            </div>
+            <div class="has-border-solid is-bordercolor-violet-300">
+              .is-bordercolor-violet-300
+            </div>
+            <div class="has-border-solid is-bordercolor-violet-400">
+              .is-bordercolor-violet-400
+            </div>
+            <div class="has-border-solid is-bordercolor-violet-500">
+              .is-bordercolor-violet-500
+            </div>
+            <div class="has-border-solid is-bordercolor-violet-600">
+              .is-bordercolor-violet-600
+            </div>
+            <div class="has-border-solid is-bordercolor-violet-700">
+              .is-bordercolor-violet-700
+            </div>
+            <div class="has-border-solid is-bordercolor-violet-800">
+              .is-bordercolor-violet-800
+            </div>
+            <div class="has-border-solid is-bordercolor-violet-900">
+              .is-bordercolor-violet-900
+            </div>
+          </div>
+        </section>
+        <section class="my-1rem">
+          <button class="button" onclick="toggleModal()">modal open</button>
+          <div class="modal">
+            <div class="modal-content">
+              <div class="container">
+                <div class="my-1rem">
+                  <div class="message">
+                    <div class="message-header">.message</div>
+                    <div class="message-body">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                      sed do eiusmod tempor incididunt ut labore et dolore magna
+                      aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                      ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                      Duis aute irure dolor in reprehenderit in voluptate velit
+                      esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                      sint occaecat cupidatat non proident, sunt in culpa qui
+                      officia deserunt mollit anim id est laborum.
+                    </div>
+                  </div>
+                </div>
+                <div class="my-1rem centering">
+                  <button class="button" onclick="toggleModal()">
+                    modal close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="my-1rem">
+          <details class="accordion">
+            <summary class="accordion-summary">accordion-summary</summary>
+            <div class="accordion-details">accordion-details</div>
+          </details>
+        </section>
+      </div>
+    </main>
+    <footer class="footer">
+      <div class="container">
+        <div class="sns">
+          <div class="columns">
+            <div class="column">
+              <a
+                class="github margin-1"
+                href="https://github.com/smartupcorp/smarpy"
+                target="_blank"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="copyright">© smartupcorp</div>
+      </div>
+    </footer>
+    <script src="scripts/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,23 @@
+@use "../mixins/index.scss" as mixins;
+@use "../variables/index.scss" as variables;
+
+.admin {
+  @include mixins.base();
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  grid-template-columns: #{variables.$admin-sidebar-basic-width} 1fr;
+  &[data-smarpy-admin-sidebar="collapse"] {
+    grid-template-columns: #{variables.$admin-sidebar-collapted-width} 1fr;
+  }
+  > .admin-sidebar {
+    @include mixins.base();
+    overflow-y: auto;
+    width: 100%;
+  }
+  > .admin-main {
+    @include mixins.base();
+    overflow: auto;
+    width: 100%;
+  }
+}

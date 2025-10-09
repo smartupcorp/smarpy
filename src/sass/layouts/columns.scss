@@ -1,0 +1,101 @@
+@use "sass:math";
+@use "../mixins/index.scss" as mixins;
+@use "../functions/index.scss" as functions;
+@use "../variables/index.scss" as variables;
+
+$columns-count: 12;
+
+.columns {
+  --#{variables.$prefix}gutter-x: 0;
+  --#{variables.$prefix}gutter-y: 0;
+  --#{variables.$prefix}gutter-top: var(--#{variables.$prefix}gutter-y);
+  --#{variables.$prefix}gutter-bottom: var(--#{variables.$prefix}gutter-y);
+  --#{variables.$prefix}gutter-right: var(--#{variables.$prefix}gutter-x);
+  --#{variables.$prefix}gutter-left: var(--#{variables.$prefix}gutter-x);
+  @include mixins.base();
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: calc(var(--#{variables.$prefix}gutter-top) * -1);
+  margin-right: calc(var(--#{variables.$prefix}gutter-right) * -0.5);
+  margin-left: calc(var(--#{variables.$prefix}gutter-left) * -0.5);
+  &.is-direction-row {
+    flex-direction: row;
+  }
+  &.is-direction-row-reverse {
+    flex-direction: row-reverse;
+  }
+  &.is-direction-column {
+    flex-direction: column;
+  }
+  &.is-direction-column-reverse {
+    flex-direction: column-reverse;
+  }
+
+  @include mixins.is-responsive("-direction-row") {
+    flex-direction: row;
+  }
+  @include mixins.is-responsive("-direction-row-reverse") {
+    flex-direction: row-reverse;
+  }
+  @include mixins.is-responsive("-direction-column") {
+    flex-direction: column;
+  }
+  @include mixins.is-responsive("-direction-column-reverse") {
+    flex-direction: column-reverse;
+  }
+
+  @for $p from 0 through 16 {
+    $escapedQuarter: functions.strReplace(#{($p * 0.25)}, ".", "\\.");
+    &.has-gutter-#{$escapedQuarter}rem {
+      --#{variables.$prefix}gutter-x: #{($p * 0.25rem)};
+      --#{variables.$prefix}gutter-y: #{($p * 0.25rem)};
+    }
+    &.has-gutter-x-#{$escapedQuarter}rem {
+      --#{variables.$prefix}gutter-x: #{($p * 0.25rem)};
+    }
+    &.has-gutter-y-#{$escapedQuarter}rem {
+      --#{variables.$prefix}gutter-y: #{($p * 0.25rem)};
+    }
+    @include mixins.is-responsive("-#{$escapedQuarter}rem", "has-gutter-") {
+      --#{variables.$prefix}gutter-x: #{($p * 0.25rem)};
+      --#{variables.$prefix}gutter-y: #{($p * 0.25rem)};
+    }
+    @include mixins.is-responsive("-#{$escapedQuarter}rem", "has-gutter-x") {
+      --#{variables.$prefix}gutter-x: #{($p * 0.25rem)};
+    }
+    @include mixins.is-responsive("-#{$escapedQuarter}rem", "has-gutter-y") {
+      --#{variables.$prefix}gutter-y: #{($p * 0.25rem)};
+    }
+  }
+
+  .column {
+    @include mixins.column();
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0%;
+    &.is-full {
+      flex: none;
+      max-width: 100%;
+      width: 100%;
+    }
+  }
+  @for $num from 1 through $columns-count {
+    .column-#{$num} {
+      @include mixins.column();
+      flex-basis: math.percentage(math.div($num, $columns-count));
+      max-width: math.percentage(math.div($num, $columns-count));
+      width: math.percentage(math.div($num, $columns-count));
+    }
+  }
+  .column,
+  [class^="column-"] {
+    @for $num from 1 through $columns-count {
+      @include mixins.is-responsive("-" + $num) {
+        flex-basis: math.percentage(math.div($num, $columns-count));
+        max-width: math.percentage(math.div($num, $columns-count));
+        width: math.percentage(math.div($num, $columns-count));
+      }
+    }
+  }
+}

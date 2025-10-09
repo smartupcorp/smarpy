@@ -1,0 +1,16 @@
+@use "../mixins/index.scss" as mixins;
+@use "../variables/index.scss" as variables;
+
+.pre {
+  @include mixins.base();
+  font-family: var(--#{variables.$prefix}font-family-monospace);
+  background-color: var(--#{variables.$prefix}color-default-code-back);
+  white-space: pre;
+  word-wrap: normal;
+  @each $color in variables.$colors {
+    &.is-#{$color} {
+      background-color: var(--#{variables.$prefix}color-#{$color}-code-back);
+      color: var(--#{variables.$prefix}color-#{$color}-fore);
+    }
+  }
+}
