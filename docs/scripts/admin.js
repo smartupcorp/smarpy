@@ -12,7 +12,7 @@ function toggleChevron() {
 }
 
 function changeColorScheme(colorScheme) {
-  let tabula = document.querySelector(".soroot");
+  let tabula = document.querySelector(".smaroot");
   if (tabula) {
     tabula.dataset.colorScheme = colorScheme;
   }
