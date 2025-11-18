@@ -1,6 +1,6 @@
 {
   "name": "@smartupcorp/smarpy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "smartupcorp web design library written by scss.",
   "main": "index.js",
   "scripts": {
