@@ -4,7 +4,7 @@
   "description": "smartupcorp web design library written by scss.",
   "main": "index.js",
   "scripts": {
-    "build": "npm run build-lib",
+    "build": "npm run build-lib && npm run build-sassdoc",
     "build-lib": "npm run build-lib-clean && npm run build-lib-main && npm run build-lib-utilities",
     "build-lib-main": "npm run build-lib-sass && npm run build-lib-copy-css && npm run build-lib-copy-map && npm run build-lib-postcss && npm run build-lib-postcss-min",
     "build-lib-utilities": "npm run build-lib-utilities-sass && npm run build-lib-utilities-copy-css && npm run build-lib-utilities-copy-map && npm run build-lib-utilities-postcss && npm run build-lib-utilities-postcss-min",
@@ -19,6 +19,7 @@
     "build-lib-utilities-copy-map": "node -e \"require('fs').copyFileSync('./dist/css/smarpy-utilities.css.map', './dist/css/smarpy-utilities.min.css.map')\"",
     "build-lib-utilities-postcss": "postcss --output dist/css/smarpy-utilities.css dist/css/smarpy-utilities.css",
     "build-lib-utilities-postcss-min": "postcss --output dist/css/smarpy-utilities.min.css dist/css/smarpy-utilities.min.css",
+    "build-sassdoc": "sassdoc src/sass/",
     "prepublishOnly": "npm run build"
   },
   "repository": {
@@ -48,6 +49,7 @@
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1",
     "rimraf": "^6.0.1",
-    "sass": "^1.89.2"
+    "sass": "^1.89.2",
+    "sassdoc": "^2.7.4"
   }
 }

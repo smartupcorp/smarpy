@@ -1,6 +1,8 @@
 @use "../variables/index.scss" as variables;
 
-:root {
+/// animation cssvariables
+/// @group cssvariables
+:where(:root) {
   --#{variables.$prefix}animation-speed-heavy: 4s;
   --#{variables.$prefix}animation-speed-slower: 3s;
   --#{variables.$prefix}animation-speed-slow: 2s;

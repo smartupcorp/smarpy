@@ -8,7 +8,7 @@
   height: 100vh;
   grid-template-columns: #{variables.$admin-sidebar-basic-width} 1fr;
   &[data-smarpy-admin-sidebar="collapse"] {
-    grid-template-columns: #{variables.$admin-sidebar-collapted-width} 1fr;
+    grid-template-columns: #{variables.$admin-sidebar-collapsed-width} 1fr;
   }
   > .admin-sidebar {
     @include mixins.base();

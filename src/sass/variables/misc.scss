@@ -1,1 +1,25 @@
+
+/// css-variable prefix
+/// @type String
+/// @group variables
 $prefix: "smarpy-" !default;
+
+/// output color class
+/// @type Boolean
+/// @group variables
+$output-color-class: true !default;
+
+/// output size class
+/// @type Boolean
+/// @group variables
+$output-size-class: true !default;
+
+/// output border-width class
+/// @type Boolean
+/// @group variables
+$output-border-width-class: true !default;
+
+/// output border-style class
+/// @type Boolean
+/// @group variables
+$output-border-style-class: true !default;

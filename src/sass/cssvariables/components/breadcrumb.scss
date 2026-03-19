@@ -1,5 +1,7 @@
 @use "../../variables/index.scss" as variables;
 
-:root {
+/// components/breadcrumb settings
+/// @group cssvariables
+:where(:root) {
   --#{variables.$prefix}breadcrumb-divider: "#{variables.$breadcrumb-divider}"
 }

@@ -1,6 +1,8 @@
 @use "../variables/index.scss" as variables;
 
-:root {
+/// border cssvariables
+/// @group cssvariables
+:where(:root) {
   --#{variables.$prefix}border-width-xthin: 0.05rem;
   --#{variables.$prefix}border-width-thin: 0.1rem;
   --#{variables.$prefix}border-width-medium: 0.125rem;

@@ -1,39 +1,116 @@
 @use "../variables/index.scss" as variables;
 @use "../mixins/index.scss" as mixins;
 
-.admin-nav {
+/// @group components
+:where(.admin-nav) {
+  --#{variables.$prefix}admin-nav-color-fore: var(
+    --#{variables.$prefix}color-default-admin-nav-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}admin-nav-color-back: var(
+    --#{variables.$prefix}color-default-admin-nav-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}admin-nav-color-border: var(
+    --#{variables.$prefix}color-default-admin-nav-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+  --#{variables.$prefix}admin-nav-brand-color-fore: var(
+    --#{variables.$prefix}color-default-admin-nav-brand-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}admin-nav-brand-color-back: var(
+    --#{variables.$prefix}color-default-admin-nav-brand-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}admin-nav-brand-color-border: var(
+    --#{variables.$prefix}color-default-admin-nav-brand-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+  --#{variables.$prefix}admin-nav-menu-color-fore: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}admin-nav-menu-color-back: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}admin-nav-menu-color-border: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+  --#{variables.$prefix}admin-nav-menu-item-color-fore: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-item-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}admin-nav-menu-item-color-back: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-item-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}admin-nav-menu-item-color-border: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-item-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+
+  --#{variables.$prefix}admin-nav-menu-item-focus-color-fore: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-item-focus-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}admin-nav-menu-item-focus-color-back: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-item-focus-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}admin-nav-menu-item-focus-color-border: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-item-focus-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+
+  --#{variables.$prefix}admin-nav-menu-item-active-color-fore: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-item-active-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}admin-nav-menu-item-active-color-back: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-item-active-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}admin-nav-menu-item-active-color-border: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-item-active-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+
+  --#{variables.$prefix}admin-nav-menu-item-disabled-color-fore: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-item-disabled-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}admin-nav-menu-item-disabled-color-back: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-item-disabled-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}admin-nav-menu-item-disabled-color-border: var(
+    --#{variables.$prefix}color-default-admin-nav-menu-item-disabled-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+
   @include mixins.base();
   width: 100%;
   height: 100%;
-  background-color: var(
-    --#{variables.$prefix}color-default-admin-nav-back
-  );
-  border-color: var(
-    --#{variables.$prefix}color-default-admin-nav-border
-  );
-  color: var(
-    --#{variables.$prefix}color-default-admin-nav-fore
-  );
+  background-color: var(--#{variables.$prefix}admin-nav-color-back);
+  border-color: var(--#{variables.$prefix}admin-nav-color-border);
+  color: var(--#{variables.$prefix}admin-nav-color-fore);
   > .admin-nav-brand {
     @include mixins.base();
     height: 5rem;
     width: 100%;
     padding: 1rem;
-    background-color: var(
-      --#{variables.$prefix}color-default-admin-nav-brand-back
-    );
-    border-color: var(
-      --#{variables.$prefix}color-default-admin-nav-brand-border
-    );
-    color: var(
-      --#{variables.$prefix}color-default-admin-nav-brand-fore
-    );
+    background-color: var(--#{variables.$prefix}admin-nav-brand-color-back);
+    border-color: var(--#{variables.$prefix}admin-nav-brand-color-border);
+    color: var(--#{variables.$prefix}admin-nav-brand-color-fore);
     > .admin-nav-brand-basic {
       @include mixins.base();
       display: block;
       width: 100%;
     }
-    > .admin-nav-brand-collapted {
+    > .admin-nav-brand-collapsed {
       @include mixins.base();
       display: none;
       width: 0rem;
@@ -42,425 +119,167 @@
   > .admin-nav-menu {
     @include mixins.base();
     width: 100%;
-    background-color: var(
-      --#{variables.$prefix}color-default-admin-nav-menu-back
-    );
-    border-color: var(
-      --#{variables.$prefix}color-default-admin-nav-menu-border
-    );
-    color: var(
-      --#{variables.$prefix}color-default-admin-nav-menu-fore
-    );
+    background-color: var(--#{variables.$prefix}admin-nav-menu-color-back);
+    border-color: var(--#{variables.$prefix}admin-nav-menu-color-border);
+    color: var(--#{variables.$prefix}admin-nav-menu-color-fore);
     > .admin-nav-menu-item {
       @include mixins.base();
       padding: 1rem;
       background-color: var(
-        --#{variables.$prefix}color-default-admin-nav-menu-item-back
+        --#{variables.$prefix}admin-nav-menu-item-color-back
       );
-      border-color: var(
-        --#{variables.$prefix}color-default-admin-nav-menu-item-border
-      );
-      color: var(
-        --#{variables.$prefix}color-default-admin-nav-menu-item-fore
-      );
+      border-color: var(--#{variables.$prefix}admin-nav-menu-item-color-border);
+      color: var(--#{variables.$prefix}admin-nav-menu-item-color-fore);
       > .admin-nav-menu-item-basic {
         @include mixins.base();
         display: block;
         width: 100%;
-        background-color: var(
-          --#{variables.$prefix}color-default-admin-nav-menu-item-back
-        );
-        border-color: var(
-          --#{variables.$prefix}color-default-admin-nav-menu-item-border
-        );
-        color: var(
-          --#{variables.$prefix}color-default-admin-nav-menu-item-fore
-        );
+        cursor: pointer;
       }
-      > .admin-nav-menu-item-collapted {
+      > .admin-nav-menu-item-collapsed {
         @include mixins.base();
         display: none;
         width: 0rem;
-        background-color: var(
-          --#{variables.$prefix}color-default-admin-nav-menu-item-back
-        );
-        border-color: var(
-          --#{variables.$prefix}color-default-admin-nav-menu-item-border
-        );
-        color: var(
-          --#{variables.$prefix}color-default-admin-nav-menu-item-fore
-        );
+        cursor: pointer;
       }
       &:focus,
       &.is-focus,
       &.is-focused {
         background-color: var(
-          --#{variables.$prefix}color-default-focus-admin-nav-menu-item-back
+          --#{variables.$prefix}admin-nav-menu-item-focus-color-back
         );
         border-color: var(
-          --#{variables.$prefix}color-default-focus-admin-nav-menu-item-border
+          --#{variables.$prefix}admin-nav-menu-item-focus-color-border
         );
-        color: var(
-          --#{variables.$prefix}color-default-focus-admin-nav-menu-item-fore
-        );
-        > .admin-nav-menu-item-basic {
-          background-color: var(
-            --#{variables.$prefix}color-default-focus-admin-nav-menu-item-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-default-focus-admin-nav-menu-item-border
-          );
-          color: var(
-            --#{variables.$prefix}color-default-focus-admin-nav-menu-item-fore
-          );
-        }
-        > .admin-nav-menu-item-collapted {
-          background-color: var(
-            --#{variables.$prefix}color-default-focus-admin-nav-menu-item-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-default-focus-admin-nav-menu-item-border
-          );
-          color: var(
-            --#{variables.$prefix}color-default-focus-admin-nav-menu-item-fore
-          );
-        }
-      }
-      &:active,
-      &.is-active {
-        background-color: var(
-          --#{variables.$prefix}color-default-active-admin-nav-menu-item-back
-        );
-        border-color: var(
-          --#{variables.$prefix}color-default-active-admin-nav-menu-item-border
-        );
-        color: var(
-          --#{variables.$prefix}color-default-active-admin-nav-menu-item-fore
-        );
-        > .admin-nav-menu-item-basic {
-          background-color: var(
-            --#{variables.$prefix}color-default-active-admin-nav-menu-item-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-default-active-admin-nav-menu-item-border
-          );
-          color: var(
-            --#{variables.$prefix}color-default-active-admin-nav-menu-item-fore
-          );
-        }
-        > .admin-nav-menu-item-collapted {
-          background-color: var(
-            --#{variables.$prefix}color-default-active-admin-nav-menu-item-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-default-active-admin-nav-menu-item-border
-          );
-          color: var(
-            --#{variables.$prefix}color-default-active-admin-nav-menu-item-fore
-          );
-        }
+        color: var(--#{variables.$prefix}admin-nav-menu-item-focus-color-fore);
       }
       &:hover,
       &.is-hovered,
       &.is-hovered {
         background-color: var(
-          --#{variables.$prefix}color-default-hover-admin-nav-menu-item-back
+          --#{variables.$prefix}admin-nav-menu-item-hover-color-back
         );
         border-color: var(
-          --#{variables.$prefix}color-default-hover-admin-nav-menu-item-border
+          --#{variables.$prefix}admin-nav-menu-item-hover-color-border
         );
-        color: var(
-          --#{variables.$prefix}color-default-hover-admin-nav-menu-item-fore
+        color: var(--#{variables.$prefix}admin-nav-menu-item-hover-color-fore);
+      }
+      &:active,
+      &.is-active {
+        background-color: var(
+          --#{variables.$prefix}admin-nav-menu-item-active-color-back
         );
-        > .admin-nav-menu-item-basic {
-          background-color: var(
-            --#{variables.$prefix}color-default-hover-admin-nav-menu-item-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-default-hover-admin-nav-menu-item-border
-          );
-          color: var(
-            --#{variables.$prefix}color-default-hover-admin-nav-menu-item-fore
-          );
-        }
-        > .admin-nav-menu-item-collapted {
-          background-color: var(
-            --#{variables.$prefix}color-default-hover-admin-nav-menu-item-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-default-hover-admin-nav-menu-item-border
-          );
-          color: var(
-            --#{variables.$prefix}color-default-hover-admin-nav-menu-item-fore
-          );
-        }
+        border-color: var(
+          --#{variables.$prefix}admin-nav-menu-item-active-color-border
+        );
+        color: var(--#{variables.$prefix}admin-nav-menu-item-active-color-fore);
       }
       &[disabled],
       fieldset[disabled],
       &.is-disabled {
         background-color: var(
-          --#{variables.$prefix}color-default-disabled-admin-nav-menu-item-back
+          --#{variables.$prefix}admin-nav-menu-item-disabled-color-back
         );
         border-color: var(
-          --#{variables.$prefix}color-default-disabled-admin-nav-menu-item-border
+          --#{variables.$prefix}admin-nav-menu-item-disabled-color-border
         );
         color: var(
-          --#{variables.$prefix}color-default-disabled-admin-nav-menu-item-fore
+          --#{variables.$prefix}admin-nav-menu-item-disabled-color-fore
         );
-        > .admin-nav-menu-item-basic {
-          background-color: var(
-            --#{variables.$prefix}color-default-disabled-admin-nav-menu-item-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-default-disabled-admin-nav-menu-item-border
-          );
-          color: var(
-            --#{variables.$prefix}color-default-disabled-admin-nav-menu-item-fore
-          );
-        }
-        > .admin-nav-menu-item-collapted {
-          background-color: var(
-            --#{variables.$prefix}color-default-disabled-admin-nav-menu-item-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-default-disabled-admin-nav-menu-item-border
-          );
-          color: var(
-            --#{variables.$prefix}color-default-disabled-admin-nav-menu-item-fore
-          );
-        }
       }
     }
   }
 
-  @each $color in variables.$colors {
-    &.is-#{$color} {
-      background-color: var(
-        --#{variables.$prefix}color-#{$color}-admin-nav-back
-      );
-      border-color: var(
-        --#{variables.$prefix}color-#{$color}-admin-nav-border
-      );
-      color: var(
-        --#{variables.$prefix}color-#{$color}-admin-nav-fore
-      );
-      > .admin-nav-brand {
-        @include mixins.base();
-        width: 100%;
-        background-color: var(
-          --#{variables.$prefix}color-#{$color}-admin-nav-brand-back
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        --#{variables.$prefix}admin-nav-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
         );
-        border-color: var(
-          --#{variables.$prefix}color-#{$color}-admin-nav-brand-border
+        --#{variables.$prefix}admin-nav-color-back: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
         );
-        color: var(
-          --#{variables.$prefix}color-#{$color}-admin-nav-brand-fore
+        --#{variables.$prefix}admin-nav-color-border: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
         );
-        > .admin-nav-brand-basic {
-          background-color: var(
-            --#{variables.$prefix}color-#{$color}-admin-nav-brand-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-#{$color}-admin-nav-brand-border
-          );
-          color: var(
-            --#{variables.$prefix}color-#{$color}-admin-nav-brand-fore
-          );
-        }
-        > .admin-nav-brand-collapted {
-          background-color: var(
-            --#{variables.$prefix}color-#{$color}-admin-nav-brand-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-#{$color}-admin-nav-brand-border
-          );
-          color: var(
-            --#{variables.$prefix}color-#{$color}-admin-nav-brand-fore
-          );
-        }
-      }
-      > .admin-nav-menu {
-        background-color: var(
-          --#{variables.$prefix}color-#{$color}-admin-nav-menu-back
+        --#{variables.$prefix}admin-nav-brand-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-brand-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
         );
-        border-color: var(
-          --#{variables.$prefix}color-#{$color}-admin-nav-menu-border
+        --#{variables.$prefix}admin-nav-brand-color-back: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-brand-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
         );
-        color: var(
-          --#{variables.$prefix}color-#{$color}-admin-nav-menu-fore
+        --#{variables.$prefix}admin-nav-brand-color-border: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-brand-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
         );
-        > .admin-nav-menu-item {
-          background-color: var(
-            --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-border
-          );
-          color: var(
-            --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-fore
-          );
-          > .admin-nav-menu-item-basic {
-            background-color: var(
-              --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-back
-            );
-            border-color: var(
-              --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-border
-            );
-            color: var(
-              --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-fore
-            );
-          }
-          > .admin-nav-menu-item-collapted {
-            background-color: var(
-              --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-back
-            );
-            border-color: var(
-              --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-border
-            );
-            color: var(
-              --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-fore
-            );
-          }
-          &:focus,
-          &.is-focus,
-          &.is-focused {
-            background-color: var(
-              --#{variables.$prefix}color-#{$color}-focus-admin-nav-menu-item-back
-            );
-            border-color: var(
-              --#{variables.$prefix}color-#{$color}-focus-admin-nav-menu-item-border
-            );
-            color: var(
-              --#{variables.$prefix}color-#{$color}-focus-admin-nav-menu-item-fore
-            );
-            > .admin-nav-menu-item-basic {
-              background-color: var(
-                --#{variables.$prefix}color-#{$color}-focus-admin-nav-menu-item-back
-              );
-              border-color: var(
-                --#{variables.$prefix}color-#{$color}-focus-admin-nav-menu-item-border
-              );
-              color: var(
-                --#{variables.$prefix}color-#{$color}-focus-admin-nav-menu-item-fore
-              );
-            }
-            > .admin-nav-menu-item-collapted {
-              background-color: var(
-                --#{variables.$prefix}color-#{$color}-focus-admin-nav-menu-item-back
-              );
-              border-color: var(
-                --#{variables.$prefix}color-#{$color}-focus-admin-nav-menu-item-border
-              );
-              color: var(
-                --#{variables.$prefix}color-#{$color}-focus-admin-nav-menu-item-fore
-              );
-            }
-          }
-          &:active,
-          &.is-active {
-            background-color: var(
-              --#{variables.$prefix}color-#{$color}-active-admin-nav-menu-item-back
-            );
-            border-color: var(
-              --#{variables.$prefix}color-#{$color}-active-admin-nav-menu-item-border
-            );
-            color: var(
-              --#{variables.$prefix}color-#{$color}-active-admin-nav-menu-item-fore
-            );
-            > .admin-nav-menu-item-basic {
-              background-color: var(
-                --#{variables.$prefix}color-#{$color}-active-admin-nav-menu-item-back
-              );
-              border-color: var(
-                --#{variables.$prefix}color-#{$color}-active-admin-nav-menu-item-border
-              );
-              color: var(
-                --#{variables.$prefix}color-#{$color}-active-admin-nav-menu-item-fore
-              );
-            }
-            > .admin-nav-menu-item-collapted {
-              background-color: var(
-                --#{variables.$prefix}color-#{$color}-active-admin-nav-menu-item-back
-              );
-              border-color: var(
-                --#{variables.$prefix}color-#{$color}-active-admin-nav-menu-item-border
-              );
-              color: var(
-                --#{variables.$prefix}color-#{$color}-active-admin-nav-menu-item-fore
-              );
-            }
-          }
-          &:hover,
-          &.is-hovered,
-          &.is-hovered {
-            background-color: var(
-              --#{variables.$prefix}color-#{$color}-hover-admin-nav-menu-item-back
-            );
-            border-color: var(
-              --#{variables.$prefix}color-#{$color}-hover-admin-nav-menu-item-border
-            );
-            color: var(
-              --#{variables.$prefix}color-#{$color}-hover-admin-nav-menu-item-fore
-            );
-            > .admin-nav-menu-item-basic {
-              background-color: var(
-                --#{variables.$prefix}color-#{$color}-hover-admin-nav-menu-item-back
-              );
-              border-color: var(
-                --#{variables.$prefix}color-#{$color}-hover-admin-nav-menu-item-border
-              );
-              color: var(
-                --#{variables.$prefix}color-#{$color}-hover-admin-nav-menu-item-fore
-              );
-            }
-            > .admin-nav-menu-item-collapted {
-              background-color: var(
-                --#{variables.$prefix}color-#{$color}-hover-admin-nav-menu-item-back
-              );
-              border-color: var(
-                --#{variables.$prefix}color-#{$color}-hover-admin-nav-menu-item-border
-              );
-              color: var(
-                --#{variables.$prefix}color-#{$color}-hover-admin-nav-menu-item-fore
-              );
-            }
-          }
-          &[disabled],
-          fieldset[disabled],
-          &.is-disabled {
-            background-color: var(
-              --#{variables.$prefix}color-#{$color}-disabled-admin-nav-menu-item-back
-            );
-            border-color: var(
-              --#{variables.$prefix}color-#{$color}-disabled-admin-nav-menu-item-border
-            );
-            color: var(
-              --#{variables.$prefix}color-#{$color}-disabled-admin-nav-menu-item-fore
-            );
-            > .admin-nav-menu-item-basic {
-              background-color: var(
-                --#{variables.$prefix}color-#{$color}-disabled-admin-nav-menu-item-back
-              );
-              border-color: var(
-                --#{variables.$prefix}color-#{$color}-disabled-admin-nav-menu-item-border
-              );
-              color: var(
-                --#{variables.$prefix}color-#{$color}-disabled-admin-nav-menu-item-fore
-              );
-            }
-            > .admin-nav-menu-item-collapted {
-              background-color: var(
-                --#{variables.$prefix}color-#{$color}-disabled-admin-nav-menu-item-back
-              );
-              border-color: var(
-                --#{variables.$prefix}color-#{$color}-disabled-admin-nav-menu-item-border
-              );
-              color: var(
-                --#{variables.$prefix}color-#{$color}-disabled-admin-nav-menu-item-fore
-              );
-            }
-          }
-        }
+        --#{variables.$prefix}admin-nav-menu-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}admin-nav-menu-color-back: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
+        );
+        --#{variables.$prefix}admin-nav-menu-color-border: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
+        );
+        --#{variables.$prefix}admin-nav-menu-item-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}admin-nav-menu-item-color-back: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
+        );
+        --#{variables.$prefix}admin-nav-menu-item-color-border: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
+        );
+
+        --#{variables.$prefix}admin-nav-menu-item-focus-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-focus-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}admin-nav-menu-item-focus-color-back: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-focus-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
+        );
+        --#{variables.$prefix}admin-nav-menu-item-focus-color-border: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-focus-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
+        );
+
+        --#{variables.$prefix}admin-nav-menu-item-active-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-active-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}admin-nav-menu-item-active-color-back: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-active-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
+        );
+        --#{variables.$prefix}admin-nav-menu-item-active-color-border: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-active-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
+        );
+
+        --#{variables.$prefix}admin-nav-menu-item-disabled-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-disabled-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}admin-nav-menu-item-disabled-color-back: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-disabled-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
+        );
+        --#{variables.$prefix}admin-nav-menu-item-disabled-color-border: var(
+          --#{variables.$prefix}color-#{$color}-admin-nav-menu-item-disabled-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
+        );
       }
     }
   }
@@ -473,7 +292,7 @@
         display: none;
         width: 0rem;
       }
-      > .admin-nav-brand-collapted {
+      > .admin-nav-brand-collapsed {
         display: block;
         width: 100%;
       }
@@ -484,7 +303,7 @@
           display: none;
           width: 0rem;
         }
-        > .admin-nav-menu-item-collapted {
+        > .admin-nav-menu-item-collapsed {
           display: block;
           width: 100%;
         }

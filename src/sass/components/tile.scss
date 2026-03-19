@@ -1,48 +1,136 @@
 @use "../mixins/index.scss" as mixins;
 @use "../variables/index.scss" as variables;
 
-.tile {
+/// @group components
+:where(.tile) {
+  --#{variables.$prefix}tile-color-fore: var(
+    --#{variables.$prefix}color-default-tile-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}tile-color-back: var(
+    --#{variables.$prefix}color-default-tile-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}tile-color-shadow: var(
+    --#{variables.$prefix}color-default-tile-shadow,
+    var(--#{variables.$prefix}color-default-shadow)
+  );
+  --#{variables.$prefix}tile-selection-color-fore: var(
+    --#{variables.$prefix}color-default-tile-selection-fore,
+    var(--#{variables.$prefix}color-default-selection-fore)
+  );
+  --#{variables.$prefix}tile-selection-color-back: var(
+    --#{variables.$prefix}color-default-tile-selection-back,
+    var(--#{variables.$prefix}color-default-selection-back)
+  );
+  --#{variables.$prefix}tile-header-color-fore: var(
+    --#{variables.$prefix}color-default-tile-header-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}tile-header-color-back: var(
+    --#{variables.$prefix}color-default-tile-header-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+
+  --#{variables.$prefix}tile-header-height: 50%;
+  --#{variables.$prefix}tile-header-padding: 1rem;
+
   @include mixins.base();
+  background-color: var(--#{variables.$prefix}tile-color-back);
+  color: var(--#{variables.$prefix}tile-color-fore);
   position: relative;
-  min-height: 25rem;
+  min-height: calc(
+    2 *
+      (
+        var(--#{variables.$prefix}font-size-medium) +
+          var(--#{variables.$prefix}tile-header-padding) * 2
+      )
+  );
   width: 100%;
-  .tile-header {
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 0.25rem var(--#{variables.$prefix}tile-color-shadow);
+
+  &::selection {
+    color: var(--#{variables.$prefix}tile-selection-color-fore);
+    background-color: var(--#{variables.$prefix}tile-selection-color-back);
+  }
+
+  > .tile-header {
     @include mixins.base();
+    align-items: center;
+    background-color: oklch(
+      from var(--#{variables.$prefix}tile-header-color-back) l c h / 0.75
+    );
+    color: var(--#{variables.$prefix}tile-header-color-fore);
+    display: flex;
+    font-size: var(--#{variables.$prefix}font-size-medium);
+    font-weight: var(--#{variables.$prefix}font-weight-semibold);
+    height: var(--#{variables.$prefix}tile-header-height);
     position: absolute;
-    display: block;
-    top: 25%;
     left: 0;
-    min-height: 12.5rem;
     width: 50%;
     z-index: 2;
-    opacity: 90%;
+    justify-content: flex-start;
+    margin: auto auto auto 0;
+    text-align: left;
+    padding: var(--#{variables.$prefix}tile-header-padding);
     @include mixins.mobile() {
-      width: 100%;
       top: 0;
+      width: 100%;
+      margin: 0 auto auto auto;
     }
     @include mixins.tablet() {
-      width: 100%;
       top: 0;
-    }
-    .tile-title {
-      @include mixins.base();
-      text-align: left;
-      vertical-align: middle;
-      color: var(--#{variables.$prefix}color-default-fore);
-      font-size: var(--#{variables.$prefix}font-size-medium);
-      font-weight: var(--#{variables.$prefix}font-weight-semibold);
-      text-decoration: none !important;
-      position: absolute;
-      top: 35%;
-      left: 0;
-      margin: 1rem;
+      width: 100%;
+      margin: 0 auto auto auto;
     }
   }
-  .tile-image {
+  > .tile-image {
     @include mixins.base();
-    z-index: 1;
+    display: inline-block;
+    height: auto;
     inset: 0;
-    display: block;
     margin: auto;
+    vertical-align: middle;
+    width: 100%;
+    z-index: 1;
+  }
+
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        --#{variables.$prefix}tile-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-tile-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}tile-color-back: var(
+          --#{variables.$prefix}color-#{$color}-tile-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
+        );
+        --#{variables.$prefix}tile-color-shadow: var(
+          --#{variables.$prefix}color-#{$color}-tile-shadow,
+          var(--#{variables.$prefix}color-#{$color}-shadow)
+        );
+        --#{variables.$prefix}tile-selection-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-tile-selection-fore,
+          var(--#{variables.$prefix}color-#{$color}-selection-fore)
+        );
+        --#{variables.$prefix}tile-selection-color-back: var(
+          --#{variables.$prefix}color-#{$color}-tile-selection-back,
+          var(--#{variables.$prefix}color-#{$color}-selection-back)
+        );
+        --#{variables.$prefix}tile-header-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-tile-header-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}tile-header-color-back: var(
+          --#{variables.$prefix}color-#{$color}-tile-header-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
+        );
+      }
+    }
   }
 }

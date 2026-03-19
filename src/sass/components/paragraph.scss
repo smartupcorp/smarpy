@@ -1,6 +1,7 @@
 @use "../mixins/index.scss" as mixins;
 
-.paragraph {
+/// @group components
+:where(.paragraph) {
   @include mixins.base();
   display: block;
   line-height: 1.5;

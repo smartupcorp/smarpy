@@ -1,7 +1,46 @@
 @use "../mixins/index.scss" as mixins;
 @use "../variables/index.scss" as variables;
 
-.label {
+/// @group components
+:where(.label) {
+  --#{variables.$prefix}label-color-fore: var(
+    --#{variables.$prefix}color-default-label-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}label-selection-color-fore: var(
+    --#{variables.$prefix}color-default-label-selection-fore,
+    var(--#{variables.$prefix}color-default-selection-fore)
+  );
+  --#{variables.$prefix}label-selection-color-back: var(
+    --#{variables.$prefix}color-default-label-selection-back,
+    var(--#{variables.$prefix}color-default-selection-back)
+  );
+
   @include mixins.base();
+  color: var(--#{variables.$prefix}label-color-fore);
   font-weight: var(--#{variables.$prefix}font-weight-semibold);
+
+  &::selection {
+    color: var(--#{variables.$prefix}label-selection-color-fore);
+    background-color: var(--#{variables.$prefix}label-selection-color-back);
+  }
+
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        --#{variables.$prefix}label-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-label-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}label-selection-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-label-selection-fore,
+          var(--#{variables.$prefix}color-#{$color}-selection-fore)
+        );
+        --#{variables.$prefix}label-selection-color-back: var(
+          --#{variables.$prefix}color-#{$color}-label-selection-back,
+          var(--#{variables.$prefix}color-#{$color}-selection-back)
+        );
+      }
+    }
+  }
 }

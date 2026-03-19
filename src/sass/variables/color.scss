@@ -37,432 +37,1467 @@ $color-black: oklch(
   $color-lightness-black $color-chroma-gray $color-hue-gray
 ) !default;
 
+//#region color-lightness
+
+$color-light-lightness-fore: 50 !default;
+$color-light-lightness-back: 950 !default;
+$color-light-lightness-border: 700 !default;
+$color-light-lightness-placeholder: 700 !default;
+$color-light-lightness-shadow: 700 !default;
+$color-light-lightness-outline: 200 !default;
+
+$color-light-lightness-selection-fore: 50 !default;
+$color-light-lightness-selection-back: 700 !default;
+
+$color-dark-lightness-fore: 950 !default;
+$color-dark-lightness-back: 50 !default;
+$color-dark-lightness-border: 500 !default;
+$color-dark-lightness-placeholder: 500 !default;
+$color-dark-lightness-shadow: 500 !default;
+$color-dark-lightness-outline: 800 !default;
+
+$color-dark-lightness-selection-fore: 950 !default;
+$color-dark-lightness-selection-back: 300 !default;
+
+//#region color-lightness backgrounds
+
+//#region color-lightness-dot
+$color-light-lightness-dot-fore: 850 !default;
+$color-light-lightness-dot-back: 950 !default;
+
+$color-dark-lightness-dot-fore: 150 !default;
+$color-dark-lightness-dot-back: 50 !default;
+//#endregion color-lightness-dot
+
+//#region color-lightness-gingham
+$color-light-lightness-gingham-fore: 850 !default;
+$color-light-lightness-gingham-back: 950 !default;
+
+$color-dark-lightness-gingham-fore: 150 !default;
+$color-dark-lightness-gingham-back: 50 !default;
+//#endregion color-lightness-gingham
+
+//#region color-lightness-stripe
+$color-light-lightness-stripe-fore: 850 !default;
+$color-light-lightness-stripe-back: 950 !default;
+
+$color-dark-lightness-stripe-fore: 150 !default;
+$color-dark-lightness-stripe-back: 50 !default;
+//#endregion color-lightness-stripe
+
+//#endregion color-lightness backgrounds
+
+//#region color-lightness-accordion
+$color-light-lightness-accordion-fore: 300 !default;
+$color-light-lightness-accordion-back: 950 !default;
+$color-light-lightness-accordion-border: 600 !default;
+$color-light-lightness-accordion-summary-fore: 50 !default;
+$color-light-lightness-accordion-summary-back: 600 !default;
+$color-light-lightness-accordion-summary-border: 600 !default;
+$color-light-lightness-accordion-details-fore: 50 !default;
+$color-light-lightness-accordion-details-back: 950 !default;
+$color-light-lightness-accordion-details-border: 600 !default;
+
+$color-dark-lightness-accordion-fore: 700 !default;
+$color-dark-lightness-accordion-back: 50 !default;
+$color-dark-lightness-accordion-border: 300 !default;
+$color-dark-lightness-accordion-summary-fore: 950 !default;
+$color-dark-lightness-accordion-summary-back: 300 !default;
+$color-dark-lightness-accordion-summary-border: 300 !default;
+$color-dark-lightness-accordion-details-fore: 950 !default;
+$color-dark-lightness-accordion-details-back: 50 !default;
+$color-dark-lightness-accordion-details-border: 300 !default;
+
+//#endregion color-lightness-accordion
+
+//#region color-lightness-admin-nav
+$color-light-lightness-admin-nav-fore: 50 !default;
+$color-light-lightness-admin-nav-back: 600 !default;
+$color-light-lightness-admin-nav-border: 600 !default;
+$color-light-lightness-admin-nav-brand-fore: 50 !default;
+$color-light-lightness-admin-nav-brand-back: 600 !default;
+$color-light-lightness-admin-nav-brand-border: 600 !default;
+$color-light-lightness-admin-nav-menu-fore: 50 !default;
+$color-light-lightness-admin-nav-menu-back: 600 !default;
+$color-light-lightness-admin-nav-menu-border: 600 !default;
+$color-light-lightness-admin-nav-menu-item-fore: 50 !default;
+$color-light-lightness-admin-nav-menu-item-back: 600 !default;
+$color-light-lightness-admin-nav-menu-item-border: 600 !default;
+
+$color-dark-lightness-admin-nav-fore: 950 !default;
+$color-dark-lightness-admin-nav-back: 400 !default;
+$color-dark-lightness-admin-nav-border: 400 !default;
+$color-dark-lightness-admin-nav-brand-fore: 950 !default;
+$color-dark-lightness-admin-nav-brand-back: 400 !default;
+$color-dark-lightness-admin-nav-brand-border: 400 !default;
+$color-dark-lightness-admin-nav-menu-fore: 950 !default;
+$color-dark-lightness-admin-nav-menu-back: 400 !default;
+$color-dark-lightness-admin-nav-menu-border: 400 !default;
+$color-dark-lightness-admin-nav-menu-item-fore: 950 !default;
+$color-dark-lightness-admin-nav-menu-item-back: 400 !default;
+$color-dark-lightness-admin-nav-menu-item-border: 400 !default;
+//#endregion color-lightness-admin-nav
+
+//#region color-lightness-button
+$color-light-lightness-button-fore: 50 !default;
+$color-light-lightness-button-back: 700 !default;
+$color-light-lightness-button-border: 700 !default;
+$color-light-lightness-button-shadow: 700 !default;
+
+$color-dark-lightness-button-fore: 950 !default;
+$color-dark-lightness-button-back: 300 !default;
+$color-dark-lightness-button-border: 300 !default;
+$color-dark-lightness-button-shadow: 300 !default;
+//#endregion color-lightness-button
+
+//#region color-lightness-badge
+$color-light-lightness-badge-fore: 50 !default;
+$color-light-lightness-badge-back: 850 !default;
+$color-light-lightness-badge-border: 700 !default;
+
+$color-dark-lightness-badge-fore: 950 !default;
+$color-dark-lightness-badge-back: 150 !default;
+$color-dark-lightness-badge-border: 300 !default;
+//#endregion color-lightness-badge
+
+//#region color-lightness-blockquote
+$color-light-lightness-blockquote-fore: 500 !default;
+$color-light-lightness-blockquote-back: 900 !default;
+$color-light-lightness-blockquote-border: 500 !default;
+
+$color-dark-lightness-blockquote-fore: 500 !default;
+$color-dark-lightness-blockquote-back: 100 !default;
+$color-dark-lightness-blockquote-border: 500 !default;
+//#endregion color-lightness-blockquote
+
+//#region color-lightness-breadcrumb
+$color-light-lightness-breadcrumb-fore: 300 !default;
+$color-light-lightness-breadcrumb-item-fore: 300 !default;
+$color-light-lightness-breadcrumb-divider-fore: 600 !default;
+
+$color-dark-lightness-breadcrumb-fore: 700 !default;
+$color-dark-lightness-breadcrumb-item-fore: 700 !default;
+$color-dark-lightness-breadcrumb-divider-fore: 700 !default;
+//#endregion color-lightness-breadcrumb
+
+//#region color-lightness-card
+$color-light-lightness-card-fore: 50 !default;
+$color-light-lightness-card-back: 950 !default;
+$color-light-lightness-card-border: 700 !default;
+$color-light-lightness-card-shadow: 300 !default;
+$color-light-lightness-card-header-fore: 50 !default;
+$color-light-lightness-card-header-back: 950 !default;
+$color-light-lightness-card-body-fore: 50 !default;
+$color-light-lightness-card-body-back: 950 !default;
+$color-light-lightness-card-footer-fore: 50 !default;
+$color-light-lightness-card-footer-back: 950 !default;
+
+$color-dark-lightness-card-fore: 950 !default;
+$color-dark-lightness-card-back: 50 !default;
+$color-dark-lightness-card-border: 300 !default;
+$color-dark-lightness-card-shadow: 700 !default;
+$color-dark-lightness-card-header-fore: 950 !default;
+$color-dark-lightness-card-header-back: 50 !default;
+$color-dark-lightness-card-body-fore: 950 !default;
+$color-dark-lightness-card-body-back: 50 !default;
+$color-dark-lightness-card-footer-fore: 950 !default;
+$color-dark-lightness-card-footer-back: 50 !default;
+//#endregion color-lightness-card
+
+//#region color-lightness-dialog
+$color-light-lightness-dialog-fore: 50 !default;
+$color-light-lightness-dialog-back: 900 !default;
+$color-light-lightness-dialog-border: 900 !default;
+$color-light-lightness-dialog-shadow: 900 !default;
+$color-light-lightness-dialog-avatar-fore: 50 !default;
+$color-light-lightness-dialog-avatar-back: 900 !default;
+$color-light-lightness-dialog-avatar-border: 900 !default;
+$color-light-lightness-dialog-name-fore: 50 !default;
+$color-light-lightness-dialog-name-back: 900 !default;
+$color-light-lightness-dialog-name-border: 900 !default;
+$color-light-lightness-dialog-name-shadow: 900 !default;
+$color-light-lightness-dialog-message-fore: 50 !default;
+$color-light-lightness-dialog-message-back: 900 !default;
+$color-light-lightness-dialog-message-border: 900 !default;
+
+$color-dark-lightness-dialog-fore: 950 !default;
+$color-dark-lightness-dialog-back: 100 !default;
+$color-dark-lightness-dialog-border: 100 !default;
+$color-dark-lightness-dialog-shadow: 100 !default;
+$color-dark-lightness-dialog-avatar-fore: 950 !default;
+$color-dark-lightness-dialog-avatar-back: 100 !default;
+$color-dark-lightness-dialog-avatar-border: 100 !default;
+$color-dark-lightness-dialog-name-fore: 950 !default;
+$color-dark-lightness-dialog-name-back: 100 !default;
+$color-dark-lightness-dialog-name-border: 100 !default;
+$color-dark-lightness-dialog-name-shadow: 100 !default;
+$color-dark-lightness-dialog-message-fore: 950 !default;
+$color-dark-lightness-dialog-message-back: 100 !default;
+$color-dark-lightness-dialog-message-border: 100 !default;
+//#endregion color-lightness-dialog
+
+//#region color-lightness-header
+$color-light-lightness-header-fore: 50 !default;
+$color-light-lightness-header-back: 700 !default;
+$color-light-lightness-header-shadow: 700 !default;
+
+$color-dark-lightness-header-fore: 950 !default;
+$color-dark-lightness-header-back: 300 !default;
+$color-dark-lightness-header-shadow: 300 !default;
+//#endregion color-lightness-header
+
+//#region color-lightness-label
+$color-light-lightness-label-fore: 100 !default;
+
+$color-dark-lightness-label-fore: 900 !default;
+//#endregion color-lightness-label
+
+//#region color-lightness-input
+$color-light-lightness-input-fore: 50 !default;
+$color-light-lightness-input-back: 950 !default;
+$color-light-lightness-input-border: 600 !default;
+$color-light-lightness-input-placeholder: 600 !default;
+$color-light-lightness-input-outline: 200 !default;
+
+$color-dark-lightness-input-fore: 950 !default;
+$color-dark-lightness-input-back: 50 !default;
+$color-dark-lightness-input-border: 400 !default;
+$color-dark-lightness-input-placeholder: 400 !default;
+$color-dark-lightness-input-outline: 800 !default;
+//#endregion color-lightness-input
+
+//#region color-lightness-link
+$color-light-lightness-link-fore: 400 !default;
+
+$color-dark-lightness-link-fore: 600 !default;
+//#endregion color-lightness-link
+
+//#region color-lightness-loader
+$color-light-lightness-loader-fore: 600 !default;
+
+$color-dark-lightness-loader-fore: 400 !default;
+//#endregion color-lightness-loader
+
+//#region color-lightness-message
+$color-light-lightness-message-fore: 50 !default;
+$color-light-lightness-message-back: 700 !default;
+$color-light-lightness-message-border: 700 !default;
+$color-light-lightness-message-header-fore: 50 !default;
+$color-light-lightness-message-header-back: 700 !default;
+$color-light-lightness-message-body-fore: 50 !default;
+$color-light-lightness-message-body-back: 950 !default;
+
+$color-dark-lightness-message-fore: 950 !default;
+$color-dark-lightness-message-back: 300 !default;
+$color-dark-lightness-message-border: 300 !default;
+$color-dark-lightness-message-header-fore: 950 !default;
+$color-dark-lightness-message-header-back: 300 !default;
+$color-dark-lightness-message-body-fore: 950 !default;
+$color-dark-lightness-message-body-back: 50 !default;
+//#endregion color-lightness-card
+
+//#region color-lightness-nav
+$color-light-lightness-nav-fore: 50 !default;
+$color-light-lightness-nav-back: 950 !default;
+$color-light-lightness-nav-border: 700 !default;
+$color-light-lightness-nav-menu-item-fore: 50 !default;
+$color-light-lightness-nav-menu-item-shadow: 800 !default;
+
+$color-dark-lightness-nav-fore: 950 !default;
+$color-dark-lightness-nav-back: 50 !default;
+$color-dark-lightness-nav-border: 300 !default;
+$color-dark-lightness-nav-menu-item-fore: 950 !default;
+$color-dark-lightness-nav-menu-item-shadow: 200 !default;
+//#endregion color-lightness-nav
+
+//#region color-lightness-progress
+$color-light-lightness-progress-fore: 700 !default;
+$color-light-lightness-progress-back: 950 !default;
+
+$color-dark-lightness-progress-fore: 300 !default;
+$color-dark-lightness-progress-back: 50 !default;
+//#endregion color-lightness-progress
+
+//#region color-lightness-progress
+$color-light-lightness-tile-fore: 50 !default;
+$color-light-lightness-tile-back: 900 !default;
+$color-light-lightness-tile-shadow: 800 !default;
+$color-light-lightness-tile-header-fore: 50 !default;
+$color-light-lightness-tile-header-back: 500 !default;
+$color-light-lightness-tile-header-border: 500 !default;
+
+$color-dark-lightness-tile-fore: 950 !default;
+$color-dark-lightness-tile-back: 100 !default;
+$color-dark-lightness-tile-shadow: 200 !default;
+$color-dark-lightness-tile-header-fore: 950 !default;
+$color-dark-lightness-tile-header-back: 500 !default;
+$color-dark-lightness-tile-header-border: 500 !default;
+//#endregion color-lightness-progress
+
+//#endregion color-lightness
+
+//#region color-lightness-offset
+
+$color-light-lightness-offset-disabled-fore: 300 !default;
+$color-dark-lightness-offset-disabled-fore: -300 !default;
+$color-lightness-offset-disabled: 0 !default;
+$color-lightness-offset-focus: 200 !default;
+$color-lightness-offset-hover: 50 !default;
+$color-lightness-offset-active: -50 !default;
+$color-lightness-offset-visited: 0 !default;
+
+//#endregion color-lightness-offset
+
 //#endregion define color settings
 
-
-$colorLightShades: (
+/// @type List
+/// @group variables
+$colorShades: (
   //#region plain
   (
-    name: "plain",
-    fore: "050",
-    back: "950",
-    border: "600",
-    placeholder: "600",
-    shadow: "700",
-    dot: (
-      fore: "850",
-      back: "950",
-    ),
-    gingham: (
-      fore: "850",
-      back: "950",
-    ),
-    stripe: (
-      fore: "850",
-      back: "950",
-    ),
-    accordion: (
-      fore: "300",
-      back: "950",
-      border: "600",
-      accordionSummary: (
-        fore: "050",
-        back: "600",
-        border: "600",
+      name: "plain",
+      fore: (
+        light: $color-light-lightness-fore,
+        dark: $color-dark-lightness-fore,
       ),
-      accordionDetails: (
-        fore: "050",
-        back: "950",
-        border: "600",
+      back: (
+        light: $color-light-lightness-back,
+        dark: $color-dark-lightness-back,
       ),
-    ),
-    adminNav: (
-      fore: "050",
-      back: "600",
-      border: "600",
-      adminNavBrand: (
-        fore: "050",
-        back: "600",
-        border: "600",
+      border: (
+        light: $color-light-lightness-border,
+        dark: $color-dark-lightness-border,
       ),
-      adminNavMenu: (
-        fore: "050",
-        back: "600",
-        border: "600",
-        adminNavMenuItem: (
-          fore: "050",
-          back: "600",
-          border: "600",
+      placeholder: (
+        light: $color-light-lightness-placeholder,
+        dark: $color-dark-lightness-placeholder,
+      ),
+      shadow: (
+        light: $color-light-lightness-shadow,
+        dark: $color-dark-lightness-shadow,
+      ),
+      outline: (
+        light: $color-light-lightness-outline,
+        dark: $color-dark-lightness-outline,
+      ),
+      selection: (
+        fore: (
+          light: $color-light-lightness-selection-fore,
+          dark: $color-dark-lightness-selection-fore,
+        ),
+        back: (
+          light: $color-light-lightness-selection-back,
+          dark: $color-dark-lightness-selection-back,
         ),
       ),
-    ),
-    breadcrumb: (
-      fore: "300",
-    ),
-    button: (
-      fore: "050",
-      back: "600",
-      border: "600",
-    ),
-    dialog: (
-      fore: "050",
-      back: "900",
-      border: "900",
-      dialogAvatar: (
-        fore: "050",
-        back: "900",
-        border: "900",
+      //#region backgrounds
+      //#region dot
+      dot: (
+          fore: (
+            light: $color-light-lightness-dot-fore,
+            dark: $color-dark-lightness-dot-fore,
+          ),
+          back: (
+            light: $color-light-lightness-dot-back,
+            dark: $color-dark-lightness-dot-back,
+          ),
+        ),
+      //#endregion dot
+      //#region gingham
+      gingham: (
+          fore: (
+            light: $color-light-lightness-gingham-fore,
+            dark: $color-dark-lightness-gingham-fore,
+          ),
+          back: (
+            light: $color-light-lightness-gingham-back,
+            dark: $color-dark-lightness-gingham-back,
+          ),
+        ),
+      //#endregion gingham
+      //#region stripe
+      stripe: (
+          fore: (
+            light: $color-light-lightness-stripe-fore,
+            dark: $color-dark-lightness-stripe-fore,
+          ),
+          back: (
+            light: $color-light-lightness-stripe-back,
+            dark: $color-dark-lightness-stripe-back,
+          ),
+        ),
+      //#endregion stripe
+      //#endregion backgrounds
+      //#region components
+      //#region accordion
+      accordion: (
+          fore: (
+            light: $color-light-lightness-accordion-fore,
+            dark: $color-dark-lightness-accordion-fore,
+          ),
+          back: (
+            light: $color-light-lightness-accordion-back,
+            dark: $color-dark-lightness-accordion-back,
+          ),
+          border: (
+            light: $color-light-lightness-accordion-border,
+            dark: $color-dark-lightness-accordion-border,
+          ),
+          accordionSummary: (
+            fore: (
+              light: $color-light-lightness-accordion-summary-fore,
+              dark: $color-dark-lightness-accordion-summary-fore,
+            ),
+            back: (
+              light: $color-light-lightness-accordion-summary-back,
+              dark: $color-dark-lightness-accordion-summary-back,
+            ),
+            border: (
+              light: $color-light-lightness-accordion-summary-border,
+              dark: $color-dark-lightness-accordion-summary-border,
+            ),
+          ),
+          accordionDetails: (
+            fore: (
+              light: $color-light-lightness-accordion-details-fore,
+              dark: $color-dark-lightness-accordion-details-fore,
+            ),
+            back: (
+              light: $color-light-lightness-accordion-details-back,
+              dark: $color-dark-lightness-accordion-details-back,
+            ),
+            border: (
+              light: $color-light-lightness-accordion-details-border,
+              dark: $color-dark-lightness-accordion-details-border,
+            ),
+          ),
+        ),
+      //#endregion accordion
+      //#region admin-nav
+      adminNav: (
+          fore: (
+            light: $color-light-lightness-admin-nav-fore,
+            dark: $color-dark-lightness-admin-nav-fore,
+          ),
+          back: (
+            light: $color-light-lightness-admin-nav-back,
+            dark: $color-dark-lightness-admin-nav-back,
+          ),
+          border: (
+            light: $color-light-lightness-admin-nav-border,
+            dark: $color-dark-lightness-admin-nav-border,
+          ),
+          adminNavBrand: (
+            fore: (
+              light: $color-light-lightness-admin-nav-brand-fore,
+              dark: $color-dark-lightness-admin-nav-brand-fore,
+            ),
+            back: (
+              light: $color-light-lightness-admin-nav-brand-back,
+              dark: $color-dark-lightness-admin-nav-brand-back,
+            ),
+            border: (
+              light: $color-light-lightness-admin-nav-brand-border,
+              dark: $color-dark-lightness-admin-nav-brand-border,
+            ),
+          ),
+          adminNavMenu: (
+            fore: (
+              light: $color-light-lightness-admin-nav-menu-fore,
+              dark: $color-dark-lightness-admin-nav-menu-fore,
+            ),
+            back: (
+              light: $color-light-lightness-admin-nav-menu-back,
+              dark: $color-dark-lightness-admin-nav-menu-back,
+            ),
+            border: (
+              light: $color-light-lightness-admin-nav-menu-border,
+              dark: $color-dark-lightness-admin-nav-menu-border,
+            ),
+            adminNavMenuItem: (
+              fore: (
+                light: $color-light-lightness-admin-nav-menu-item-fore,
+                dark: $color-dark-lightness-admin-nav-menu-item-fore,
+              ),
+              back: (
+                light: $color-light-lightness-admin-nav-menu-item-back,
+                dark: $color-dark-lightness-admin-nav-menu-item-back,
+              ),
+              border: (
+                light: $color-light-lightness-admin-nav-menu-item-border,
+                dark: $color-dark-lightness-admin-nav-menu-item-border,
+              ),
+            ),
+          ),
+        ),
+      //#endregion admin-nav
+      //#region badge
+      badge: (
+          fore: (
+            light: $color-light-lightness-badge-fore,
+            dark: $color-dark-lightness-badge-fore,
+          ),
+          back: (
+            light: $color-light-lightness-badge-back,
+            dark: $color-dark-lightness-badge-back,
+          ),
+          border: (
+            light: $color-light-lightness-badge-border,
+            dark: $color-dark-lightness-badge-border,
+          ),
+        ),
+      //#endregion badge
+      //#region blockquote
+      blockquote: (
+          fore: (
+            light: $color-light-lightness-blockquote-fore,
+            dark: $color-dark-lightness-blockquote-fore,
+          ),
+          back: (
+            light: $color-light-lightness-blockquote-back,
+            dark: $color-dark-lightness-blockquote-back,
+          ),
+          border: (
+            light: $color-light-lightness-blockquote-border,
+            dark: $color-dark-lightness-blockquote-border,
+          ),
+        ),
+      //#endregion blockquote
+      //#region breadcrumb
+      breadcrumb: (
+          fore: (
+            light: $color-light-lightness-breadcrumb-fore,
+            dark: $color-dark-lightness-breadcrumb-fore,
+          ),
+          breadcrumbItem: (
+            fore: (
+              light: $color-light-lightness-breadcrumb-item-fore,
+              dark: $color-dark-lightness-breadcrumb-item-fore,
+            ),
+          ),
+          breadcrumbDivider: (
+            fore: (
+              light: $color-light-lightness-breadcrumb-divider-fore,
+              dark: $color-dark-lightness-breadcrumb-divider-fore,
+            ),
+          ),
+        ),
+      //#endregion breadcrumb
+      //#region button
+      button: (
+          fore: (
+            light: $color-light-lightness-button-fore,
+            dark: $color-dark-lightness-button-fore,
+          ),
+          back: (
+            light: $color-light-lightness-button-back,
+            dark: $color-dark-lightness-button-back,
+          ),
+          border: (
+            light: $color-light-lightness-button-border,
+            dark: $color-dark-lightness-button-border,
+          ),
+          shadow: (
+            light: $color-light-lightness-button-shadow,
+            dark: $color-dark-lightness-button-shadow,
+          ),
+        ),
+      //#endregion button
+      //#region card
+      card: (
+          fore: (
+            light: $color-light-lightness-card-fore,
+            dark: $color-dark-lightness-card-fore,
+          ),
+          back: (
+            light: $color-light-lightness-card-back,
+            dark: $color-dark-lightness-card-back,
+          ),
+          border: (
+            light: $color-light-lightness-card-border,
+            dark: $color-dark-lightness-card-border,
+          ),
+          shadow: (
+            light: $color-light-lightness-card-shadow,
+            dark: $color-dark-lightness-card-shadow,
+          ),
+          cardHeader: (
+            fore: (
+              light: $color-light-lightness-card-header-fore,
+              dark: $color-dark-lightness-card-header-fore,
+            ),
+            back: (
+              light: $color-light-lightness-card-header-back,
+              dark: $color-dark-lightness-card-header-back,
+            ),
+          ),
+          cardBody: (
+            fore: (
+              light: $color-light-lightness-card-body-fore,
+              dark: $color-dark-lightness-card-body-fore,
+            ),
+            back: (
+              light: $color-light-lightness-card-body-back,
+              dark: $color-dark-lightness-card-body-back,
+            ),
+          ),
+          cardFooter: (
+            fore: (
+              light: $color-light-lightness-card-footer-fore,
+              dark: $color-dark-lightness-card-footer-fore,
+            ),
+            back: (
+              light: $color-light-lightness-card-footer-back,
+              dark: $color-dark-lightness-card-footer-back,
+            ),
+          ),
+        ),
+      //#endregion card
+      //#region dialog
+      dialog: (
+          fore: (
+            light: $color-light-lightness-dialog-fore,
+            dark: $color-dark-lightness-dialog-fore,
+          ),
+          back: (
+            light: $color-light-lightness-dialog-back,
+            dark: $color-dark-lightness-dialog-back,
+          ),
+          border: (
+            light: $color-light-lightness-dialog-border,
+            dark: $color-dark-lightness-dialog-border,
+          ),
+          dialogAvatar: (
+            fore: (
+              light: $color-light-lightness-dialog-avatar-fore,
+              dark: $color-dark-lightness-dialog-avatar-fore,
+            ),
+            back: (
+              light: $color-light-lightness-dialog-avatar-back,
+              dark: $color-dark-lightness-dialog-avatar-back,
+            ),
+            border: (
+              light: $color-light-lightness-dialog-avatar-border,
+              dark: $color-dark-lightness-dialog-avatar-border,
+            ),
+          ),
+          dialogName: (
+            fore: (
+              light: $color-light-lightness-dialog-name-fore,
+              dark: $color-dark-lightness-dialog-name-fore,
+            ),
+            back: (
+              light: $color-light-lightness-dialog-name-back,
+              dark: $color-dark-lightness-dialog-name-back,
+            ),
+            border: (
+              light: $color-light-lightness-dialog-name-border,
+              dark: $color-dark-lightness-dialog-name-border,
+            ),
+            shadow: (
+              light: $color-light-lightness-dialog-name-shadow,
+              dark: $color-dark-lightness-dialog-name-shadow,
+            ),
+          ),
+          dialogMessage: (
+            fore: (
+              light: $color-light-lightness-dialog-message-fore,
+              dark: $color-dark-lightness-dialog-message-fore,
+            ),
+            back: (
+              light: $color-light-lightness-dialog-message-back,
+              dark: $color-dark-lightness-dialog-message-back,
+            ),
+            border: (
+              light: $color-light-lightness-dialog-message-border,
+              dark: $color-dark-lightness-dialog-message-border,
+            ),
+          ),
+        ),
+      //#endregion dialog
+      //#region header
+      header: (
+          fore: (
+            light: $color-light-lightness-header-fore,
+            dark: $color-dark-lightness-header-fore,
+          ),
+          back: (
+            light: $color-light-lightness-header-back,
+            dark: $color-dark-lightness-header-back,
+          ),
+          shadow: (
+            light: $color-light-lightness-header-shadow,
+            dark: $color-dark-lightness-header-shadow,
+          ),
+        ),
+      //#endregion header
+      //#region label
+      label: (
+          fore: (
+            light: $color-light-lightness-label-fore,
+            dark: $color-dark-lightness-label-fore,
+          ),
+        ),
+      //#endregion label
+      //#region loader
+      loader: (
+          fore: (
+            light: $color-light-lightness-loader-fore,
+            dark: $color-dark-lightness-loader-fore,
+          ),
+        ),
+      //#endregion loader
+      //#region link
+      link: (
+          fore: (
+            light: $color-light-lightness-link-fore,
+            dark: $color-dark-lightness-link-fore,
+          ),
+        ),
+      //#endregion link
+      //#region input
+      input: (
+          fore: (
+            light: $color-light-lightness-input-fore,
+            dark: $color-dark-lightness-input-fore,
+          ),
+          back: (
+            light: $color-light-lightness-input-back,
+            dark: $color-dark-lightness-input-back,
+          ),
+          border: (
+            light: $color-light-lightness-input-border,
+            dark: $color-dark-lightness-input-border,
+          ),
+          placeholder: (
+            light: $color-light-lightness-input-placeholder,
+            dark: $color-dark-lightness-input-placeholder,
+          ),
+          outline: (
+            light: $color-light-lightness-input-outline,
+            dark: $color-dark-lightness-input-outline,
+          ),
+        ),
+      //#endregion input
+      //#region message
+      message: (
+          fore: (
+            light: $color-light-lightness-message-fore,
+            dark: $color-dark-lightness-message-fore,
+          ),
+          back: (
+            light: $color-light-lightness-message-back,
+            dark: $color-dark-lightness-message-back,
+          ),
+          border: (
+            light: $color-light-lightness-message-border,
+            dark: $color-dark-lightness-message-border,
+          ),
+          messageHeader: (
+            fore: (
+              light: $color-light-lightness-message-header-fore,
+              dark: $color-dark-lightness-message-header-fore,
+            ),
+            back: (
+              light: $color-light-lightness-message-header-back,
+              dark: $color-dark-lightness-message-header-back,
+            ),
+          ),
+          messageBody: (
+            fore: (
+              light: $color-light-lightness-message-body-fore,
+              dark: $color-dark-lightness-message-body-fore,
+            ),
+            back: (
+              light: $color-light-lightness-message-body-back,
+              dark: $color-dark-lightness-message-body-back,
+            ),
+          ),
+        ),
+      //#endregion message
+      //#region nav
+      nav: (
+          fore: (
+            light: $color-light-lightness-nav-fore,
+            dark: $color-dark-lightness-nav-fore,
+          ),
+          back: (
+            light: $color-light-lightness-nav-back,
+            dark: $color-dark-lightness-nav-back,
+          ),
+          border: (
+            light: $color-light-lightness-nav-border,
+            dark: $color-dark-lightness-nav-border,
+          ),
+          navMenu: (
+            navMenuItem: (
+              fore: (
+                light: $color-light-lightness-nav-fore,
+                dark: $color-dark-lightness-nav-fore,
+              ),
+              shadow: (
+                light: $color-light-lightness-nav-menu-item-shadow,
+                dark: $color-dark-lightness-nav-menu-item-shadow,
+              ),
+            ),
+          ),
+        ),
+      //#endregion nav
+      progress: (
+          fore: (
+            light: $color-light-lightness-progress-fore,
+            dark: $color-dark-lightness-progress-fore,
+          ),
+          back: (
+            light: $color-light-lightness-progress-back,
+            dark: $color-dark-lightness-progress-back,
+          ),
+        ),
+      tile: (
+        fore: (
+          light: $color-light-lightness-tile-fore,
+          dark: $color-dark-lightness-tile-fore,
+        ),
+        back: (
+          light: $color-light-lightness-tile-back,
+          dark: $color-dark-lightness-tile-back,
+        ),
+        shadow: (
+          light: $color-light-lightness-tile-shadow,
+          dark: $color-dark-lightness-tile-shadow,
+        ),
+        tileHeader: (
+          fore: (
+            light: $color-light-lightness-tile-header-fore,
+            dark: $color-dark-lightness-tile-header-fore,
+          ),
+          back: (
+            light: $color-light-lightness-tile-header-back,
+            dark: $color-dark-lightness-tile-header-back,
+          ),
+          border: (
+            light: $color-light-lightness-tile-header-border,
+            dark: $color-dark-lightness-tile-header-border,
+          ),
+        ),
       ),
-      dialogName: (
-        fore: "050",
-        back: "900",
-        border: "900",
-      ),
-      dialogMessage: (
-        fore: "050",
-        back: "900",
-        border: "900",
-      ),
+      //#endregion components
     ),
-  ),
   //#endregion plain
   //#region disabled
   (
-    name: "disabled",
-    fore: "050",
-    back: "950",
-    border: "600",
-    placeholder: "650",
-    shadow: "700",
-    adminNav: (
-      adminNavMenu: (
-        adminNavMenuItem: (
-          fore: "400",
-          back: "600",
-          border: "600",
-        ),
+      name: "disabled",
+      fore: (
+        light: $color-light-lightness-fore +
+          $color-light-lightness-offset-disabled-fore,
+        dark: $color-dark-lightness-fore +
+          $color-dark-lightness-offset-disabled-fore,
       ),
+      back: (
+        light: $color-light-lightness-back + $color-lightness-offset-disabled,
+        dark: $color-dark-lightness-back + $color-lightness-offset-disabled,
+      ),
+      border: (
+        light: $color-light-lightness-border + $color-lightness-offset-disabled,
+        dark: $color-dark-lightness-border + $color-lightness-offset-disabled,
+      ),
+      placeholder: (
+        light: $color-light-lightness-placeholder +
+          $color-lightness-offset-disabled,
+        dark: $color-dark-lightness-placeholder +
+          $color-lightness-offset-disabled,
+      ),
+      shadow: (
+        light: $color-light-lightness-shadow + $color-lightness-offset-disabled,
+        dark: $color-dark-lightness-shadow + $color-lightness-offset-disabled,
+      ),
+      //#region accordion
+      accordion: (
+          accordionSummary: (
+            fore: (
+              light: $color-light-lightness-accordion-summary-fore +
+                $color-light-lightness-offset-disabled-fore,
+              dark: $color-dark-lightness-accordion-summary-fore +
+                $color-dark-lightness-offset-disabled-fore,
+            ),
+            back: (
+              light: $color-light-lightness-accordion-summary-back +
+                $color-lightness-offset-disabled,
+              dark: $color-dark-lightness-accordion-summary-back +
+                $color-lightness-offset-disabled,
+            ),
+            border: (
+              light: $color-light-lightness-accordion-summary-border +
+                $color-lightness-offset-disabled,
+              dark: $color-dark-lightness-accordion-summary-border +
+                $color-lightness-offset-disabled,
+            ),
+          ),
+        ),
+      //#endregion accordion
+      //#region admin-nav
+      adminNav: (
+          adminNavMenu: (
+            adminNavMenuItem: (
+              fore: (
+                light: $color-light-lightness-admin-nav-menu-item-fore +
+                  $color-light-lightness-offset-disabled-fore,
+                dark: $color-dark-lightness-admin-nav-menu-item-fore +
+                  $color-light-lightness-offset-disabled-fore,
+              ),
+              back: (
+                light: $color-light-lightness-admin-nav-menu-item-back +
+                  $color-lightness-offset-disabled,
+                dark: $color-dark-lightness-admin-nav-menu-item-back +
+                  $color-lightness-offset-disabled,
+              ),
+              border: (
+                light: $color-light-lightness-admin-nav-menu-item-border +
+                  $color-lightness-offset-disabled,
+                dark: $color-dark-lightness-admin-nav-menu-item-border +
+                  $color-lightness-offset-disabled,
+              ),
+            ),
+          ),
+        ),
+      //#endregion admin-nav
+      //#region badge
+      badge: (
+          fore: (
+            light: $color-light-lightness-badge-fore +
+              $color-light-lightness-offset-disabled-fore,
+            dark: $color-dark-lightness-badge-fore +
+              $color-dark-lightness-offset-disabled-fore,
+          ),
+          back: (
+            light: $color-light-lightness-badge-back +
+              $color-lightness-offset-disabled,
+            dark: $color-dark-lightness-badge-back +
+              $color-lightness-offset-disabled,
+          ),
+          border: (
+            light: $color-light-lightness-badge-border +
+              $color-lightness-offset-disabled,
+            dark: $color-dark-lightness-badge-border +
+              $color-lightness-offset-disabled,
+          ),
+        ),
+      //#endregion badge
+      //#region button
+      button: (
+          fore: (
+            light: $color-light-lightness-button-fore +
+              $color-light-lightness-offset-disabled-fore,
+            dark: $color-dark-lightness-button-fore +
+              $color-dark-lightness-offset-disabled-fore,
+          ),
+          back: (
+            light: $color-light-lightness-button-back +
+              $color-lightness-offset-disabled,
+            dark: $color-dark-lightness-button-back +
+              $color-lightness-offset-disabled,
+          ),
+          border: (
+            light: $color-light-lightness-button-border +
+              $color-lightness-offset-disabled,
+            dark: $color-dark-lightness-button-border +
+              $color-lightness-offset-disabled,
+          ),
+          shadow: (
+            light: $color-light-lightness-button-shadow +
+              $color-lightness-offset-disabled,
+            dark: $color-dark-lightness-button-shadow +
+              $color-lightness-offset-disabled,
+          ),
+        ),
+      //#endregion button
+      //#region nav
+      nav: (
+          navMenu: (
+            navMenuItem: (
+              fore: (
+                light: $color-light-lightness-nav-fore +
+                  $color-light-lightness-offset-disabled-fore,
+                dark: $color-dark-lightness-nav-fore +
+                  $color-light-lightness-offset-disabled-fore,
+              ),
+              shadow: (
+                light: $color-light-lightness-nav-menu-item-shadow +
+                  $color-lightness-offset-disabled,
+                dark: $color-dark-lightness-nav-menu-item-shadow +
+                  $color-lightness-offset-disabled,
+              ),
+            ),
+          ),
+        ),
+      //#endregion nav
     ),
-    button: (
-      fore: "400",
-      back: "600",
-      border: "600",
-    ),
-  ),
   //#endregion disabled
   //#region hover
   (
-    name: "hover",
-    fore: "050",
-    back: "950",
-    border: "600",
-    placeholder: "650",
-    shadow: "700",
-    accordion: (
-      accordionSummary: (
-        fore: "050",
-        back: "550",
-        border: "550",
+      name: "hover",
+      fore: (
+        light: $color-light-lightness-fore + $color-lightness-offset-hover,
+        dark: $color-dark-lightness-fore + $color-lightness-offset-hover,
       ),
+      back: (
+        light: $color-light-lightness-back + $color-lightness-offset-hover,
+        dark: $color-dark-lightness-back + $color-lightness-offset-hover,
+      ),
+      border: (
+        light: $color-light-lightness-border + $color-lightness-offset-hover,
+        dark: $color-dark-lightness-border + $color-lightness-offset-hover,
+      ),
+      placeholder: (
+        light: $color-light-lightness-placeholder +
+          $color-lightness-offset-hover,
+        dark: $color-dark-lightness-placeholder + $color-lightness-offset-hover,
+      ),
+      shadow: (
+        light: $color-light-lightness-shadow + $color-lightness-offset-hover,
+        dark: $color-dark-lightness-shadow + $color-lightness-offset-hover,
+      ),
+      accordion: (
+        accordionSummary: (
+          fore: (
+            light: $color-light-lightness-accordion-summary-fore +
+              $color-lightness-offset-hover,
+            dark: $color-dark-lightness-accordion-summary-fore +
+              $color-lightness-offset-hover,
+          ),
+          back: (
+            light: $color-light-lightness-accordion-summary-back +
+              $color-lightness-offset-hover,
+            dark: $color-dark-lightness-accordion-summary-back +
+              $color-lightness-offset-hover,
+          ),
+          border: (
+            light: $color-light-lightness-accordion-summary-border +
+              $color-lightness-offset-hover,
+            dark: $color-dark-lightness-accordion-summary-border +
+              $color-lightness-offset-hover,
+          ),
+        ),
+      ),
+      //#region admin-nav
+      adminNav: (
+          adminNavMenu: (
+            adminNavMenuItem: (
+              fore: (
+                light: $color-light-lightness-admin-nav-menu-item-fore +
+                  $color-lightness-offset-hover,
+                dark: $color-dark-lightness-admin-nav-menu-item-fore +
+                  $color-lightness-offset-hover,
+              ),
+              back: (
+                light: $color-light-lightness-admin-nav-menu-item-back +
+                  $color-lightness-offset-hover,
+                dark: $color-dark-lightness-admin-nav-menu-item-back +
+                  $color-lightness-offset-hover,
+              ),
+              border: (
+                light: $color-light-lightness-admin-nav-menu-item-border +
+                  $color-lightness-offset-hover,
+                dark: $color-dark-lightness-admin-nav-menu-item-border +
+                  $color-lightness-offset-hover,
+              ),
+            ),
+          ),
+        ),
+      //#endregion admin-nav
+      badge: (
+          fore: (
+            light: $color-light-lightness-badge-fore,
+            dark: $color-dark-lightness-badge-fore +
+              $color-lightness-offset-hover,
+          ),
+          back: (
+            light: $color-light-lightness-badge-back +
+              $color-lightness-offset-hover,
+            dark: $color-dark-lightness-badge-back +
+              $color-lightness-offset-hover,
+          ),
+          border: (
+            light: $color-light-lightness-badge-border +
+              $color-lightness-offset-hover,
+            dark: $color-dark-lightness-badge-border +
+              $color-lightness-offset-hover,
+          ),
+        ),
+      button: (
+        fore: (
+          light: $color-light-lightness-button-fore +
+            $color-lightness-offset-hover,
+          dark: $color-dark-lightness-button-fore +
+            $color-lightness-offset-hover,
+        ),
+        back: (
+          light: $color-light-lightness-button-back +
+            $color-lightness-offset-hover,
+          dark: $color-dark-lightness-button-back +
+            $color-lightness-offset-hover,
+        ),
+        border: (
+          light: $color-light-lightness-button-border +
+            $color-lightness-offset-hover,
+          dark: $color-dark-lightness-button-border +
+            $color-lightness-offset-hover,
+        ),
+        shadow: (
+          light: $color-light-lightness-button-shadow +
+            $color-lightness-offset-hover,
+          dark: $color-dark-lightness-button-shadow +
+            $color-lightness-offset-hover,
+        ),
+      ),
+      //#region nav
+      nav: (
+          navMenu: (
+            navMenuItem: (
+              fore: (
+                light: $color-light-lightness-nav-fore +
+                  $color-lightness-offset-hover,
+                dark: $color-dark-lightness-nav-fore +
+                  $color-lightness-offset-hover,
+              ),
+              shadow: (
+                light: $color-light-lightness-nav-menu-item-shadow +
+                  $color-lightness-offset-hover,
+                dark: $color-dark-lightness-nav-menu-item-shadow +
+                  $color-lightness-offset-hover,
+              ),
+            ),
+          ),
+        ),
+      //#endregion nav
     ),
-    button: (
-      fore: "050",
-      back: "550",
-      border: "550",
-    ),
-  ),
   //#endregion hover
   //#region focus
   (
-    name: "focus",
-    fore: "050",
-    back: "950",
-    border: "600",
-    placeholder: "650",
-    shadow: "700",
-    accordion: (
-      accordionSummary: (
-        fore: "050",
-        back: "600",
-        border: "600",
+      name: "focus",
+      fore: (
+        light: $color-light-lightness-fore + $color-lightness-offset-focus,
+        dark: $color-dark-lightness-fore + $color-lightness-offset-focus,
       ),
-    ),
-    adminNav: (
-      adminNavMenu: (
-        adminNavMenuItem: (
-          fore: "050",
-          back: "600",
-          border: "600",
+      back: (
+        light: $color-light-lightness-back + $color-lightness-offset-focus,
+        dark: $color-dark-lightness-back + $color-lightness-offset-focus,
+      ),
+      border: (
+        light: $color-light-lightness-border + $color-lightness-offset-focus,
+        dark: $color-dark-lightness-border + $color-lightness-offset-focus,
+      ),
+      placeholder: (
+        light: $color-light-lightness-placeholder +
+          $color-lightness-offset-focus,
+        dark: $color-dark-lightness-placeholder + $color-lightness-offset-focus,
+      ),
+      shadow: (
+        light: $color-light-lightness-shadow + $color-lightness-offset-focus,
+        dark: $color-dark-lightness-shadow + $color-lightness-offset-focus,
+      ),
+      accordion: (
+        accordionSummary: (
+          fore: (
+            light: $color-light-lightness-accordion-summary-fore,
+            dark: $color-dark-lightness-accordion-summary-fore,
+          ),
+          back: (
+            light: $color-light-lightness-accordion-summary-back,
+            dark: $color-dark-lightness-accordion-summary-back,
+          ),
+          border: (
+            light: $color-light-lightness-accordion-summary-border,
+            dark: $color-dark-lightness-accordion-summary-border,
+          ),
         ),
       ),
+      //#region admin-nav
+      adminNav: (
+          adminNavMenu: (
+            adminNavMenuItem: (
+              fore: (
+                light: $color-light-lightness-admin-nav-menu-item-fore,
+                dark: $color-dark-lightness-admin-nav-menu-item-fore,
+              ),
+              back: (
+                light: $color-light-lightness-admin-nav-menu-item-back,
+                dark: $color-dark-lightness-admin-nav-menu-item-back,
+              ),
+              border: (
+                light: $color-light-lightness-admin-nav-menu-item-border,
+                dark: $color-dark-lightness-admin-nav-menu-item-border,
+              ),
+            ),
+          ),
+        ),
+      //#endregion admin-nav
+      badge: (
+          fore: (
+            light: $color-light-lightness-badge-fore,
+            dark: $color-dark-lightness-badge-fore,
+          ),
+          back: (
+            light: $color-light-lightness-badge-back,
+            dark: $color-dark-lightness-badge-back,
+          ),
+          border: (
+            light: $color-light-lightness-badge-border,
+            dark: $color-dark-lightness-badge-border,
+          ),
+        ),
+      button: (
+        fore: (
+          light: $color-light-lightness-button-fore,
+          dark: $color-dark-lightness-button-fore,
+        ),
+        back: (
+          light: $color-light-lightness-button-back,
+          dark: $color-dark-lightness-button-back,
+        ),
+        border: (
+          light: $color-light-lightness-button-border,
+          dark: $color-dark-lightness-button-border,
+        ),
+        shadow: (
+          light: $color-light-lightness-button-shadow,
+          dark: $color-dark-lightness-button-shadow,
+        ),
+      ),
+      //#region input
+      input: (
+          back: (
+            light: $color-light-lightness-input-back,
+            dark: $color-dark-lightness-input-back,
+          ),
+          border: (
+            light: $color-light-lightness-input-border +
+              $color-lightness-offset-focus,
+            dark: $color-dark-lightness-input-border +
+              $color-lightness-offset-focus,
+          ),
+        ),
+      //#endregion input
+      //#region nav
+      nav: (
+          navMenu: (
+            navMenuItem: (
+              fore: (
+                light: $color-light-lightness-nav-fore,
+                dark: $color-dark-lightness-nav-fore,
+              ),
+              shadow: (
+                light: $color-light-lightness-nav-menu-item-shadow,
+                dark: $color-dark-lightness-nav-menu-item-shadow,
+              ),
+            ),
+          ),
+        ),
+      //#endregion nav
     ),
-    button: (
-      fore: "050",
-      back: "600",
-      border: "600",
-    ),
-  ),
   //#endregion focus
   //#region active
   (
-    name: "active",
-    fore: "050",
-    back: "950",
-    border: "600",
-    placeholder: "650",
-    shadow: "700",
-    accordion: (
-      accordionSummary: (
-        fore: "050",
-        back: "500",
-        border: "500",
+      name: "active",
+      fore: (
+        light: $color-light-lightness-fore + $color-lightness-offset-active,
+        dark: $color-dark-lightness-fore + $color-lightness-offset-active,
       ),
-    ),
-    adminNav: (
-      adminNavMenu: (
-        adminNavMenuItem: (
-          fore: "050",
-          back: "500",
-          border: "500",
+      back: (
+        light: $color-light-lightness-back + $color-lightness-offset-active,
+        dark: $color-dark-lightness-back + $color-lightness-offset-active,
+      ),
+      border: (
+        light: $color-light-lightness-border + $color-lightness-offset-active,
+        dark: $color-dark-lightness-border + $color-lightness-offset-active,
+      ),
+      placeholder: (
+        light: $color-light-lightness-placeholder +
+          $color-lightness-offset-active,
+        dark: $color-dark-lightness-placeholder + $color-lightness-offset-active,
+      ),
+      shadow: (
+        light: $color-light-lightness-shadow + $color-lightness-offset-active,
+        dark: $color-dark-lightness-shadow + $color-lightness-offset-active,
+      ),
+      accordion: (
+        accordionSummary: (
+          fore: (
+            light: $color-light-lightness-accordion-summary-fore +
+              $color-lightness-offset-active,
+            dark: $color-dark-lightness-accordion-summary-fore +
+              $color-lightness-offset-active,
+          ),
+          back: (
+            light: $color-light-lightness-accordion-summary-back +
+              $color-lightness-offset-active,
+            dark: $color-dark-lightness-accordion-summary-back +
+              $color-lightness-offset-active,
+          ),
         ),
       ),
+      //#region admin-nav
+      adminNav: (
+          adminNavMenu: (
+            adminNavMenuItem: (
+              fore: (
+                light: $color-light-lightness-admin-nav-menu-item-fore +
+                  $color-lightness-offset-active,
+                dark: $color-dark-lightness-admin-nav-menu-item-fore +
+                  $color-lightness-offset-active,
+              ),
+              back: (
+                light: $color-light-lightness-admin-nav-menu-item-back +
+                  $color-lightness-offset-active,
+                dark: $color-dark-lightness-admin-nav-menu-item-back +
+                  $color-lightness-offset-active,
+              ),
+              border: (
+                light: $color-light-lightness-admin-nav-menu-item-border +
+                  $color-lightness-offset-active,
+                dark: $color-dark-lightness-admin-nav-menu-item-border +
+                  $color-lightness-offset-active,
+              ),
+            ),
+          ),
+        ),
+      //#endregion admin-nav
+      badge: (
+          fore: (
+            light: $color-light-lightness-badge-fore,
+            dark: $color-dark-lightness-badge-fore,
+          ),
+          back: (
+            light: $color-light-lightness-badge-back +
+              $color-lightness-offset-active,
+            dark: $color-dark-lightness-badge-back +
+              $color-lightness-offset-active,
+          ),
+          border: (
+            light: $color-light-lightness-badge-border +
+              $color-lightness-offset-active,
+            dark: $color-dark-lightness-badge-border +
+              $color-lightness-offset-active,
+          ),
+        ),
+      button: (
+        fore: (
+          light: $color-light-lightness-button-fore,
+          dark: $color-dark-lightness-button-fore,
+        ),
+        back: (
+          light: $color-light-lightness-button-back +
+            $color-lightness-offset-active,
+          dark: $color-dark-lightness-button-back +
+            $color-lightness-offset-active,
+        ),
+        border: (
+          light: $color-light-lightness-button-border +
+            $color-lightness-offset-active,
+          dark: $color-dark-lightness-button-border +
+            $color-lightness-offset-active,
+        ),
+        shadow: (
+          light: $color-light-lightness-button-shadow +
+            $color-lightness-offset-active,
+          dark: $color-dark-lightness-button-shadow +
+            $color-lightness-offset-active,
+        ),
+      ),
+      //#region nav
+      nav: (
+          navMenu: (
+            navMenuItem: (
+              fore: (
+                light: $color-light-lightness-nav-fore +
+                  $color-lightness-offset-active,
+                dark: $color-dark-lightness-nav-fore +
+                  $color-lightness-offset-active,
+              ),
+              shadow: (
+                light: $color-light-lightness-nav-menu-item-shadow +
+                  $color-lightness-offset-active,
+                dark: $color-dark-lightness-nav-menu-item-shadow +
+                  $color-lightness-offset-active,
+              ),
+            ),
+          ),
+        ),
+      //#endregion nav
     ),
-    button: (
-      fore: "050",
-      back: "500",
-      border: "500",
-    ),
-  ),
   //#endregion active
   //#region visited
   (
-    name: "visited",
-    fore: "050",
-    back: "950",
-    border: "600",
-    placeholder: "650",
-    shadow: "700",
-  ),
-  //#endregion visited
-);
-
-$colorDarkShades: (
-  //#region plain
-  (
-    name: "plain",
-    fore: "950",
-    back: "050",
-    border: "400",
-    placeholder: "400",
-    shadow: "300",
-    dot: (
-      fore: "150",
-      back: "050",
-    ),
-    gingham: (
-      fore: "150",
-      back: "050",
-    ),
-    stripe: (
-      fore: "150",
-      back: "050",
-    ),
-    accordion: (
-      fore: "950",
-      back: "050",
-      border: "400",
-      accordionSummary: (
-        fore: "950",
-        back: "400",
-        border: "400",
+      name: "visited",
+      fore: (
+        light: $color-light-lightness-fore + $color-lightness-offset-visited,
+        dark: $color-dark-lightness-fore + $color-lightness-offset-visited,
       ),
-      accordionDetails: (
-        fore: "950",
-        back: "050",
-        border: "400",
+      back: (
+        light: $color-light-lightness-back + $color-lightness-offset-visited,
+        dark: $color-dark-lightness-back + $color-lightness-offset-visited,
       ),
-    ),
-    adminNav: (
-      fore: "950",
-      back: "400",
-      border: "400",
-      adminNavBrand: (
-        fore: "950",
-        back: "400",
-        border: "400",
+      border: (
+        light: $color-light-lightness-border + $color-lightness-offset-visited,
+        dark: $color-dark-lightness-border + $color-lightness-offset-visited,
       ),
-      adminNavMenu: (
-        fore: "950",
-        back: "400",
-        border: "400",
-        adminNavMenuItem: (
-          fore: "950",
-          back: "400",
-          border: "400",
+      placeholder: (
+        light: $color-light-lightness-placeholder +
+          $color-lightness-offset-visited,
+        dark: $color-dark-lightness-placeholder +
+          $color-lightness-offset-visited,
+      ),
+      shadow: (
+        light: $color-light-lightness-shadow + $color-lightness-offset-visited,
+        dark: $color-dark-lightness-shadow + $color-lightness-offset-visited,
+      ),
+      badge: (
+        fore: (
+          light: $color-light-lightness-badge-fore,
+          dark: $color-dark-lightness-badge-fore,
+        ),
+        back: (
+          light: $color-light-lightness-badge-back,
+          dark: $color-dark-lightness-badge-back,
+        ),
+        border: (
+          light: $color-light-lightness-badge-border,
+          dark: $color-dark-lightness-badge-border,
         ),
       ),
-    ),
-    breadcrumb: (
-      fore: "700",
-    ),
-    button: (
-      fore: "950",
-      back: "400",
-      border: "400",
-    ),
-    dialog: (
-      fore: "950",
-      back: "100",
-      border: "100",
-      dialogAvatar: (
-        fore: "950",
-        back: "100",
-        border: "100",
-      ),
-      dialogName: (
-        fore: "950",
-        back: "100",
-        border: "100",
-      ),
-      dialogMessage: (
-        fore: "950",
-        back: "100",
-        border: "100",
-      ),
-    ),
-  ),
-  //#endregion plain
-  //#region disabled
-  (
-    name: "disabled",
-    fore: "950",
-    back: "050",
-    border: "600",
-    placeholder: "600",
-    shadow: "600",
-    adminNav: (
-      adminNavMenu: (
-        adminNavMenuItem: (
-          fore: "600",
-          back: "400",
-          border: "400",
+      button: (
+        fore: (
+          light: $color-light-lightness-button-fore,
+          dark: $color-dark-lightness-button-fore,
+        ),
+        back: (
+          light: $color-light-lightness-button-back,
+          dark: $color-dark-lightness-button-back,
+        ),
+        border: (
+          light: $color-light-lightness-button-border,
+          dark: $color-dark-lightness-button-border,
+        ),
+        shadow: (
+          light: $color-light-lightness-button-shadow,
+          dark: $color-dark-lightness-button-shadow,
         ),
       ),
-    ),
-    button: (
-      fore: "600",
-      back: "400",
-      border: "400",
-    ),
-  ),
-  //#endregion disabled
-  //#region hover
-  (
-    name: "hover",
-    fore: "950",
-    back: "050",
-    border: "600",
-    placeholder: "650",
-    shadow: "700",
-    accordion: (
-      accordionSummary: (
-        fore: "950",
-        back: "350",
-        border: "350",
-      ),
-    ),
-    adminNav: (
-      adminNavMenu: (
-        adminNavMenuItem: (
-          fore: "950",
-          back: "350",
-          border: "350",
+      link: (
+        fore: (
+          light: $color-light-lightness-link-fore +
+            $color-lightness-offset-visited,
+          dark: $color-dark-lightness-link-fore +
+            $color-lightness-offset-visited,
         ),
       ),
-    ),
-    button: (
-      fore: "950",
-      back: "350",
-      border: "350",
-    ),
-  ),
-  //#endregion hover
-  //#region focus
-  (
-    name: "focus",
-    fore: "950",
-    back: "050",
-    border: "600",
-    placeholder: "650",
-    shadow: "700",
-    accordion: (
-      accordionSummary: (
-        fore: "950",
-        back: "400",
-        border: "400",
-      ),
-    ),
-    adminNav: (
-      adminNavMenu: (
-        adminNavMenuItem: (
-          fore: "950",
-          back: "400",
-          border: "400",
-        ),
-      ),
-    ),
-    button: (
-      fore: "950",
-      back: "400",
-      border: "400",
-    ),
-  ),
-  //#endregion focus
-  //#region active
-  (
-    name: "active",
-    fore: "050",
-    back: "950",
-    border: "600",
-    placeholder: "650",
-    shadow: "700",
-    accordion: (
-      accordionSummary: (
-        fore: "950",
-        back: "300",
-        border: "300",
-      ),
-    ),
-    adminNav: (
-      adminNavMenu: (
-        adminNavMenuItem: (
-          fore: "950",
-          back: "300",
-          border: "300",
-        ),
-      ),
-    ),
-    button: (
-      fore: "950",
-      back: "300",
-      border: "300",
-    ),
-  ),
-  //#endregion active
-  //#region visited
-  (
-    name: "visited",
-    fore: "950",
-    back: "050",
-    border: "600",
-    placeholder: "650",
-    shadow: "700",
-  ),
-  //#endregion visited
-);
+    ) //#endregion visited
+) !default;
 
 //#region define colors array
 
+/// @type List
+/// @group variables
 $colors: (
   "gray",
   "red",
@@ -475,8 +1510,10 @@ $colors: (
   "blue",
   "violet",
   "magenta"
-);
+) !default;
 
+/// @type List
+/// @group variables
 $colorsWithProperties: (
   (
     "name": "gray",
@@ -522,6 +1559,6 @@ $colorsWithProperties: (
     "name": "magenta",
     "hue": $color-hue-magenta,
   )
-);
+) !default;
 
 //#endregion define colors array

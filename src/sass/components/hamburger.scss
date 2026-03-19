@@ -5,7 +5,8 @@ $hamburger-size: 3.5rem;
 $hamburger-line-height: 0.2rem;
 $hamburger-line-color: var(--#{variables.$prefix}color-default-border);
 
-.hamburger {
+/// @group components
+:where(.hamburger) {
   @include mixins.base();
   color: var(--#{variables.$prefix}color-default-fore);
   border-radius: 0.25rem;
@@ -36,21 +37,23 @@ $hamburger-line-color: var(--#{variables.$prefix}color-default-border);
     width: $hamburger-size;
   }
   .upperpatty {
-    animation: hamburger-upperpatty .75s forwards;
+    animation: hamburger-upperpatty 0.75s forwards;
     background-color: $hamburger-line-color;
     height: $hamburger-line-height;
-    top: calc((-1 * #{$hamburger-line-height}) - (#{$hamburger-size} / 5) + 50%);
+    top: calc(
+      (-1 * #{$hamburger-line-height}) - (#{$hamburger-size} / 5) + 50%
+    );
     width: calc(#{$hamburger-size} / 5 * 3);
   }
   .club {
     background-color: $hamburger-line-color;
     height: $hamburger-line-height;
     top: calc((-1 * #{$hamburger-line-height}) + 50%);
-    transition: all .25s .25s;
+    transition: all 0.25s 0.25s;
     width: calc(#{$hamburger-size} / 5 * 3);
   }
   .lowerpatty {
-    animation: hamburger-lowerpatty .75s forwards;
+    animation: hamburger-lowerpatty 0.75s forwards;
     background-color: $hamburger-line-color;
     height: $hamburger-line-height;
     top: calc((-1 * #{$hamburger-line-height}) + (#{$hamburger-size}/ 5) + 50%);
@@ -65,28 +68,31 @@ $hamburger-line-color: var(--#{variables.$prefix}color-default-border);
   }
   &.is-active {
     .upperpatty {
-      animation: hamburger-upperpatty-is-active .75s forwards;
+      animation: hamburger-upperpatty-is-active 0.75s forwards;
       top: 50%;
     }
     .club {
       opacity: 0;
     }
     .lowerpatty {
-      animation: hamburger-lowerpatty-is-active .75s forwards;
+      animation: hamburger-lowerpatty-is-active 0.75s forwards;
       top: 50%;
     }
   }
-  @each $color in variables.$colors {
-    &.is-#{$color} {
-      color: var(--#{variables.$prefix}color-#{$color}-fore);
-      .upperpatty {
-        background-color: var(--#{variables.$prefix}color-#{$color}-border);
-      }
-      .club {
-        background-color: var(--#{variables.$prefix}color-#{$color}-border);
-      }
-      .lowerpatty {
-        background-color: var(--#{variables.$prefix}color-#{$color}-border);
+
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        color: var(--#{variables.$prefix}color-#{$color}-fore);
+        .upperpatty {
+          background-color: var(--#{variables.$prefix}color-#{$color}-border);
+        }
+        .club {
+          background-color: var(--#{variables.$prefix}color-#{$color}-border);
+        }
+        .lowerpatty {
+          background-color: var(--#{variables.$prefix}color-#{$color}-border);
+        }
       }
     }
   }
@@ -104,20 +110,24 @@ $hamburger-line-color: var(--#{variables.$prefix}color-default-border);
   }
   100% {
     transform: rotate(0deg);
-    top: calc((-1 * #{$hamburger-line-height}) - (#{$hamburger-size} / 5) + 50%);
+    top: calc(
+      (-1 * #{$hamburger-line-height}) - (#{$hamburger-size} / 5) + 50%
+    );
   }
 }
 
-@keyframes hamburger-upperpatty-is-active{
+@keyframes hamburger-upperpatty-is-active {
   0% {
     transform: rotate(0deg);
-    top: calc((-1 * #{$hamburger-line-height}) - (#{$hamburger-size} / 5) + 50%);
+    top: calc(
+      (-1 * #{$hamburger-line-height}) - (#{$hamburger-size} / 5) + 50%
+    );
   }
   50% {
     transform: rotate(0deg);
     top: calc((-1 * #{$hamburger-line-height}) + 50%);
   }
-  100%{
+  100% {
     transform: rotate(45deg);
     top: calc((-1 * #{$hamburger-line-height}) + 50%);
   }
@@ -133,13 +143,17 @@ $hamburger-line-color: var(--#{variables.$prefix}color-default-border);
   }
   100% {
     transform: rotate(0deg);
-    top: calc((-1 * #{$hamburger-line-height}) + (#{$hamburger-size} / 5) + 50%);
+    top: calc(
+      (-1 * #{$hamburger-line-height}) + (#{$hamburger-size} / 5) + 50%
+    );
   }
 }
 @keyframes hamburger-lowerpatty-is-active {
   0% {
     transform: rotate(0deg);
-    top: calc((-1 * #{$hamburger-line-height}) + (#{$hamburger-size} / 5) + 50%);
+    top: calc(
+      (-1 * #{$hamburger-line-height}) + (#{$hamburger-size} / 5) + 50%
+    );
   }
   50% {
     transform: rotate(0deg);

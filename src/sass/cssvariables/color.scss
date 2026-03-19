@@ -2,15 +2,742 @@
 @use "sass:string";
 @use "../variables/index.scss" as variables;
 @use "../mixins/index.scss" as mixins;
+@use "../functions/index.scss" as functions;
 
-:root {
-  $white-oklch: #{variables.$color-lightness-white} #{variables.$color-chroma-gray}
-    #{variables.$color-hue-gray};
+@mixin setColor(
+  $colorShade,
+  $lightnessOffset,
+  $srcColorName,
+  $destColorName,
+  $pseudoClassName,
+  $componentName: ""
+) {
+  $destPseudoClassName: "";
+  @if ($pseudoClassName != "plain") {
+    $destPseudoClassName: "-#{$pseudoClassName}";
+  }
+
+  $component: "";
+  @if ($componentName != "") {
+    $component: "-#{$componentName}";
+  }
+
+  $fore: map.get($colorShade, "fore");
+  @if ($fore != null) {
+    $light: map.get($fore, "light");
+    $dark: map.get($fore, "dark");
+    @if ($light != null and $dark != null) {
+      $lightStr: functions.lightnessNumberToString(
+        $light + $lightnessOffset
+      );
+      $darkStr: functions.lightnessNumberToString(
+        $dark + $lightnessOffset
+      );
+      --#{variables.$prefix}color-#{$destColorName}#{$component}#{$destPseudoClassName}-fore: light-dark(
+        var(--#{variables.$prefix}color-#{$srcColorName}-#{$lightStr}),
+        var(--#{variables.$prefix}color-#{$srcColorName}-#{$darkStr})
+      );
+    }
+  }
+
+  $back: map.get($colorShade, "back");
+  @if ($back != null) {
+    $light: map.get($back, "light");
+    $dark: map.get($back, "dark");
+    @if ($light != null and $dark != null) {
+      $lightStr: functions.lightnessNumberToString(
+        $light + $lightnessOffset
+      );
+      $darkStr: functions.lightnessNumberToString(
+        $dark + $lightnessOffset
+      );
+      --#{variables.$prefix}color-#{$destColorName}#{$component}#{$destPseudoClassName}-back: light-dark(
+        var(--#{variables.$prefix}color-#{$srcColorName}-#{$lightStr}),
+        var(--#{variables.$prefix}color-#{$srcColorName}-#{$darkStr})
+      );
+    }
+  }
+
+  $border: map.get($colorShade, "border");
+  @if ($border != null) {
+    $light: map.get($border, "light");
+    $dark: map.get($border, "dark");
+    @if ($light != null and $dark != null) {
+      $lightStr: functions.lightnessNumberToString(
+        $light + $lightnessOffset
+      );
+      $darkStr: functions.lightnessNumberToString(
+        $dark + $lightnessOffset
+      );
+      --#{variables.$prefix}color-#{$destColorName}#{$component}#{$destPseudoClassName}-border: light-dark(
+        var(--#{variables.$prefix}color-#{$srcColorName}-#{$lightStr}),
+        var(--#{variables.$prefix}color-#{$srcColorName}-#{$darkStr})
+      );
+    }
+  }
+
+  $placeholder: map.get($colorShade, "placeholder");
+  @if ($placeholder != null) {
+    $light: map.get($placeholder, "light");
+    $dark: map.get($placeholder, "dark");
+    @if ($light != null and $dark != null) {
+      $lightStr: functions.lightnessNumberToString(
+        $light + $lightnessOffset
+      );
+      $darkStr: functions.lightnessNumberToString(
+        $dark + $lightnessOffset
+      );
+      --#{variables.$prefix}color-#{$destColorName}#{$component}#{$destPseudoClassName}-placeholder: light-dark(
+        var(--#{variables.$prefix}color-#{$srcColorName}-#{$lightStr}),
+        var(--#{variables.$prefix}color-#{$srcColorName}-#{$darkStr})
+      );
+    }
+  }
+
+  $shadow: map.get($colorShade, "shadow");
+  @if ($shadow != null) {
+    $light: map.get($shadow, "light");
+    $dark: map.get($shadow, "dark");
+    @if ($light != null and $dark != null) {
+      $lightStr: functions.lightnessNumberToString(
+        $light + $lightnessOffset
+      );
+      $darkStr: functions.lightnessNumberToString(
+        $dark + $lightnessOffset
+      );
+      --#{variables.$prefix}color-#{$destColorName}#{$component}#{$destPseudoClassName}-shadow: light-dark(
+        var(--#{variables.$prefix}color-#{$srcColorName}-#{$lightStr}),
+        var(--#{variables.$prefix}color-#{$srcColorName}-#{$darkStr})
+      );
+    }
+  }
+
+  $outline: map.get($colorShade, "outline");
+  @if ($outline != null) {
+    $light: map.get($outline, "light");
+    $dark: map.get($outline, "dark");
+    @if ($light != null and $dark != null) {
+      $lightStr: functions.lightnessNumberToString(
+        $light + $lightnessOffset
+      );
+      $darkStr: functions.lightnessNumberToString(
+        $dark + $lightnessOffset
+      );
+      --#{variables.$prefix}color-#{$destColorName}#{$component}#{$destPseudoClassName}-outline: light-dark(
+        var(--#{variables.$prefix}color-#{$srcColorName}-#{$lightStr}),
+        var(--#{variables.$prefix}color-#{$srcColorName}-#{$darkStr})
+      );
+    }
+  }
+}
+
+@mixin setColorShade(
+  $colorShade,
+  $lightnessOffset,
+  $srcColorName,
+  $destColorName,
+  $pseudoClassName
+) {
+  @include setColor(
+    $colorShade,
+    $lightnessOffset,
+    $srcColorName,
+    $destColorName,
+    $pseudoClassName
+  );
+
+  $selection: map.get($colorShade, "selection");
+  @if ($selection != null) {
+    @include setColor(
+      $selection,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "selection"
+    );
+  }
+
+  //#region backgrounds
+
+  //#region dot
+  $dot: map.get($colorShade, "dot");
+  @if ($dot != null) {
+    @include setColor(
+      $dot,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "dot"
+    );
+  }
+  //#endregion dot
+
+  //#region gingham
+  $gingham: map.get($colorShade, "gingham");
+  @if ($gingham != null) {
+    @include setColor(
+      $gingham,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "gingham"
+    );
+  }
+  //#endregion gingham
+
+  //#region stripe
+  $stripe: map.get($colorShade, "stripe");
+  @if ($stripe != null) {
+    @include setColor(
+      $stripe,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "stripe"
+    );
+  }
+  //#endregion stripe
+
+  //#endregion backgrounds
+
+  //#region components
+
+  //#region accordion
+  $accordion: map.get($colorShade, "accordion");
+  @if ($accordion != null) {
+    @include setColor(
+      $accordion,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "accordion"
+    );
+
+    $accordionSummary: map.get($accordion, "accordionSummary");
+    @if ($accordionSummary != null) {
+      @include setColor(
+        $accordionSummary,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "accordion-summary"
+      );
+    }
+
+    $accordionDetails: map.get($accordion, "accordionDetails");
+    @if ($accordionDetails != null) {
+      @include setColor(
+        $accordionDetails,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "accordion-details"
+      );
+    }
+  }
+  //#endregion accordion
+
+  //#region admin-nav
+  $adminNav: map.get($colorShade, "adminNav");
+  @if ($adminNav != null) {
+    @include setColor(
+      $adminNav,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "admin-nav"
+    );
+    $adminNavBrand: map.get($adminNav, "adminNavBrand");
+    @if ($adminNavBrand != null) {
+      @include setColor(
+        $adminNavBrand,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "admin-nav-brand"
+      );
+    }
+    $adminNavMenu: map.get($adminNav, "adminNavMenu");
+    @if ($adminNavMenu != null) {
+      @include setColor(
+        $adminNavMenu,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "admin-nav-menu"
+      );
+      $adminNavMenuItem: map.get($adminNavMenu, "adminNavMenuItem");
+      @if ($adminNavMenuItem != null) {
+        @include setColor(
+          $adminNavMenuItem,
+          $lightnessOffset,
+          $srcColorName,
+          $destColorName,
+          $pseudoClassName,
+          "admin-nav-menu-item"
+        );
+      }
+    }
+  }
+  //#endregion admin-nav
+
+  //#region badge
+  $badge: map.get($colorShade, "badge");
+  @if ($badge != null) {
+    @include setColor(
+      $badge,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "badge"
+    );
+  }
+  //#endregion badge
+
+  //#region blockquote
+  $blockquote: map.get($colorShade, "blockquote");
+  @if ($blockquote != null) {
+    @include setColor(
+      $blockquote,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "blockquote"
+    );
+  }
+  //#endregion blockquote
+
+  //#region breadcrumb
+  $breadcrumb: map.get($colorShade, "breadcrumb");
+  @if ($breadcrumb != null) {
+    @include setColor(
+      $breadcrumb,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "breadcrumb"
+    );
+
+    $breadcrumbItem: map.get($breadcrumb, "breadcrumbItem");
+    @if ($breadcrumbItem != null) {
+      @include setColor(
+        $breadcrumbItem,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "breadcrumb-item"
+      );
+    }
+    $breadcrumbDivider: map.get($breadcrumb, "breadcrumbDivider");
+    @if ($breadcrumbDivider != null) {
+      @include setColor(
+        $breadcrumbDivider,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "breadcrumb-divider"
+      );
+    }
+  }
+  //#endregion breadcrumb
+
+  //#region button
+  $button: map.get($colorShade, "button");
+  @if ($button != null) {
+    @include setColor(
+      $button,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "button"
+    );
+  }
+  //#endregion button
+
+  //#region card
+  $card: map.get($colorShade, "card");
+  @if ($card != null) {
+    @include setColor(
+      $card,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "card"
+    );
+
+    $cardHeader: map.get($card, "cardHeader");
+    @if ($cardHeader != null) {
+      @include setColor(
+        $cardHeader,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "card-header"
+      );
+    }
+
+    $cardBody: map.get($card, "cardBody");
+    @if ($cardBody != null) {
+      @include setColor(
+        $cardBody,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "card-body"
+      );
+    }
+
+    $cardFooter: map.get($card, "cardFooter");
+    @if ($cardFooter != null) {
+      @include setColor(
+        $cardFooter,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "card-footer"
+      );
+    }
+  }
+  //#endregion card
+
+  //#region dialog
+  $dialog: map.get($colorShade, "dialog");
+  @if ($dialog != null) {
+    @include setColor(
+      $dialog,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "dialog"
+    );
+
+    $dialogAvatar: map.get($dialog, "dialogAvatar");
+    @if ($dialogAvatar != null) {
+      @include setColor(
+        $dialogAvatar,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "dialog-avatar"
+      );
+    }
+
+    $dialogName: map.get($dialog, "dialogName");
+    @if ($dialogName != null) {
+      @include setColor(
+        $dialogName,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "dialog-name"
+      );
+    }
+
+    $dialogMessage: map.get($dialog, "dialogMessage");
+    @if ($dialogMessage != null) {
+      @include setColor(
+        $dialogMessage,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "dialog-message"
+      );
+    }
+  }
+  //#endregion dialog
+
+  //#region footer
+  $footer: map.get($colorShade, "footer");
+  @if ($footer != null) {
+    @include setColor(
+      $footer,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "footer"
+    );
+  }
+  //#endregion footer
+
+  //#region header
+  $header: map.get($colorShade, "header");
+  @if ($header != null) {
+    @include setColor(
+      $header,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "header"
+    );
+  }
+  //#endregion header
+
+  //#region input
+  $input: map.get($colorShade, "input");
+  @if ($input != null) {
+    @include setColor(
+      $input,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "input"
+    );
+  }
+  //#endregion input
+
+  //#region label
+  $label: map.get($colorShade, "label");
+  @if ($label != null) {
+    @include setColor(
+      $label,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "label"
+    );
+  }
+  //#endregion label
+
+  //#region link
+  $link: map.get($colorShade, "link");
+  @if ($link != null) {
+    @include setColor(
+      $link,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "link"
+    );
+  }
+  //#endregion link
+
+  //#region list
+  $list: map.get($colorShade, "list");
+  @if ($list != null) {
+    @include setColor(
+      $list,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "list"
+    );
+  }
+  //#endregion list
+
+  //#region loader
+  $loader: map.get($colorShade, "loader");
+  @if ($loader != null) {
+    @include setColor(
+      $loader,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "loader"
+    );
+  }
+  //#endregion loader
+
+  //#region main
+  $main: map.get($colorShade, "main");
+  @if ($main != null) {
+    @include setColor(
+      $main,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "main"
+    );
+  }
+  //#endregion main
+
+  //#region message
+  $message: map.get($colorShade, "message");
+  @if ($message != null) {
+    @include setColor(
+      $message,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "message"
+    );
+
+    $messageHeader: map.get($message, "messageHeader");
+    @if ($messageHeader != null) {
+      @include setColor(
+        $messageHeader,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "message-header"
+      );
+    }
+
+    $messageBody: map.get($message, "messageBody");
+    @if ($messageBody != null) {
+      @include setColor(
+        $messageBody,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "message-body"
+      );
+    }
+  }
+  //#endregion message
+
+  //#region nav
+  $nav: map.get($colorShade, "nav");
+  @if ($nav != null) {
+    @include setColor(
+      $nav,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "nav"
+    );
+    $navMenu: map.get($nav, "navMenu");
+    @if ($navMenu != null) {
+      @include setColor(
+        $navMenu,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "nav-menu"
+      );
+      $navMenuItem: map.get($navMenu, "navMenuItem");
+      @if ($navMenuItem != null) {
+        @include setColor(
+          $navMenuItem,
+          $lightnessOffset,
+          $srcColorName,
+          $destColorName,
+          $pseudoClassName,
+          "nav-menu-item"
+        );
+      }
+    }
+  }
+  //#endregion nav
+
+  //#region progress
+  $progress: map.get($colorShade, "progress");
+  @if ($progress != null) {
+    @include setColor(
+      $progress,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "progress"
+    );
+  }
+  //#endregion progress
+
+  //#region tile
+  $tile: map.get($colorShade, "tile");
+  @if ($tile != null) {
+    @include setColor(
+      $tile,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "tile"
+    );
+
+    $tileHeader: map.get($tile, "tileHeader");
+    @if ($tileHeader != null) {
+      @include setColor(
+        $tileHeader,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "tile-header"
+      );
+      $tileHeaderText: map.get($tileHeader, "tileHeaderText");
+      @if ($tileHeaderText != null) {
+        @include setColor(
+          $tileHeaderText,
+          $lightnessOffset,
+          $srcColorName,
+          $destColorName,
+          $pseudoClassName,
+          "tile-header-text"
+        );
+      }
+    }
+  }
+  //#endregion tile
+
+  //#endregion components
+}
+
+@mixin setColorShades($colorShades) {
+  @each $colorShade in $colorShades {
+    $pseudoClassName: map.get($colorShade, "name");
+
+    @include setColorShade($colorShade, 0, "gray", "default", $pseudoClassName);
+
+    @each $colorName in variables.$colors {
+      @include setColorShade(
+        $colorShade,
+        0,
+        $colorName,
+        $colorName,
+        $pseudoClassName
+      );
+    }
+  }
+}
+
+:where(:root) {
+  color-scheme: light dark;
+
+  $white-oklch: #{variables.$color-lightness-white}
+    #{variables.$color-chroma-gray} #{variables.$color-hue-gray};
   --#{variables.$prefix}color-white-oklch: #{$white-oklch};
   --#{variables.$prefix}color-white: oklch(#{$white-oklch});
 
-  $black-oklch: #{variables.$color-lightness-black} #{variables.$color-chroma-gray}
-    #{variables.$color-hue-gray};
+  $black-oklch: #{variables.$color-lightness-black}
+    #{variables.$color-chroma-gray} #{variables.$color-hue-gray};
   --#{variables.$prefix}color-black-oklch: #{$black-oklch};
   --#{variables.$prefix}color-black: oklch(#{$black-oklch});
 
@@ -55,360 +782,26 @@
       --#{variables.$prefix}color-#{$name}-#{$p}: oklch(#{$oklch});
     }
   }
+
+  @include setColorShades(variables.$colorShades);
 }
 
-@mixin setColor($colorObj, $colorName, $pseudoClassName, $componentName: "") {
-  $srcColorName: $colorName;
-  $destColorName: $colorName;
-
-  @if ($colorName == "default") {
-    $srcColorName: "gray";
-  }
-
-  $destPseudoClassName: "";
-  @if ($pseudoClassName != "plain") {
-    $destPseudoClassName: "-#{$pseudoClassName}";
-  }
-
-  $fore: map.get($colorObj, "fore");
-  @if ($fore != null) {
-    --#{variables.$prefix}color-#{$destColorName}#{$destPseudoClassName}#{$componentName}-fore: var(
-      --#{variables.$prefix}color-#{$srcColorName}-#{$fore}
-    );
-    --#{variables.$prefix}color-#{$destColorName}#{$destPseudoClassName}#{$componentName}-fore-oklch: var(
-      --#{variables.$prefix}color-#{$srcColorName}-#{$fore}-oklch
-    );
-  }
-
-  $back: map.get($colorObj, "back");
-  @if ($back != null) {
-    --#{variables.$prefix}color-#{$destColorName}#{$destPseudoClassName}#{$componentName}-back: var(
-      --#{variables.$prefix}color-#{$srcColorName}-#{$back}
-    );
-    --#{variables.$prefix}color-#{$destColorName}#{$destPseudoClassName}#{$componentName}-back-oklch: var(
-      --#{variables.$prefix}color-#{$srcColorName}-#{$back}-oklch
-    );
-  }
-
-  $border: map.get($colorObj, "border");
-  @if ($border != null) {
-    --#{variables.$prefix}color-#{$destColorName}#{$destPseudoClassName}#{$componentName}-border: var(
-      --#{variables.$prefix}color-#{$srcColorName}-#{$border}
-    );
-    --#{variables.$prefix}color-#{$destColorName}#{$destPseudoClassName}#{$componentName}-border-oklch: var(
-      --#{variables.$prefix}color-#{$srcColorName}-#{$border}-oklch
-    );
-  }
-
-  $placeholder: map.get($colorObj, "placeholder");
-  @if ($placeholder != null) {
-    --#{variables.$prefix}color-#{$destColorName}#{$destPseudoClassName}#{$componentName}-placeholder: var(
-      --#{variables.$prefix}color-#{$srcColorName}-#{$placeholder}
-    );
-    --#{variables.$prefix}color-#{$destColorName}#{$destPseudoClassName}#{$componentName}-placeholder-oklch: var(
-      --#{variables.$prefix}color-#{$srcColorName}-#{$placeholder}-oklch
-    );
-  }
-
-  $shadow: map.get($colorObj, "shadow");
-  @if ($shadow != null) {
-    --#{variables.$prefix}color-#{$destColorName}#{$destPseudoClassName}#{$componentName}-shadow: var(
-      --#{variables.$prefix}color-#{$srcColorName}-#{$shadow}
-    );
-    --#{variables.$prefix}color-#{$destColorName}#{$destPseudoClassName}#{$componentName}-shadow-oklch: var(
-      --#{variables.$prefix}color-#{$srcColorName}-#{$shadow}-oklch
-    );
+@media (prefers-color-scheme: light) {
+  :root {
+    color-scheme: light;
   }
 }
 
-@mixin setColorShades($colorShades) {
-  @each $colorShade in $colorShades {
-    $pseudoName: map.get($colorShade, "name");
-
-    @include setColor($colorShade, "default", $pseudoName);
-
-    //#region dot
-    $dot: map.get($colorShade, "dot");
-    @if ($dot != null) {
-      @include setColor($dot, "default", $pseudoName, "-dot");
-    }
-    //#endregion dot
-
-    //#region gingham
-    $gingham: map.get($colorShade, "gingham");
-    @if ($gingham != null) {
-      @include setColor($gingham, "default", $pseudoName, "-gingham");
-    }
-    //#endregion gingham
-
-    //#region stripe
-    $stripe: map.get($colorShade, "stripe");
-    @if ($stripe != null) {
-      @include setColor($stripe, "default", $pseudoName, "-stripe");
-    }
-    //#endregion stripe
-
-    //#region accordion
-    $accordion: map.get($colorShade, "accordion");
-    @if ($accordion != null) {
-      @include setColor($accordion, "default", $pseudoName, "-accordion");
-      $accordionSummary: map.get($accordion, "accordionSummary");
-      @if ($accordionSummary != null) {
-        @include setColor(
-          $accordionSummary,
-          "default",
-          $pseudoName,
-          "-accordion-summary"
-        );
-      }
-      $accordionDetails: map.get($accordion, "accordionDetails");
-      @if ($accordionDetails != null) {
-        @include setColor(
-          $accordionDetails,
-          "default",
-          $pseudoName,
-          "-accordion-details"
-        );
-      }
-    }
-    //#endregion accordion
-
-    //#region admin-nav
-    $adminNav: map.get($colorShade, "adminNav");
-    @if ($adminNav != null) {
-      @include setColor($adminNav, "default", $pseudoName, "-admin-nav");
-      $adminNavBrand: map.get($adminNav, "adminNavBrand");
-      @if ($adminNavBrand != null) {
-        @include setColor(
-          $adminNavBrand,
-          "default",
-          $pseudoName,
-          "-admin-nav-brand"
-        );
-      }
-      $adminNavMenu: map.get($adminNav, "adminNavMenu");
-      @if ($adminNavMenu != null) {
-        @include setColor(
-          $adminNavMenu,
-          "default",
-          $pseudoName,
-          "-admin-nav-menu"
-        );
-        $adminNavMenuItem: map.get($adminNavMenu, "adminNavMenuItem");
-        @if ($adminNavMenuItem != null) {
-          @include setColor(
-            $adminNavMenuItem,
-            "default",
-            $pseudoName,
-            "-admin-nav-menu-item"
-          );
-        }
-      }
-    }
-    //#endregion admin-nav
-
-    //#region breadcrumb
-    $breadcrumb: map.get($colorShade, "breadcrumb");
-    @if ($breadcrumb != null) {
-      @include setColor($breadcrumb, "default", $pseudoName, "-breadcrumb");
-    }
-    //#endregion breadcrumb
-
-    //#region button
-    $button: map.get($colorShade, "button");
-    @if ($button != null) {
-      @include setColor($button, "default", $pseudoName, "-button");
-    }
-    //#endregion button
-
-    //#region dialog
-    $dialog: map.get($colorShade, "dialog");
-    @if ($dialog != null) {
-      @include setColor($dialog, "default", $pseudoName, "-dialog");
-
-      $dialogAvatar: map.get($dialog, "dialogAvatar");
-      @if ($dialogAvatar != null) {
-        @include setColor(
-          $dialogAvatar,
-          "default",
-          $pseudoName,
-          "-dialog-avatar"
-        );
-      }
-
-      $dialogName: map.get($dialog, "dialogName");
-      @if ($dialogName != null) {
-        @include setColor($dialogName, "default", $pseudoName, "-dialog-name");
-      }
-
-      $dialogMessage: map.get($dialog, "dialogMessage");
-      @if ($dialogMessage != null) {
-        @include setColor(
-          $dialogMessage,
-          "default",
-          $pseudoName,
-          "-dialog-message"
-        );
-      }
-    }
-    //#endregion dialog
-
-    @each $colorName in variables.$colors {
-      @include setColor($colorShade, $colorName, $pseudoName);
-
-      //#region dot
-      $dot: map.get($colorShade, "dot");
-      @if ($dot != null) {
-        @include setColor($dot, $colorName, $pseudoName, "-dot");
-      }
-      //#endregion dot
-
-      //#region gingham
-      $gingham: map.get($colorShade, "gingham");
-      @if ($gingham != null) {
-        @include setColor($gingham, $colorName, $pseudoName, "-gingham");
-      }
-      //#endregion gingham
-
-      //#region stripe
-      $stripe: map.get($colorShade, "stripe");
-      @if ($stripe != null) {
-        @include setColor($stripe, $colorName, $pseudoName, "-stripe");
-      }
-      //#endregion stripe
-
-      //#region accordion
-      $accordion: map.get($colorShade, "accordion");
-      @if ($accordion != null) {
-        @include setColor($accordion, $colorName, $pseudoName, "-accordion");
-        $accordionSummary: map.get($accordion, "accordionSummary");
-        @if ($accordionSummary != null) {
-          @include setColor(
-            $accordionSummary,
-            $colorName,
-            $pseudoName,
-            "-accordion-summary"
-          );
-        }
-        $accordionDetails: map.get($accordion, "accordionDetails");
-        @if ($accordionDetails != null) {
-          @include setColor(
-            $accordionDetails,
-            $colorName,
-            $pseudoName,
-            "-accordion-details"
-          );
-        }
-      }
-      //#endregion accordion
-
-      //#region admin-nav
-      $adminNav: map.get($colorShade, "adminNav");
-      @if ($adminNav != null) {
-        @include setColor($adminNav, $colorName, $pseudoName, "-admin-nav");
-        $adminNavBrand: map.get($adminNav, "adminNavBrand");
-        @if ($adminNavBrand != null) {
-          @include setColor(
-            $adminNavBrand,
-            $colorName,
-            $pseudoName,
-            "-admin-nav-brand"
-          );
-        }
-        $adminNavMenu: map.get($adminNav, "adminNavMenu");
-        @if ($adminNavMenu != null) {
-          @include setColor(
-            $adminNavMenu,
-            $colorName,
-            $pseudoName,
-            "-admin-nav-menu"
-          );
-          $adminNavMenuItem: map.get($adminNavMenu, "adminNavMenuItem");
-          @if ($adminNavMenuItem != null) {
-            @include setColor(
-              $adminNavMenuItem,
-              $colorName,
-              $pseudoName,
-              "-admin-nav-menu-item"
-            );
-          }
-        }
-      }
-      //#endregion admin-nav
-
-      //#region breadcrumb
-      $breadcrumb: map.get($colorShade, "breadcrumb");
-      @if ($breadcrumb != null) {
-        @include setColor($breadcrumb, $colorName, $pseudoName, "-breadcrumb");
-      }
-      //#endregion breadcrumb
-
-      //#region button
-      $button: map.get($colorShade, "button");
-      @if ($button != null) {
-        @include setColor($button, $colorName, $pseudoName, "-button");
-      }
-      //#endregion button
-
-      //#region dialog
-      $dialog: map.get($colorShade, "dialog");
-      @if ($dialog != null) {
-        @include setColor($dialog, $colorName, $pseudoName, "-dialog");
-
-        $dialogAvatar: map.get($dialog, "dialogAvatar");
-        @if ($dialogAvatar != null) {
-          @include setColor(
-            $dialogAvatar,
-            $colorName,
-            $pseudoName,
-            "-dialog-avatar"
-          );
-        }
-
-        $dialogName: map.get($dialog, "dialogName");
-        @if ($dialogName != null) {
-          @include setColor(
-            $dialogName,
-            $colorName,
-            $pseudoName,
-            "-dialog-name"
-          );
-        }
-
-        $dialogMessage: map.get($dialog, "dialogMessage");
-        @if ($dialogMessage != null) {
-          @include setColor(
-            $dialogMessage,
-            $colorName,
-            $pseudoName,
-            "-dialog-message"
-          );
-        }
-      }
-      //#endregion dialog
-
-    }
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
   }
 }
 
-@mixin colorLight() {
+[data-color-scheme="light"] {
   color-scheme: light;
-  @include setColorShades(variables.$colorLightShades);
 }
 
-@mixin colorDark() {
+[data-color-scheme="dark"] {
   color-scheme: dark;
-  @include setColorShades(variables.$colorDarkShades);
-}
-
-:root {
-  @include colorLight();
-}
-
-@include mixins.setCssVariableColorScheme("light") {
-  @include colorLight();
-}
-
-@include mixins.setCssVariableColorScheme("dark") {
-  @include colorDark();
 }

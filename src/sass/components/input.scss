@@ -189,55 +189,148 @@
   height: 2.5rem;
 }
 
-.input {
+/// @group components
+:where(.input) {
+  --#{variables.$prefix}input-color-fore: var(
+    --#{variables.$prefix}color-default-input-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}input-color-back: var(
+    --#{variables.$prefix}color-default-input-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}input-color-border: var(
+    --#{variables.$prefix}color-default-input-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+  --#{variables.$prefix}input-color-placeholder: var(
+    --#{variables.$prefix}color-default-input-placeholder,
+    var(--#{variables.$prefix}color-default-placeholder)
+  );
+  --#{variables.$prefix}input-color-outline: var(
+    --#{variables.$prefix}color-default-input-outline,
+    var(--#{variables.$prefix}color-default-outline)
+  );
+
+  --#{variables.$prefix}input-focus-color-fore: var(
+    --#{variables.$prefix}color-default-input-focus-fore,
+    var(--#{variables.$prefix}color-default-focus-fore)
+  );
+  --#{variables.$prefix}input-focus-color-back: var(
+    --#{variables.$prefix}color-default-input-focus-back,
+    var(--#{variables.$prefix}color-default-focus-back)
+  );
+  --#{variables.$prefix}input-focus-color-border: var(
+    --#{variables.$prefix}color-default-input-focus-border,
+    var(--#{variables.$prefix}color-default-focus-border)
+  );
+
+  --#{variables.$prefix}input-disabled-color-fore: var(
+    --#{variables.$prefix}color-default-input-disabled-fore,
+    var(--#{variables.$prefix}color-default-disabled-fore)
+  );
+  --#{variables.$prefix}input-disabled-color-back: var(
+    --#{variables.$prefix}color-default-input-disabled-back,
+    var(--#{variables.$prefix}color-default-disabled-back)
+  );
+  --#{variables.$prefix}input-disabled-color-border: var(
+    --#{variables.$prefix}color-default-input-disabled-border,
+    var(--#{variables.$prefix}color-default-disabled-border)
+  );
+
+  --#{variables.$prefix}input-border-width: var(
+    --#{variables.$prefix}border-width-medium
+  );
+  --#{variables.$prefix}input-outline-width: var(
+    --#{variables.$prefix}border-width-xthin
+  );
+
   @include mixins.base();
-  background-color: var(--#{variables.$prefix}color-default-back);
-  border-color: var(--#{variables.$prefix}color-default-border);
+  background-color: var(--#{variables.$prefix}input-color-back);
+  border-color: var(--#{variables.$prefix}input-color-border);
   border-radius: 0.5rem;
   border-style: solid;
-  border-width: var(--#{variables.$prefix}border-width-medium);
+  border-width: var(--#{variables.$prefix}input-border-width);
+  color: var(--#{variables.$prefix}input-color-fore);
   padding: 0.5rem;
   &::placeholder {
-    color: var(--#{variables.$prefix}color-default-placeholder);
+    color: var(--#{variables.$prefix}input-color-placeholder);
   }
   &:focus,
   &.is-focus,
   &.is-focused {
-    background-color: var(--#{variables.$prefix}color-default-focus-back);
-    border-color: var(--#{variables.$prefix}color-default-focus-border);
+    background-color: var(--#{variables.$prefix}input-focus-color-back);
+    border-color: var(--#{variables.$prefix}input-focus-color-border);
+    color: var(--#{variables.$prefix}input-focus-color-fore);
+  }
+  &:focus-visible {
+    outline-style: solid;
+    outline-offset: calc(
+      (-1 * var(--#{variables.$prefix}input-border-width) / 2) -
+        (var(--#{variables.$prefix}input-outline-width) / 2)
+    );
+    outline-color: var(--#{variables.$prefix}input-color-outline);
+    outline-width: var(--#{variables.$prefix}input-outline-width);
   }
   &[disabled],
   fieldset[disabled],
   &.is-disabled {
-    background-color: var(--#{variables.$prefix}color-default-disabled-back);
-    border-color: var(--#{variables.$prefix}color-default-disabled-border);
+    background-color: var(--#{variables.$prefix}input-disabled-color-back);
+    border-color: var(--#{variables.$prefix}input-disabled-color-border);
+    color: var(--#{variables.$prefix}input-disabled-color-fore);
   }
-  @each $color in variables.$colors {
-    &.is-#{$color} {
-      background-color: var(--#{variables.$prefix}color-#{$color}-back);
-      border-color: var(--#{variables.$prefix}color-#{$color}-border);
-      color: var(--#{variables.$prefix}color-#{$color}-fore);
-      &::placeholder {
-        color: var(--#{variables.$prefix}color-#{$color}-placeholder);
-      }
-      &:focus,
-      &.is-focus,
-      &.is-focused {
-        background-color: var(--#{variables.$prefix}color-#{$color}-focus-back);
-        border-color: var(--#{variables.$prefix}color-#{$color}-focus-border);
-      }
-      &[disabled],
-      fieldset[disabled],
-      &.is-disabled {
-        background-color: var(
-          --#{variables.$prefix}color-#{$color}-disabled-back
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        --#{variables.$prefix}input-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-input-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
         );
-        border-color: var(
-          --#{variables.$prefix}color-#{$color}-disabled-border
+        --#{variables.$prefix}input-color-back: var(
+          --#{variables.$prefix}color-#{$color}-input-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
+        );
+        --#{variables.$prefix}input-color-border: var(
+          --#{variables.$prefix}color-#{$color}-input-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
+        );
+        --#{variables.$prefix}input-color-placeholder: var(
+          --#{variables.$prefix}color-#{$color}-input-placeholder,
+          var(--#{variables.$prefix}color-#{$color}-placeholder)
+        );
+        --#{variables.$prefix}input-color-outline: var(
+          --#{variables.$prefix}color-#{$color}-input-outline,
+          var(--#{variables.$prefix}color-#{$color}-outline)
+        );
+
+        --#{variables.$prefix}input-focus-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-input-focus-fore,
+          var(--#{variables.$prefix}color-#{$color}-focus-fore)
+        );
+        --#{variables.$prefix}input-focus-color-back: var(
+          --#{variables.$prefix}color-#{$color}-input-focus-back,
+          var(--#{variables.$prefix}color-#{$color}-focus-back)
+        );
+        --#{variables.$prefix}input-focus-color-border: var(
+          --#{variables.$prefix}color-#{$color}-input-focus-border,
+          var(--#{variables.$prefix}color-#{$color}-focus-border)
+        );
+        --#{variables.$prefix}input-disabled-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-input-disabled-fore,
+          var(--#{variables.$prefix}color-#{$color}-disabled-fore)
+        );
+        --#{variables.$prefix}input-disabled-color-back: var(
+          --#{variables.$prefix}color-#{$color}-input-disabled-back,
+          var(--#{variables.$prefix}color-#{$color}-disabled-back)
+        );
+        --#{variables.$prefix}input-disabled-color-border: var(
+          --#{variables.$prefix}color-#{$color}-input-disabled-border,
+          var(--#{variables.$prefix}color-#{$color}-disabled-border)
         );
       }
     }
   }
+
   &[type="color"] {
     @extend .input-color;
   }

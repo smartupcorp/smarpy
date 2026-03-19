@@ -1,10 +1,20 @@
 @use "../variables/index.scss" as variables;
 @use "../mixins/index.scss" as mixins;
 
-.modal {
+/// @group components
+:where(.modal) {
+  --#{variables.$prefix}modal-color-back: oklch(
+    from
+      var(
+        --#{variables.$prefix}color-default-modal-back,
+        var(--#{variables.$prefix}color-default-back)
+      )
+      l c h / 0.75
+  );
+
   @include mixins.base();
   align-items: center;
-  background-color: oklch(var(--#{variables.$prefix}color-default-back-oklch) / 0.75);
+  background-color: var(--#{variables.$prefix}modal-color-back);
   display: none;
   flex-direction: column;
   height: 100%;
@@ -29,9 +39,21 @@
     overflow-y: auto;
     z-index: var(--#{variables.$prefix}z-index-modal-content);
   }
-  @each $color in variables.$colors {
-    &.is-#{$color} {
-      background-color: oklch(var(--#{variables.$prefix}color-#{$color}-back-oklch) / 0.75);
+
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        --#{variables.$prefix}modal-color-back: oklch(
+          from var(
+              --#{variables.$prefix}color-#{$color}-modal-back,
+              var(--#{variables.$prefix}color-#{$color}-back)
+            )
+            l
+            c
+            h /
+            0.75
+        );
+      }
     }
   }
 }

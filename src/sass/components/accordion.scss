@@ -2,22 +2,140 @@
 @use "../variables/index.scss" as variables;
 @use "../icons/index.scss" as icons;
 
-.accordion {
+/// @group components
+:where(.accordion) {
+  --#{variables.$prefix}accordion-color-fore: var(
+    --#{variables.$prefix}color-default-accordion-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}accordion-color-back: var(
+    --#{variables.$prefix}color-default-accordion-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}accordion-color-border: var(
+    --#{variables.$prefix}color-default-accordion-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+  --#{variables.$prefix}accordion-selection-color-fore: var(
+    --#{variables.$prefix}color-default-accordion-selection-fore,
+    var(--#{variables.$prefix}color-default-selection-fore)
+  );
+  --#{variables.$prefix}accordion-selection-color-back: var(
+    --#{variables.$prefix}color-default-accordion-selection-back,
+    var(--#{variables.$prefix}color-default-selection-back)
+  );
+
+  --#{variables.$prefix}accordion-summary-color-fore: var(
+    --#{variables.$prefix}color-default-accordion-summary-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}accordion-summary-color-back: var(
+    --#{variables.$prefix}color-default-accordion-summary-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}accordion-summary-color-border: var(
+    --#{variables.$prefix}color-default-accordion-summary-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+  --#{variables.$prefix}accordion-details-color-fore: var(
+    --#{variables.$prefix}color-default-accordion-details-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}accordion-details-color-back: var(
+    --#{variables.$prefix}color-default-accordion-details-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}accordion-details-color-border: var(
+    --#{variables.$prefix}color-default-accordion-details-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+
+  --#{variables.$prefix}accordion-summary-focus-color-fore: var(
+    --#{variables.$prefix}color-default-accordion-summary-focus-fore,
+    var(--#{variables.$prefix}color-default-focus-fore)
+  );
+  --#{variables.$prefix}accordion-summary-focus-color-back: var(
+    --#{variables.$prefix}color-default-accordion-summary-focus-back,
+    var(--#{variables.$prefix}color-default-focus-back)
+  );
+  --#{variables.$prefix}accordion-summary-focus-color-border: var(
+    --#{variables.$prefix}color-default-accordion-summary-focus-border,
+    var(--#{variables.$prefix}color-default-focus-border)
+  );
+
+  --#{variables.$prefix}accordion-summary-hover-color-fore: var(
+    --#{variables.$prefix}color-default-accordion-summary-hover-fore,
+    var(--#{variables.$prefix}color-default-hover-fore)
+  );
+  --#{variables.$prefix}accordion-summary-hover-color-back: var(
+    --#{variables.$prefix}color-default-accordion-summary-hover-back,
+    var(--#{variables.$prefix}color-default-hover-back)
+  );
+  --#{variables.$prefix}accordion-summary-hover-color-border: var(
+    --#{variables.$prefix}color-default-accordion-summary-hover-border,
+    var(--#{variables.$prefix}color-default-hover-border)
+  );
+
+  --#{variables.$prefix}accordion-summary-active-color-fore: var(
+    --#{variables.$prefix}color-default-accordion-summary-active-fore,
+    var(--#{variables.$prefix}color-default-active-fore)
+  );
+  --#{variables.$prefix}accordion-summary-active-color-back: var(
+    --#{variables.$prefix}color-default-accordion-summary-active-back,
+    var(--#{variables.$prefix}color-default-active-back)
+  );
+  --#{variables.$prefix}accordion-summary-active-color-border: var(
+    --#{variables.$prefix}color-default-accordion-summary-active-border,
+    var(--#{variables.$prefix}color-default-active-border)
+  );
+
+  --#{variables.$prefix}accordion-summary-disabled-color-fore: var(
+    --#{variables.$prefix}color-default-accordion-summary-disabled-fore,
+    var(--#{variables.$prefix}color-default-disabled-fore)
+  );
+  --#{variables.$prefix}accordion-summary-disabled-color-back: var(
+    --#{variables.$prefix}color-default-accordion-summary-disabled-back,
+    var(--#{variables.$prefix}color-default-disabled-back)
+  );
+  --#{variables.$prefix}accordion-summary-disabled-color-border: var(
+    --#{variables.$prefix}color-default-accordion-summary-disabled-border,
+    var(--#{variables.$prefix}color-default-disabled-border)
+  );
+
+  --#{variables.$prefix}accordion-border-width: var(
+    --#{variables.$prefix}border-width-thin
+  );
+  --#{variables.$prefix}accordion-border-radius: var(
+    --#{variables.$prefix}border-radius-small
+  );
+  --#{variables.$prefix}accordion-border-summary-radius: calc(
+    var(--#{variables.$prefix}border-radius-small) +
+      var(--#{variables.$prefix}accordion-border-width)
+  );
+  --#{variables.$prefix}accordion-border-details-radius: calc(
+    var(--#{variables.$prefix}border-radius-small) +
+      var(--#{variables.$prefix}accordion-border-width)
+  );
+
   @include mixins.base();
-  color: var(--#{variables.$prefix}color-default-accordion-fore);
-  background-color: var(--#{variables.$prefix}color-default-accordion-back);
-  border-color: var(--#{variables.$prefix}color-default-accordion-border);
-  border-width: var(--#{variables.$prefix}border-width-thin);
+  color: var(--#{variables.$prefix}accordion-color-fore);
+  background-color: var(--#{variables.$prefix}accordion-color-back);
+  border-color: var(--#{variables.$prefix}accordion-color-border);
+  border-radius: var(--#{variables.$prefix}accordion-border-radius);
   border-style: solid;
+  border-width: var(--#{variables.$prefix}accordion-border-width);
+
+  &::selection {
+    color: var(--#{variables.$prefix}accordion-selection-color-fore);
+    background-color: var(--#{variables.$prefix}accordion-selection-color-back);
+  }
+
   > .accordion-summary {
     @include mixins.base();
-    background-color: var(
-      --#{variables.$prefix}color-default-accordion-summary-back
-    );
-    border-color: var(
-      --#{variables.$prefix}color-default-accordion-summary-border
-    );
-    color: var(--#{variables.$prefix}color-default-accordion-summary-fore);
+    background-color: var(--#{variables.$prefix}accordion-summary-color-back);
+    border-color: var(--#{variables.$prefix}accordion-summary-color-border);
+    border-radius: var(--#{variables.$prefix}accordion-summary-border-radius);
+    color: var(--#{variables.$prefix}accordion-summary-color-fore);
     cursor: pointer;
     display: block;
     padding: 1rem;
@@ -39,52 +157,55 @@
     &:focus,
     &.is-focus,
     &.is-focused {
+      color: var(--#{variables.$prefix}accordion-summary-focus-color-fore);
       background-color: var(
-        --#{variables.$prefix}color-default-focus-accordion-summary-back
+        --#{variables.$prefix}accordion-summary-focus-color-back
       );
       border-color: var(
-        --#{variables.$prefix}color-default-focus-accordion-summary-border
+        --#{variables.$prefix}accordion-summary-focus-color-border
       );
     }
     &:active,
     &.is-active {
+      color: var(--#{variables.$prefix}accordion-summary-active-color-fore);
       background-color: var(
-        --#{variables.$prefix}color-default-active-accordion-summary-back
+        --#{variables.$prefix}accordion-summary-active-color-back
       );
       border-color: var(
-        --#{variables.$prefix}color-default-active-accordion-summary-border
+        --#{variables.$prefix}accordion-summary-active-color-border
       );
     }
     &:hover,
     &.is-hovered,
     &.is-hovered {
+      color: var(--#{variables.$prefix}accordion-summary-hover-color-fore);
       background-color: var(
-        --#{variables.$prefix}color-default-hover-accordion-summary-back
+        --#{variables.$prefix}accordion-summary-hover-color-back
       );
       border-color: var(
-        --#{variables.$prefix}color-default-hover-accordion-summary-border
+        --#{variables.$prefix}accordion-summary-hover-color-border
       );
     }
     &[disabled],
     fieldset[disabled],
     &.is-disabled {
+      color: var(--#{variables.$prefix}accordion-summary-disabled-color-fore);
       background-color: var(
-        --#{variables.$prefix}color-default-disabled-accordion-summary-back
+        --#{variables.$prefix}accordion-summary-disabled-color-back
       );
       border-color: var(
-        --#{variables.$prefix}color-default-disabled-accordion-summary-border
+        --#{variables.$prefix}accordion-summary-disabled-color-border
       );
     }
   }
   > .accordion-details {
     @include mixins.base();
-    background-color: var(
-      --#{variables.$prefix}color-default-accordion-details-back
-    );
-    border-color: var(
-      --#{variables.$prefix}color-default-accordion-details-border
-    );
-    color: var(--#{variables.$prefix}color-default-accordion-details-fore);
+    background-color: var(--#{variables.$prefix}accordion-details-color-back);
+    border-radius: 0 0
+      var(--#{variables.$prefix}accordion-details-border-radius)
+      var(--#{variables.$prefix}accordion-details-border-radius);
+    border-color: var(--#{variables.$prefix}accordion-details-color-border);
+    color: var(--#{variables.$prefix}accordion-details-color-fore);
     height: 0;
     display: none;
     padding: 1rem;
@@ -92,7 +213,9 @@
   &[open],
   is-open {
     > .accordion-summary {
-      &:after {
+      border-radius: var(--#{variables.$prefix}accordion-summary-border-radius)
+        var(--#{variables.$prefix}accordion-summary-border-radius) 0 0;
+      &::after {
         transform: rotate(180deg);
       }
     }
@@ -101,76 +224,105 @@
       height: auto;
     }
   }
-  @each $color in variables.$colors {
-    &.is-#{$color} {
-      color: var(--#{variables.$prefix}color-#{$color}-accordion-fore);
-      background-color: var(
-        --#{variables.$prefix}color-#{$color}-accordion-back
-      );
-      border-color: var(--#{variables.$prefix}color-#{$color}-accordion-border);
-      > .accordion-summary {
-        background-color: var(
-          --#{variables.$prefix}color-#{$color}-accordion-summary-back
+
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        --#{variables.$prefix}accordion-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-accordion-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
         );
-        border-color: var(
-          --#{variables.$prefix}color-#{$color}-accordion-summary-border
+        --#{variables.$prefix}accordion-color-back: var(
+          --#{variables.$prefix}color-#{$color}-accordion-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
         );
-        color: var(
-          --#{variables.$prefix}color-#{$color}-accordion-summary-fore
+        --#{variables.$prefix}accordion-color-border: var(
+          --#{variables.$prefix}color-#{$color}-accordion-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
         );
-        &:after {
-          background: var(--#{variables.$prefix}color-#{$color}-accordion-fore);
-        }
-        &:focus,
-        &.is-focus,
-        &.is-focused {
-          background-color: var(
-            --#{variables.$prefix}color-#{$color}-focus-accordion-summary-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-#{$color}-focus-accordion-summary-border
-          );
-        }
-        &:active,
-        &.is-active {
-          background-color: var(
-            --#{variables.$prefix}color-#{$color}-active-accordion-summary-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-#{$color}-active-accordion-summary-border
-          );
-        }
-        &:hover,
-        &.is-hovered,
-        &.is-hovered {
-          background-color: var(
-            --#{variables.$prefix}color-#{$color}-hover-accordion-summary-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-#{$color}-hover-accordion-summary-border
-          );
-        }
-        &[disabled],
-        fieldset[disabled],
-        &.is-disabled {
-          background-color: var(
-            --#{variables.$prefix}color-#{$color}-disabled-accordion-summary-back
-          );
-          border-color: var(
-            --#{variables.$prefix}color-#{$color}-disabled-accordion-summary-border
-          );
-        }
-      }
-      > .accordion-details {
-        width: 100%;
-        background-color: var(
-          --#{variables.$prefix}color-#{$color}-accordion-details-back
+        --#{variables.$prefix}accordion-selection-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-accordion-selection-fore,
+          var(--#{variables.$prefix}color-#{$color}-selection-fore)
         );
-        border-color: var(
-          --#{variables.$prefix}color-#{$color}-accordion-details-border
+        --#{variables.$prefix}accordion-selection-color-back: var(
+          --#{variables.$prefix}color-#{$color}-accordion-selection-back,
+          var(--#{variables.$prefix}color-#{$color}-selection-back)
         );
-        color: var(
-          --#{variables.$prefix}color-#{$color}-accordion-details-fore
+        --#{variables.$prefix}accordion-summary-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}accordion-summary-color-back: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
+        );
+        --#{variables.$prefix}accordion-summary-color-border: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
+        );
+        --#{variables.$prefix}accordion-details-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-accordion-details-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}accordion-details-color-back: var(
+          --#{variables.$prefix}color-#{$color}-accordion-details-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
+        );
+        --#{variables.$prefix}accordion-details-color-border: var(
+          --#{variables.$prefix}color-#{$color}-accordion-details-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
+        );
+
+        --#{variables.$prefix}accordion-summary-focus-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-focus-fore,
+          var(--#{variables.$prefix}color-#{$color}-focus-fore)
+        );
+        --#{variables.$prefix}accordion-summary-focus-color-back: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-focus-back,
+          var(--#{variables.$prefix}color-#{$color}-focus-back)
+        );
+        --#{variables.$prefix}accordion-summary-focus-color-border: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-focus-border,
+          var(--#{variables.$prefix}color-#{$color}-focus-border)
+        );
+
+        --#{variables.$prefix}accordion-summary-hover-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-hover-fore,
+          var(--#{variables.$prefix}color-#{$color}-hover-fore)
+        );
+        --#{variables.$prefix}accordion-summary-hover-color-back: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-hover-back,
+          var(--#{variables.$prefix}color-#{$color}-hover-back)
+        );
+        --#{variables.$prefix}accordion-summary-hover-color-border: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-hover-border,
+          var(--#{variables.$prefix}color-#{$color}-hover-border)
+        );
+
+        --#{variables.$prefix}accordion-summary-active-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-active-fore,
+          var(--#{variables.$prefix}color-#{$color}-active-fore)
+        );
+        --#{variables.$prefix}accordion-summary-active-color-back: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-active-back,
+          var(--#{variables.$prefix}color-#{$color}-active-back)
+        );
+        --#{variables.$prefix}accordion-summary-active-color-border: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-active-border,
+          var(--#{variables.$prefix}color-#{$color}-active-border)
+        );
+
+        --#{variables.$prefix}accordion-summary-disabled-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-disabled-fore,
+          var(--#{variables.$prefix}color-#{$color}-disabled-fore)
+        );
+        --#{variables.$prefix}accordion-summary-disabled-color-back: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-disabled-back,
+          var(--#{variables.$prefix}color-#{$color}-disabled-back)
+        );
+        --#{variables.$prefix}accordion-summary-disabled-color-border: var(
+          --#{variables.$prefix}color-#{$color}-accordion-summary-disabled-border,
+          var(--#{variables.$prefix}color-#{$color}-disabled-border)
         );
       }
     }

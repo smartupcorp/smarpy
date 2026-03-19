@@ -1,11 +1,33 @@
 @use "../mixins/index.scss" as mixins;
 @use "../variables/index.scss" as variables;
 
-.smaroot {
+:where(.smaroot) {
+  --#{variables.$prefix}smaroot-color-fore: var(
+    --#{variables.$prefix}color-default-smaroot-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}smaroot-color-back: var(
+    --#{variables.$prefix}color-default-smaroot-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}smaroot-selection-color-fore: var(
+    --#{variables.$prefix}color-default-smaroot-selection-fore,
+    var(--#{variables.$prefix}color-default-selection-fore)
+  );
+  --#{variables.$prefix}smaroot-selection-color-back: var(
+    --#{variables.$prefix}color-default-smaroot-selection-back,
+    var(--#{variables.$prefix}color-default-selection-back)
+  );
+
   @include mixins.base();
   box-sizing: border-box;
   font-family: var(--#{variables.$prefix}font-family-sans-serif);
-  color: var(--#{variables.$prefix}color-default-fore);
-  background-color: var(--#{variables.$prefix}color-default-back);
-  z-index: var(--#{variables.$prefix}z-index-soroot);
+  color: var(--#{variables.$prefix}smaroot-color-fore);
+  background-color: var(--#{variables.$prefix}smaroot-color-back);
+  z-index: var(--#{variables.$prefix}z-index-smaroot);
+  &::selection {
+    color: var(--#{variables.$prefix}smaroot-selection-color-fore);
+    background-color: var(--#{variables.$prefix}smaroot-selection-color-back);
+  }
+
 }

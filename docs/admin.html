@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="robots" content="noindex,nofollow" />
     <meta name="format-detection" content="email=no,telephone=no,address=no" />
-    <link
+    <!-- <link
       rel="stylesheet"
       type="text/css"
       media="all"
@@ -18,7 +18,7 @@
       type="text/css"
       media="all"
       href="https://unpkg.com/@smartupcorp/smarpy/dist/css/smarpy-utilities.min.css"
-    />
+    /> -->
     <link
       rel="stylesheet"
       type="text/css"
@@ -33,7 +33,7 @@
     />
     <link rel="stylesheet" type="text/css" media="all" href="./css/admin.css" />
   </head>
-  <body class="smaroot">
+  <body class="smaroot" data-color-schema="dark">
     <div class="admin" data-smarpy-admin-sidebar="">
       <div class="admin-sidebar">
         <nav class="admin-nav" role="navigation" aria-label="main navigation">
@@ -41,7 +41,7 @@
             <div class="admin-nav-brand-basic">
               <span class="is-font-size-large">smarpy</span>
             </div>
-            <div class="admin-nav-brand-collapted">
+            <div class="admin-nav-brand-collapsed">
               <span class="is-font-size-large">s</span>
             </div>
           </div>
@@ -51,60 +51,68 @@
                 閉じる
                 <div class="chevron rotate-90deg"></div>
               </div>
-              <div class="admin-nav-menu-item-collapted">
+              <div class="admin-nav-menu-item-collapsed">
                 <div class="chevron rotate-270deg"></div>
               </div>
             </div>
+            <div class="admin-nav-menu-item" onclick="changeColorScheme(`light`)">
+              <div class="admin-nav-menu-item-basic">☀️light</div>
+              <div class="admin-nav-menu-item-collapsed">☀️</div>
+            </div>
+            <div class="admin-nav-menu-item" onclick="changeColorScheme(`dark`)">
+              <div class="admin-nav-menu-item-basic">🌙dark</div>
+              <div class="admin-nav-menu-item-collapsed">🌙</div>
+            </div>
             <div class="admin-nav-menu-item" onclick="changeColor(``)">
               <div class="admin-nav-menu-item-basic">default</div>
-              <div class="admin-nav-menu-item-collapted">d</div>
+              <div class="admin-nav-menu-item-collapsed">d</div>
             </div>
             <div class="admin-nav-menu-item" onclick="changeColor(`is-gray`)">
               <div class="admin-nav-menu-item-basic">is-gray</div>
-              <div class="admin-nav-menu-item-collapted">g</div>
+              <div class="admin-nav-menu-item-collapsed">g</div>
             </div>
             <div class="admin-nav-menu-item" onclick="changeColor(`is-red`)">
               <div class="admin-nav-menu-item-basic">is-red</div>
-              <div class="admin-nav-menu-item-collapted">r</div>
+              <div class="admin-nav-menu-item-collapsed">r</div>
             </div>
             <div class="admin-nav-menu-item" onclick="changeColor(`is-coral`)">
               <div class="admin-nav-menu-item-basic">is-coral</div>
-              <div class="admin-nav-menu-item-collapted">c</div>
+              <div class="admin-nav-menu-item-collapsed">c</div>
             </div>
             <div class="admin-nav-menu-item" onclick="changeColor(`is-orange`)">
               <div class="admin-nav-menu-item-basic">is-orange</div>
-              <div class="admin-nav-menu-item-collapted">o</div>
+              <div class="admin-nav-menu-item-collapsed">o</div>
             </div>
             <div class="admin-nav-menu-item" onclick="changeColor(`is-yellow`)">
               <div class="admin-nav-menu-item-basic">is-yellow</div>
-              <div class="admin-nav-menu-item-collapted">y</div>
+              <div class="admin-nav-menu-item-collapsed">y</div>
             </div>
             <div class="admin-nav-menu-item" onclick="changeColor(`is-lime`)">
               <div class="admin-nav-menu-item-basic">is-lime</div>
-              <div class="admin-nav-menu-item-collapted">l</div>
+              <div class="admin-nav-menu-item-collapsed">l</div>
             </div>
             <div class="admin-nav-menu-item" onclick="changeColor(`is-green`)">
               <div class="admin-nav-menu-item-basic">is-green</div>
-              <div class="admin-nav-menu-item-collapted">g</div>
+              <div class="admin-nav-menu-item-collapsed">g</div>
             </div>
             <div class="admin-nav-menu-item" onclick="changeColor(`is-cyan`)">
               <div class="admin-nav-menu-item-basic">is-cyan</div>
-              <div class="admin-nav-menu-item-collapted">c</div>
+              <div class="admin-nav-menu-item-collapsed">c</div>
             </div>
             <div class="admin-nav-menu-item" onclick="changeColor(`is-blue`)">
               <div class="admin-nav-menu-item-basic">is-blue</div>
-              <div class="admin-nav-menu-item-collapted">bl</div>
+              <div class="admin-nav-menu-item-collapsed">bl</div>
             </div>
             <div class="admin-nav-menu-item" onclick="changeColor(`is-violet`)">
               <div class="admin-nav-menu-item-basic">is-violet</div>
-              <div class="admin-nav-menu-item-collapted">v</div>
+              <div class="admin-nav-menu-item-collapsed">v</div>
             </div>
             <div
               class="admin-nav-menu-item"
               onclick="changeColor(`is-magenta`)"
             >
               <div class="admin-nav-menu-item-basic">is-magenta</div>
-              <div class="admin-nav-menu-item-collapted">m</div>
+              <div class="admin-nav-menu-item-collapsed">m</div>
             </div>
           </div>
         </nav>
@@ -1423,6 +1431,7 @@
         </footer>
       </main>
     </div>
+    <script src="scripts/common.js"></script>
     <script src="scripts/admin.js"></script>
   </body>
 </html>

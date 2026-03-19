@@ -2,18 +2,18 @@
 @use "../functions/index.scss" as functions;
 @use "../mixins/index.scss" as mixins;
 
-.container {
-  --#{variables.$prefix}gutter-x: 0;
-  --#{variables.$prefix}gutter-y: 0;
-  --#{variables.$prefix}gutter-top: var(--#{variables.$prefix}gutter-y);
-  --#{variables.$prefix}gutter-bottom: var(--#{variables.$prefix}gutter-y);
-  --#{variables.$prefix}gutter-right: var(--#{variables.$prefix}gutter-x);
-  --#{variables.$prefix}gutter-left: var(--#{variables.$prefix}gutter-x);
+:where(.container) {
+  --#{variables.$prefix}container-gutter-x: 0rem;
+  --#{variables.$prefix}container-gutter-y: 0rem;
+  --#{variables.$prefix}container-gutter-top: var(--#{variables.$prefix}container-gutter-y);
+  --#{variables.$prefix}container-gutter-bottom: var(--#{variables.$prefix}container-gutter-y);
+  --#{variables.$prefix}container-gutter-right: var(--#{variables.$prefix}container-gutter-x);
+  --#{variables.$prefix}container-gutter-left: var(--#{variables.$prefix}container-gutter-x);
   @include mixins.base();
-  padding-top: calc(var(--#{variables.$prefix}gutter-top) * 0.5);
-  padding-bottom: calc(var(--#{variables.$prefix}gutter-bottom) * 0.5);
-  padding-right: calc(var(--#{variables.$prefix}gutter-right) * 0.5);
-  padding-left: calc(var(--#{variables.$prefix}gutter-left) * 0.5);
+  padding-top: calc(var(--#{variables.$prefix}container-gutter-top) * 0.5);
+  padding-bottom: calc(var(--#{variables.$prefix}container-gutter-bottom) * 0.5);
+  padding-right: calc(var(--#{variables.$prefix}container-gutter-right) * 0.5);
+  padding-left: calc(var(--#{variables.$prefix}container-gutter-left) * 0.5);
   margin-right: auto;
   margin-left: auto;
   width: auto;
@@ -22,24 +22,24 @@
   @for $p from 0 through 16 {
     $escapedQuarter: functions.strReplace(#{($p * 0.25)}, ".", "\\.");
     &.has-gutter-#{$escapedQuarter}rem {
-      --#{variables.$prefix}gutter-x: #{($p * 0.25rem)};
-      --#{variables.$prefix}gutter-y: #{($p * 0.25rem)};
+      --#{variables.$prefix}container-gutter-x: #{($p * 0.25rem)};
+      --#{variables.$prefix}container-gutter-y: #{($p * 0.25rem)};
     }
     &.has-gutter-x-#{$escapedQuarter}rem {
-      --#{variables.$prefix}gutter-x: #{($p * 0.25rem)};
+      --#{variables.$prefix}container-gutter-x: #{($p * 0.25rem)};
     }
     &.has-gutter-y-#{$escapedQuarter}rem {
-      --#{variables.$prefix}gutter-y: #{($p * 0.25rem)};
+      --#{variables.$prefix}container-gutter-y: #{($p * 0.25rem)};
     }
     @include mixins.is-responsive("-#{$escapedQuarter}rem", "has-gutter-") {
-      --#{variables.$prefix}gutter-x: #{($p * 0.25rem)};
-      --#{variables.$prefix}gutter-y: #{($p * 0.25rem)};
+      --#{variables.$prefix}container-gutter-x: #{($p * 0.25rem)};
+      --#{variables.$prefix}container-gutter-y: #{($p * 0.25rem)};
     }
     @include mixins.is-responsive("-#{$escapedQuarter}rem", "has-gutter-x") {
-      --#{variables.$prefix}gutter-x: #{($p * 0.25rem)};
+      --#{variables.$prefix}container-gutter-x: #{($p * 0.25rem)};
     }
     @include mixins.is-responsive("-#{$escapedQuarter}rem", "has-gutter-y") {
-      --#{variables.$prefix}gutter-y: #{($p * 0.25rem)};
+      --#{variables.$prefix}container-gutter-y: #{($p * 0.25rem)};
     }
   }
 

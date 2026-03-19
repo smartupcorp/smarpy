@@ -7,7 +7,7 @@
     <meta name="description" content="" />
     <meta name="robots" content="noindex,nofollow" />
     <meta name="format-detection" content="email=no,telephone=no,address=no" />
-    <link
+    <!-- <link
       rel="stylesheet"
       type="text/css"
       media="all"
@@ -18,7 +18,7 @@
       type="text/css"
       media="all"
       href="https://unpkg.com/@smartupcorp/smarpy/dist/css/smarpy-utilities.min.css"
-    />
+    /> -->
     <link
       rel="stylesheet"
       type="text/css"
@@ -172,7 +172,11 @@
               <p class="paragraph">smarpy is sweet css written by scss.</p>
               <p class="paragraph">
                 If you want to use "admin layout",
-                <a class="link" href="admin.html">here is an example</a>.
+                <a class="link is-blue" href="admin.html">here is an example</a
+                >.
+              </p>
+              <p class="paragraph">
+                <a class="link is-blue" href="sassdoc/index.html">SassDoc</a>.
               </p>
             </div>
           </div>
@@ -284,6 +288,18 @@
           </div>
         </section>
         <section class="my-1rem">
+          <div class="centering">
+            <div class="tile" style="max-width: 25rem;">
+              <div class="tile-header">.tile</div>
+              <img
+                class="tile-image"
+                src="https://smart-up.co.jp/images/icon.png"
+                alt="avatar"
+              />
+            </div>
+          </div>
+        </section>
+        <section class="my-1rem">
           <div>
             <div class="loader"></div>
           </div>
@@ -321,17 +337,26 @@
           </div>
         </section>
         <section class="my-1rem">
-          <div class="dot is-gray" style="aspect-ratio: 16/9; width: 100%; height: auto;">
+          <div
+            class="dot is-gray"
+            style="aspect-ratio: 16/9; width: 100%; height: auto"
+          >
             dot(default is not available)
           </div>
         </section>
         <section class="my-1rem">
-          <div class="gingham is-gray is-45deg" style="aspect-ratio: 16/9; width: 100%; height: auto;">
+          <div
+            class="gingham is-gray is-45deg"
+            style="aspect-ratio: 16/9; width: 100%; height: auto"
+          >
             gingham(default is not available)
           </div>
         </section>
         <section class="my-1rem">
-          <div class="stripe is-gray is-45deg" style="aspect-ratio: 16/9; width: 100%; height: auto;">
+          <div
+            class="stripe is-gray is-45deg"
+            style="aspect-ratio: 16/9; width: 100%; height: auto"
+          >
             stripe(default is not available)
           </div>
         </section>
@@ -1380,6 +1405,7 @@
         <div class="copyright">© smartupcorp</div>
       </div>
     </footer>
+    <script src="scripts/common.js"></script>
     <script src="scripts/index.js"></script>
   </body>
 </html>
