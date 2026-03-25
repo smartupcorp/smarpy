@@ -17,11 +17,11 @@
   );
   --#{variables.$prefix}badge-selection-color-fore: var(
     --#{variables.$prefix}color-default-badge-selection-fore,
-    --#{variables.$prefix}color-default-selection-fore
+    var(--#{variables.$prefix}color-default-selection-fore)
   );
   --#{variables.$prefix}badge-selection-color-back: var(
     --#{variables.$prefix}color-default-badge-selection-back,
-    --#{variables.$prefix}color-default-selection-back
+    var(--#{variables.$prefix}color-default-selection-back)
   );
 
   --#{variables.$prefix}badge-focus-color-fore: var(
@@ -115,7 +115,6 @@
       color: var(--#{variables.$prefix}badge-focus-color-fore);
     }
     &:hover,
-    &.is-hovered,
     &.is-hovered {
       background-color: var(--#{variables.$prefix}badge-hover-color-back);
       border-color: var(--#{variables.$prefix}badge-hover-color-border);
@@ -156,11 +155,11 @@
         );
         --#{variables.$prefix}badge-selection-color-fore: var(
           --#{variables.$prefix}color-#{$color}-badge-selection-fore,
-          --#{variables.$prefix}color-#{$color}-selection-fore
+          var(--#{variables.$prefix}color-#{$color}-selection-fore)
         );
         --#{variables.$prefix}badge-selection-color-back: var(
           --#{variables.$prefix}color-#{$color}-badge-selection-back,
-          --#{variables.$prefix}color-#{$color}-selection-back
+          var(--#{variables.$prefix}color-#{$color}-selection-back)
         );
 
         --#{variables.$prefix}badge-focus-color-fore: var(

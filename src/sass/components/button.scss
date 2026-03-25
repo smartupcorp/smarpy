@@ -94,7 +94,6 @@
     color: var(--#{variables.$prefix}button-focus-color-fore);
   }
   &:hover,
-  &.is-hovered,
   &.is-hovered {
     background-color: var(--#{variables.$prefix}button-hover-color-back);
     border-color: var(--#{variables.$prefix}button-hover-color-border);

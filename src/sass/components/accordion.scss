@@ -176,7 +176,6 @@
       );
     }
     &:hover,
-    &.is-hovered,
     &.is-hovered {
       color: var(--#{variables.$prefix}accordion-summary-hover-color-fore);
       background-color: var(
