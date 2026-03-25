@@ -100,7 +100,6 @@
   @include mixins.base();
   display: flex;
   max-width: 100%;
-  margin: 0;
   padding-bottom: var(--#{variables.$prefix}dialog-message-top-offset);
   position: relative;
   width: 100%;
@@ -168,7 +167,6 @@
     @include mixins.base();
     display: block;
     max-width: 100%;
-    margin: 0;
     position: relative;
   }
   > .dialog-avatar-container {

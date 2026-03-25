@@ -20,7 +20,6 @@
   );
 
   @include mixins.base();
-  box-sizing: border-box;
   font-family: var(--#{variables.$prefix}font-family-sans-serif);
   color: var(--#{variables.$prefix}smaroot-color-fore);
   background-color: var(--#{variables.$prefix}smaroot-color-back);
