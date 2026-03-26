@@ -154,6 +154,7 @@
         color: var(--#{variables.$prefix}admin-nav-menu-item-focus-color-fore);
       }
       &:hover,
+      &.is-hover,
       &.is-hovered {
         background-color: var(
           --#{variables.$prefix}admin-nav-menu-item-hover-color-back

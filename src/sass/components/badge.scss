@@ -115,6 +115,7 @@
       color: var(--#{variables.$prefix}badge-focus-color-fore);
     }
     &:hover,
+    &.is-hover,
     &.is-hovered {
       background-color: var(--#{variables.$prefix}badge-hover-color-back);
       border-color: var(--#{variables.$prefix}badge-hover-color-border);
