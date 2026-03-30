@@ -1,3 +1,6 @@
+
+/// @type List
+/// @group variables
 $borderSides: (
   "top",
   "right",
@@ -5,12 +8,16 @@ $borderSides: (
   "left",
 );
 
+/// @type List
+/// @group variables
 $borderStyles: (
   "solid",
   "dashed",
   "dotted",
 );
 
+/// @type List
+/// @group variables
 $borderWidths: (
   "xthin",
   "thin",
@@ -19,6 +26,8 @@ $borderWidths: (
   "xthick",
 );
 
+/// @type List
+/// @group variables
 $borderRadiuses: (
   "small",
   "medium",

@@ -1,6 +1,7 @@
 @use "../variables/index.scss" as variables;
 
-.checkbox {
+/// @group components
+:where(.checkbox) {
   height: auto;
   > .checkbox-input {
     display: none;
@@ -23,7 +24,8 @@
       border-color: transparent;
       border-radius: 25%;
       border-style: solid;
-      border-width: 0 var(--#{variables.$prefix}border-width-medium) var(--#{variables.$prefix}border-width-medium) 0;
+      border-width: 0 var(--#{variables.$prefix}border-width-medium)
+        var(--#{variables.$prefix}border-width-medium) 0;
       content: "";
       display: block;
       height: 1rem;
@@ -58,15 +60,17 @@
     color: var(--#{variables.$prefix}color-default-fore-disabled);
   }
 
-  @each $color in variables.$colors {
-    &.is-#{$color} {
-      > .checkbox-box {
-        background-color: var(--#{variables.$prefix}color-#{$color}-back);
-        border-color: var(--#{variables.$prefix}color-#{$color}-border);
-      }
-      > .checkbox-input:checked ~ .checkbox-box:before,
-      > .checkbox-input:checked ~ .checkbox-box:after {
-        border-color: var(--#{variables.$prefix}color-#{$color}-fore);
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        > .checkbox-box {
+          background-color: var(--#{variables.$prefix}color-#{$color}-back);
+          border-color: var(--#{variables.$prefix}color-#{$color}-border);
+        }
+        > .checkbox-input:checked ~ .checkbox-box:before,
+        > .checkbox-input:checked ~ .checkbox-box:after {
+          border-color: var(--#{variables.$prefix}color-#{$color}-fore);
+        }
       }
     }
   }

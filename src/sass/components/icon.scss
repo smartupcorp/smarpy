@@ -1,37 +1,53 @@
 @use "../mixins/index.scss" as mixins;
 @use "../variables/index.scss" as variables;
 
-.icon {
+/// @group components
+:where(.icon) {
   @include mixins.base();
   align-items: center;
   display: inline-flex;
   justify-content: center;
   min-height: 1.5em;
   min-width: 1.5em;
-  &.is-small {
-    min-height: 1em;
-    min-width: 1em;
-  }
-  &.is-medium {
-    min-height: 2em;
-    min-width: 2em;
-  }
-  &.is-large {
-    min-height: 3em;
-    min-width: 3em;
+  @if (variables.$output-size-class) {
+    &.is-small {
+      min-height: 1em;
+      min-width: 1em;
+    }
+    &.is-medium {
+      min-height: 2em;
+      min-width: 2em;
+    }
+    &.is-large {
+      min-height: 3em;
+      min-width: 3em;
+    }
   }
   &.has-shadow {
-    filter: drop-shadow(2px 2px 1px var(--#{variables.$prefix}color-default-shadow))
+    filter: drop-shadow(
+        2px 2px 1px var(--#{variables.$prefix}color-default-shadow)
+      )
       drop-shadow(-2px 2px 1px var(--#{variables.$prefix}color-default-shadow))
       drop-shadow(2px -2px 1px var(--#{variables.$prefix}color-default-shadow))
       drop-shadow(-2px -2px 1px var(--#{variables.$prefix}color-default-shadow));
   }
-  @each $color in variables.$colors {
-    &.has-shadow-#{$color} {
-      filter: drop-shadow(2px 2px 1px var(--#{variables.$prefix}color-#{$color}-shadow))
-        drop-shadow(-2px 2px 1px var(--#{variables.$prefix}color-#{$color}-shadow))
-        drop-shadow(2px -2px 1px var(--#{variables.$prefix}color-#{$color}-shadow))
-        drop-shadow(-2px -2px 1px var(--#{variables.$prefix}color-#{$color}-shadow));
+
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.has-shadow-#{$color} {
+        filter: drop-shadow(
+            2px 2px 1px var(--#{variables.$prefix}color-#{$color}-shadow)
+          )
+          drop-shadow(
+            -2px 2px 1px var(--#{variables.$prefix}color-#{$color}-shadow)
+          )
+          drop-shadow(
+            2px -2px 1px var(--#{variables.$prefix}color-#{$color}-shadow)
+          )
+          drop-shadow(
+            -2px -2px 1px var(--#{variables.$prefix}color-#{$color}-shadow)
+          );
+      }
     }
   }
 }

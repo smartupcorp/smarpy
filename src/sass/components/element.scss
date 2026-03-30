@@ -1,5 +1,6 @@
 @use "../mixins/index.scss" as mixins;
 
-.element {
+/// @group components
+:where(.element) {
   @include mixins.base();
 }

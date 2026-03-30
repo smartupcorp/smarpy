@@ -1,10 +1,13 @@
 @use "../variables/index.scss" as variables;
 
-:root {
-  --#{variables.$prefix}font-family-sans-serif: "Helvetica Neue", Arial,
-    "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-  --#{variables.$prefix}font-family-monospace: "Consolas", "Courier New",
-    courier, monospace;
+/// typography cssvariables
+/// @group cssvariables
+:where(:root) {
+  --#{variables.$prefix}font-family-sans-serif:
+    "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans",
+    Meiryo, sans-serif;
+  --#{variables.$prefix}font-family-monospace:
+    "Consolas", "Courier New", courier, monospace;
   --#{variables.$prefix}font-size-xsmall: 0.5rem;
   --#{variables.$prefix}font-size-small: 0.75rem;
   --#{variables.$prefix}font-size-normal: 1rem;

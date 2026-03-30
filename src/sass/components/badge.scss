@@ -1,33 +1,104 @@
 @use "../mixins/index.scss" as mixins;
 @use "../variables/index.scss" as variables;
 
-.badge {
+/// @group components
+:where(.badge) {
+  --#{variables.$prefix}badge-color-fore: var(
+    --#{variables.$prefix}color-default-badge-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}badge-color-back: var(
+    --#{variables.$prefix}color-default-badge-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}badge-color-border: var(
+    --#{variables.$prefix}color-default-badge-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+  --#{variables.$prefix}badge-selection-color-fore: var(
+    --#{variables.$prefix}color-default-badge-selection-fore,
+    var(--#{variables.$prefix}color-default-selection-fore)
+  );
+  --#{variables.$prefix}badge-selection-color-back: var(
+    --#{variables.$prefix}color-default-badge-selection-back,
+    var(--#{variables.$prefix}color-default-selection-back)
+  );
+
+  --#{variables.$prefix}badge-focus-color-fore: var(
+    --#{variables.$prefix}color-default-badge-focus-fore,
+    var(--#{variables.$prefix}color-default-focus-fore)
+  );
+  --#{variables.$prefix}badge-focus-color-back: var(
+    --#{variables.$prefix}color-default-badge-focus-back,
+    var(--#{variables.$prefix}color-default-focus-back)
+  );
+  --#{variables.$prefix}badge-focus-color-border: var(
+    --#{variables.$prefix}color-default-badge-focus-border,
+    var(--#{variables.$prefix}color-default-focus-border)
+  );
+
+  --#{variables.$prefix}badge-hover-color-fore: var(
+    --#{variables.$prefix}color-default-badge-hover-fore,
+    var(--#{variables.$prefix}color-default-hover-fore)
+  );
+  --#{variables.$prefix}badge-hover-color-back: var(
+    --#{variables.$prefix}color-default-badge-hover-back,
+    var(--#{variables.$prefix}color-default-hover-back)
+  );
+  --#{variables.$prefix}badge-hover-color-border: var(
+    --#{variables.$prefix}color-default-badge-hover-border,
+    var(--#{variables.$prefix}color-default-hover-border)
+  );
+
+  --#{variables.$prefix}badge-active-color-fore: var(
+    --#{variables.$prefix}color-default-badge-active-fore,
+    var(--#{variables.$prefix}color-default-active-fore)
+  );
+  --#{variables.$prefix}badge-active-color-back: var(
+    --#{variables.$prefix}color-default-badge-active-back,
+    var(--#{variables.$prefix}color-default-active-back)
+  );
+  --#{variables.$prefix}badge-active-color-border: var(
+    --#{variables.$prefix}color-default-badge-active-border,
+    var(--#{variables.$prefix}color-default-active-border)
+  );
+
+  --#{variables.$prefix}badge-disabled-color-fore: var(
+    --#{variables.$prefix}color-default-badge-disabled-fore,
+    var(--#{variables.$prefix}color-default-disabled-fore)
+  );
+  --#{variables.$prefix}badge-disabled-color-back: var(
+    --#{variables.$prefix}color-default-badge-disabled-back,
+    var(--#{variables.$prefix}color-default-disabled-back)
+  );
+  --#{variables.$prefix}badge-disabled-color-border: var(
+    --#{variables.$prefix}color-default-badge-disabled-border,
+    var(--#{variables.$prefix}color-default-disabled-border)
+  );
+
   @include mixins.base();
   align-items: center;
   border-width: var(--#{variables.$prefix}border-width-thin);
   border-style: solid;
-  background-color: var(--#{variables.$prefix}color-default-back);
-  border-color: var(--#{variables.$prefix}color-default-border);
+  background-color: var(--#{variables.$prefix}badge-color-back);
+  border-color: var(--#{variables.$prefix}badge-color-border);
   border-radius: 0.5rem;
-  color: var(--#{variables.$prefix}color-default-fore);
+  color: var(--#{variables.$prefix}badge-color-fore);
   display: inline-flex;
   font-size: var(--#{variables.$prefix}font-size-small);
   justify-content: center;
   padding: 0.25rem 0.5rem;
   white-space: nowrap;
 
+  &::selection {
+    color: var(--#{variables.$prefix}badge-selection-color-fore);
+    background-color: var(--#{variables.$prefix}badge-selection-color-back);
+  }
+
   &.is-small {
     font-size: var(--#{variables.$prefix}font-size-xsmall);
     border-width: var(--#{variables.$prefix}border-width-xthin);
     padding: 0.125rem 0.25rem;
-  }
-
-  @each $color in variables.$colors {
-    &.is-#{$color} {
-      background-color: var(--#{variables.$prefix}color-#{$color}-back);
-      border-color: var(--#{variables.$prefix}color-#{$color}-border);
-      color: var(--#{variables.$prefix}color-#{$color}-fore);
-    }
   }
 
   &.is-clickable {
@@ -36,60 +107,114 @@
     user-select: none;
     touch-action: manipulation;
     cursor: pointer;
-    &:hover,
-    &.is-hovered,
-    &.is-hovered {
-      background-color: var(--#{variables.$prefix}color-default-hover-button-back);
-      border-color: var(--#{variables.$prefix}color-default-hover-button-border);
-    }
     &:focus,
     &.is-focus,
     &.is-focused {
-      background-color: var(--#{variables.$prefix}color-default-focus-button-back);
-      border-color: var(--#{variables.$prefix}color-default-focus-button-border);
+      background-color: var(--#{variables.$prefix}badge-focus-color-back);
+      border-color: var(--#{variables.$prefix}badge-focus-color-border);
+      color: var(--#{variables.$prefix}badge-focus-color-fore);
+    }
+    &:hover,
+    &.is-hover,
+    &.is-hovered {
+      background-color: var(--#{variables.$prefix}badge-hover-color-back);
+      border-color: var(--#{variables.$prefix}badge-hover-color-border);
+      color: var(--#{variables.$prefix}badge-hover-color-fore);
     }
     &:active,
     &.is-active {
-      background-color: var(--#{variables.$prefix}color-default-active-button-back);
-      border-color: var(--#{variables.$prefix}color-default-active-button-border);
+      background-color: var(--#{variables.$prefix}badge-active-color-back);
+      border-color: var(--#{variables.$prefix}badge-active-color-border);
+      color: var(--#{variables.$prefix}badge-active-color-fore);
     }
     &[disabled],
     fieldset[disabled],
     &.is-disabled {
-      background-color: var(--#{variables.$prefix}color-default-disabled-button-back);
-      border-color: var(--#{variables.$prefix}color-default-disabled-button-border);
-    }
-
-    @each $color in variables.$colors {
-      &.is-#{$color} {
-        background-color: var(--#{variables.$prefix}color-#{$color}-button-back);
-        border-color: var(--#{variables.$prefix}color-#{$color}-button-border);
-        color: var(--#{variables.$prefix}color-#{$color}-fore);
-        &:hover,
-        &.is-hover,
-        &.is-hovered {
-          background-color: var(--#{variables.$prefix}color-#{$color}-hover-button-back);
-          border-color: var(--#{variables.$prefix}color-#{$color}-hover-button-border);
-        }
-        &:focus,
-        &.is-focus,
-        &.is-focused {
-          background-color: var(--#{variables.$prefix}color-#{$color}-focus-button-back);
-          border-color: var(--#{variables.$prefix}color-#{$color}-focus-button-border);
-        }
-        &:active,
-        &.is-active {
-          background-color: var(--#{variables.$prefix}color-#{$color}-active-button-back);
-          border-color: var(--#{variables.$prefix}color-#{$color}-active-button-border);
-        }
-        &[disabled],
-        fieldset[disabled],
-        &.is-disabled {
-          background-color: var(--#{variables.$prefix}color-#{$color}-disabled-button-back);
-          border-color: var(--#{variables.$prefix}color-#{$color}-disabled-button-border);
-        }
-      }
+      background-color: var(
+        --#{variables.$prefix}color-default-disabled-button-back
+      );
+      border-color: var(
+        --#{variables.$prefix}color-default-disabled-button-border
+      );
     }
   }
 
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        --#{variables.$prefix}badge-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-badge-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}badge-color-back: var(
+          --#{variables.$prefix}color-#{$color}-badge-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
+        );
+        --#{variables.$prefix}badge-color-border: var(
+          --#{variables.$prefix}color-#{$color}-badge-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
+        );
+        --#{variables.$prefix}badge-selection-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-badge-selection-fore,
+          var(--#{variables.$prefix}color-#{$color}-selection-fore)
+        );
+        --#{variables.$prefix}badge-selection-color-back: var(
+          --#{variables.$prefix}color-#{$color}-badge-selection-back,
+          var(--#{variables.$prefix}color-#{$color}-selection-back)
+        );
+
+        --#{variables.$prefix}badge-focus-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-badge-focus-fore,
+          var(--#{variables.$prefix}color-#{$color}-focus-fore)
+        );
+        --#{variables.$prefix}badge-focus-color-back: var(
+          --#{variables.$prefix}color-#{$color}-badge-focus-back,
+          var(--#{variables.$prefix}color-#{$color}-focus-back)
+        );
+        --#{variables.$prefix}badge-focus-color-border: var(
+          --#{variables.$prefix}color-#{$color}-badge-focus-border,
+          var(--#{variables.$prefix}color-#{$color}-focus-border)
+        );
+
+        --#{variables.$prefix}badge-hover-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-badge-hover-fore,
+          var(--#{variables.$prefix}color-#{$color}-hover-fore)
+        );
+        --#{variables.$prefix}badge-hover-color-back: var(
+          --#{variables.$prefix}color-#{$color}-badge-hover-back,
+          var(--#{variables.$prefix}color-#{$color}-hover-back)
+        );
+        --#{variables.$prefix}badge-hover-color-border: var(
+          --#{variables.$prefix}color-#{$color}-badge-hover-border,
+          var(--#{variables.$prefix}color-#{$color}-hover-border)
+        );
+
+        --#{variables.$prefix}badge-active-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-badge-active-fore,
+          var(--#{variables.$prefix}color-#{$color}-active-fore)
+        );
+        --#{variables.$prefix}badge-active-color-back: var(
+          --#{variables.$prefix}color-#{$color}-badge-active-back,
+          var(--#{variables.$prefix}color-#{$color}-active-back)
+        );
+        --#{variables.$prefix}badge-active-color-border: var(
+          --#{variables.$prefix}color-#{$color}-badge-active-border,
+          var(--#{variables.$prefix}color-#{$color}-active-border)
+        );
+
+        --#{variables.$prefix}badge-disabled-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-badge-disabled-fore,
+          var(--#{variables.$prefix}color-#{$color}-disabled-fore)
+        );
+        --#{variables.$prefix}badge-disabled-color-back: var(
+          --#{variables.$prefix}color-#{$color}-badge-disabled-back,
+          var(--#{variables.$prefix}color-#{$color}-disabled-back)
+        );
+        --#{variables.$prefix}badge-disabled-color-border: var(
+          --#{variables.$prefix}color-#{$color}-badge-disabled-border,
+          var(--#{variables.$prefix}color-#{$color}-disabled-border)
+        );
+      }
+    }
+  }
 }

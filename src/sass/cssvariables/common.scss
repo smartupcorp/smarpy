@@ -1,7 +1,9 @@
 @use "../variables/index.scss" as variables;
 
-:root {
-  --#{variables.$prefix}z-index-soroot: auto;
+/// common cssvariables
+/// @group cssvariables
+:where(:root) {
+  --#{variables.$prefix}z-index-smaroot: auto;
   --#{variables.$prefix}z-index-modal: 100;
   --#{variables.$prefix}z-index-modal-content: auto;
 }

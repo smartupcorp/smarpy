@@ -1,5 +1,9 @@
 @use "sass:string";
 
+/// @parameter {Number} $num
+/// @parameter {Number} $length
+/// @return {String}
+/// @group functions
 @function zeroPadding($num, $length) {
   $numString: #{$num};
   $numLength: string.length($numString);
@@ -12,6 +16,13 @@
   @return $numString;
 }
 
+/// replace string
+/// @parameter {string} $str
+/// @parameter {Number} $substr
+/// @parameter {Number} $newsubstr
+/// @parameter {boolean} $all [false]
+/// @return {String}
+/// @group functions
 @function strReplace($str, $substr, $newsubstr, $all: false) {
   $pos: string.index($str, $substr);
 
@@ -28,4 +39,19 @@
     }
   }
   @return $str;
+}
+
+/// @parameter {Number} $num
+/// @return {String}
+/// @group functions
+@function lightnessNumberToString($num) {
+  @if ($num <= 50) {
+    @return "050";
+  }
+
+  @if ($num >= 950) {
+    @return "950";
+  }
+
+  @return zeroPadding($num, 3);
 }

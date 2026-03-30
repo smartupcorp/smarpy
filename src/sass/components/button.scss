@@ -1,19 +1,86 @@
 @use "../mixins/index.scss" as mixins;
 @use "../variables/index.scss" as variables;
 
-.button {
+/// @group components
+:where(.button) {
+  --#{variables.$prefix}button-color-fore: var(
+    --#{variables.$prefix}color-default-button-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}button-color-back: var(
+    --#{variables.$prefix}color-default-button-back,
+    var(--#{variables.$prefix}color-default-back)
+  );
+  --#{variables.$prefix}button-color-border: var(
+    --#{variables.$prefix}color-default-button-border,
+    var(--#{variables.$prefix}color-default-border)
+  );
+
+  --#{variables.$prefix}button-focus-color-fore: var(
+    --#{variables.$prefix}color-default-button-focus-fore,
+    var(--#{variables.$prefix}color-default-focus-fore)
+  );
+  --#{variables.$prefix}button-focus-color-back: var(
+    --#{variables.$prefix}color-default-button-focus-back,
+    var(--#{variables.$prefix}color-default-focus-back)
+  );
+  --#{variables.$prefix}button-focus-color-border: var(
+    --#{variables.$prefix}color-default-button-focus-border,
+    var(--#{variables.$prefix}color-default-focus-border)
+  );
+
+  --#{variables.$prefix}button-hover-color-fore: var(
+    --#{variables.$prefix}color-default-button-hover-fore,
+    var(--#{variables.$prefix}color-default-hover-fore)
+  );
+  --#{variables.$prefix}button-hover-color-back: var(
+    --#{variables.$prefix}color-default-button-hover-back,
+    var(--#{variables.$prefix}color-default-hover-back)
+  );
+  --#{variables.$prefix}button-hover-color-border: var(
+    --#{variables.$prefix}color-default-button-hover-border,
+    var(--#{variables.$prefix}color-default-hover-border)
+  );
+
+  --#{variables.$prefix}button-active-color-fore: var(
+    --#{variables.$prefix}color-default-button-active-fore,
+    var(--#{variables.$prefix}color-default-active-fore)
+  );
+  --#{variables.$prefix}button-active-color-back: var(
+    --#{variables.$prefix}color-default-button-active-back,
+    var(--#{variables.$prefix}color-default-active-back)
+  );
+  --#{variables.$prefix}button-active-color-border: var(
+    --#{variables.$prefix}color-default-button-active-border,
+    var(--#{variables.$prefix}color-default-active-border)
+  );
+
+  --#{variables.$prefix}button-disabled-color-fore: var(
+    --#{variables.$prefix}color-default-button-disabled-fore,
+    var(--#{variables.$prefix}color-default-disabled-fore)
+  );
+  --#{variables.$prefix}button-disabled-color-back: var(
+    --#{variables.$prefix}color-default-button-disabled-back,
+    var(--#{variables.$prefix}color-default-disabled-back)
+  );
+  --#{variables.$prefix}button-disabled-color-border: var(
+    --#{variables.$prefix}color-default-button-disabled-border,
+    var(--#{variables.$prefix}color-default-disabled-border)
+  );
+
   @include mixins.base();
-  background-color: var(--#{variables.$prefix}color-default-button-back);
-  border-color: var(--#{variables.$prefix}color-default-button-border);
+  background-color: var(--#{variables.$prefix}button-color-back);
+  border-color: var(--#{variables.$prefix}button-color-border);
   border-radius: 0.5rem;
   border-style: solid;
   touch-action: manipulation;
-  color: var(--#{variables.$prefix}color-default-button-fore);
+  color: var(--#{variables.$prefix}button-color-fore);
   cursor: pointer;
   display: inline-block;
   height: auto;
-  min-height: 2.5em;
-  min-width: 5em;
+  min-height: 2.5rem;
+  min-width: 5rem;
+  padding: 0.25rem 0.5rem;
   text-align: center;
   text-transform: none;
   user-select: none;
@@ -22,62 +89,98 @@
   &:focus,
   &.is-focus,
   &.is-focused {
-    background-color: var(--#{variables.$prefix}color-default-focus-button-back);
-    border-color: var(--#{variables.$prefix}color-default-focus-button-border);
-    color: var(--#{variables.$prefix}color-default-focus-button-fore);
+    background-color: var(--#{variables.$prefix}button-focus-color-back);
+    border-color: var(--#{variables.$prefix}button-focus-color-border);
+    color: var(--#{variables.$prefix}button-focus-color-fore);
+  }
+  &:hover,
+  &.is-hover,
+  &.is-hovered {
+    background-color: var(--#{variables.$prefix}button-hover-color-back);
+    border-color: var(--#{variables.$prefix}button-hover-color-border);
+    color: var(--#{variables.$prefix}button-focus-hover-fore);
   }
   &:active,
   &.is-active {
-    background-color: var(--#{variables.$prefix}color-default-active-button-back);
-    border-color: var(--#{variables.$prefix}color-default-active-button-border);
-    color: var(--#{variables.$prefix}color-default-active-button-fore);
-  }
-  &:hover,
-  &.is-hovered,
-  &.is-hovered {
-    background-color: var(--#{variables.$prefix}color-default-hover-button-back);
-    border-color: var(--#{variables.$prefix}color-default-hover-button-border);
-    color: var(--#{variables.$prefix}color-default-hover-button-fore);
+    background-color: var(--#{variables.$prefix}button-active-color-back);
+    border-color: var(--#{variables.$prefix}button-active-color-border);
+    color: var(--#{variables.$prefix}button-focus-active-fore);
   }
   &[disabled],
   fieldset[disabled],
   &.is-disabled {
-    background-color: var(--#{variables.$prefix}color-default-disabled-button-back);
-    border-color: var(--#{variables.$prefix}color-default-disabled-button-border);
-    color: var(--#{variables.$prefix}color-default-disabled-button-fore);
+    background-color: var(--#{variables.$prefix}button-disabled-color-back);
+    border-color: var(--#{variables.$prefix}button-disabled-color-border);
+    color: var(--#{variables.$prefix}button-focus-disabled-fore);
   }
 
-  @each $color in variables.$colors {
-    &.is-#{$color} {
-      background-color: var(--#{variables.$prefix}color-#{$color}-button-back);
-      border-color: var(--#{variables.$prefix}color-#{$color}-button-border);
-      color: var(--#{variables.$prefix}color-#{$color}-button-fore);
-      &:focus,
-      &.is-focus,
-      &.is-focused {
-        background-color: var(--#{variables.$prefix}color-#{$color}-focus-button-back);
-        border-color: var(--#{variables.$prefix}color-#{$color}-focus-button-border);
-        color: var(--#{variables.$prefix}color-#{$color}-focus-button-fore);
-      }
-      &:hover,
-      &.is-hover,
-      &.is-hovered {
-        background-color: var(--#{variables.$prefix}color-#{$color}-hover-button-back);
-        border-color: var(--#{variables.$prefix}color-#{$color}-hover-button-border);
-        color: var(--#{variables.$prefix}color-#{$color}-hover-button-fore);
-      }
-      &:active,
-      &.is-active {
-        background-color: var(--#{variables.$prefix}color-#{$color}-active-button-back);
-        border-color: var(--#{variables.$prefix}color-#{$color}-active-button-border);
-        color: var(--#{variables.$prefix}color-#{$color}-active-button-fore);
-      }
-      &[disabled],
-      fieldset[disabled],
-      &.is-disabled {
-        background-color: var(--#{variables.$prefix}color-#{$color}-disabled-button-back);
-        border-color: var(--#{variables.$prefix}color-#{$color}-disabled-button-border);
-        color: var(--#{variables.$prefix}color-#{$color}-disabled-button-fore);
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        --#{variables.$prefix}button-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-button-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}button-color-back: var(
+          --#{variables.$prefix}color-#{$color}-button-back,
+          var(--#{variables.$prefix}color-#{$color}-back)
+        );
+        --#{variables.$prefix}button-color-border: var(
+          --#{variables.$prefix}color-#{$color}-button-border,
+          var(--#{variables.$prefix}color-#{$color}-border)
+        );
+
+        --#{variables.$prefix}button-focus-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-button-focus-fore,
+          var(--#{variables.$prefix}color-#{$color}-focus-fore)
+        );
+        --#{variables.$prefix}button-focus-color-back: var(
+          --#{variables.$prefix}color-#{$color}-button-focus-back,
+          var(--#{variables.$prefix}color-#{$color}-focus-back)
+        );
+        --#{variables.$prefix}button-focus-color-border: var(
+          --#{variables.$prefix}color-#{$color}-button-focus-border,
+          var(--#{variables.$prefix}color-#{$color}-focus-border)
+        );
+
+        --#{variables.$prefix}button-hover-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-button-hover-fore,
+          var(--#{variables.$prefix}color-#{$color}-hover-fore)
+        );
+        --#{variables.$prefix}button-hover-color-back: var(
+          --#{variables.$prefix}color-#{$color}-button-hover-back,
+          var(--#{variables.$prefix}color-#{$color}-hover-back)
+        );
+        --#{variables.$prefix}button-hover-color-border: var(
+          --#{variables.$prefix}color-#{$color}-button-hover-border,
+          var(--#{variables.$prefix}color-#{$color}-hover-border)
+        );
+
+        --#{variables.$prefix}button-active-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-button-active-fore,
+          var(--#{variables.$prefix}color-#{$color}-active-fore)
+        );
+        --#{variables.$prefix}button-active-color-back: var(
+          --#{variables.$prefix}color-#{$color}-button-active-back,
+          var(--#{variables.$prefix}color-#{$color}-active-back)
+        );
+        --#{variables.$prefix}button-active-color-border: var(
+          --#{variables.$prefix}color-#{$color}-button-active-border,
+          var(--#{variables.$prefix}color-#{$color}-active-border)
+        );
+
+        --#{variables.$prefix}button-disabled-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-button-disabled-fore,
+          var(--#{variables.$prefix}color-#{$color}-disabled-fore)
+        );
+        --#{variables.$prefix}button-disabled-color-back: var(
+          --#{variables.$prefix}color-#{$color}-button-disabled-back,
+          var(--#{variables.$prefix}color-#{$color}-disabled-back)
+        );
+        --#{variables.$prefix}button-disabled-color-border: var(
+          --#{variables.$prefix}color-#{$color}-button-disabled-border,
+          var(--#{variables.$prefix}color-#{$color}-disabled-border)
+        );
       }
     }
   }

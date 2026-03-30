@@ -1,6 +1,7 @@
 @use "../mixins/index.scss" as mixins;
 
-.main {
+/// @group components
+:where(.main) {
   @include mixins.base();
   position: relative;
   display: block;

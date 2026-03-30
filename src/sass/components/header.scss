@@ -1,7 +1,8 @@
 @use "../mixins/index.scss" as mixins;
 @use "../variables/index.scss" as variables;
 
-.header {
+/// @group components
+:where(.header) {
   @include mixins.base();
   display: block;
   width: 100%;
@@ -24,11 +25,18 @@
     z-index: var(--#{variables.$prefix}header-z-index-is-fixed);
   }
 
-  @each $color in variables.$colors {
-    &.is-#{$color} {
-      color: var(--#{variables.$prefix}color-#{$color}-fore);
-      background-color: oklch(var(--#{variables.$prefix}color-#{$color}-back-oklch) / 0.75);
-      box-shadow: 0 0 0.5rem var(--#{variables.$prefix}color-#{$color}-shadow);
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        color: var(--#{variables.$prefix}color-#{$color}-fore);
+        background-color: oklch(
+          from var(--#{variables.$prefix}color-#{$color}-back) l c h / 0.75
+        );
+        box-shadow: 0
+          0
+          0.5rem
+          var(--#{variables.$prefix}color-#{$color}-shadow);
+      }
     }
   }
 }

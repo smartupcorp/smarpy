@@ -1,9 +1,10 @@
 @use "../variables/index.scss" as variables;
 @use "../mixins/index.scss" as mixins;
 
-.dot {
+/// @group backgrounds
+:where(.dot) {
   --#{variables.$prefix}dot-color-fore: oklch(
-    var(--#{variables.$prefix}color-default-dot-fore-oklch) / 0.5
+    from var(--#{variables.$prefix}color-default-dot-fore) l c h / 0.5
   );
   --#{variables.$prefix}dot-color-back: var(
     --#{variables.$prefix}color-default-dot-back
@@ -12,7 +13,8 @@
 
   @include mixins.base();
   background-color: var(--#{variables.$prefix}dot-color-back);
-  background-image: radial-gradient(
+  background-image:
+    radial-gradient(
       var(--#{variables.$prefix}dot-color-fore)
         var(--#{variables.$prefix}dot-size),
       transparent calc(var(--#{variables.$prefix}dot-size) + 3%)
@@ -22,7 +24,9 @@
         var(--#{variables.$prefix}dot-size),
       transparent calc(var(--#{variables.$prefix}dot-size) + 3%)
     );
-  background-position: 0 0, 1rem 1rem;
+  background-position:
+    0 0,
+    1rem 1rem;
   background-repeat: repeat;
   background-size: 2rem 2rem;
 
@@ -38,14 +42,16 @@
     --#{variables.$prefix}dot-size: 10%;
   }
 
-  @each $color in variables.$colors {
-    &.is-#{$color} {
-      --#{variables.$prefix}dot-color-fore: oklch(
-        var(--#{variables.$prefix}color-#{$color}-dot-fore-oklch) / 0.5
-      );
-      --#{variables.$prefix}dot-color-back: var(
-        --#{variables.$prefix}color-#{$color}-dot-back
-      );
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        --#{variables.$prefix}dot-color-fore: oklch(
+          from var(--#{variables.$prefix}color-#{$color}-dot-fore) l c h / 0.5
+        );
+        --#{variables.$prefix}dot-color-back: var(
+          --#{variables.$prefix}color-#{$color}-dot-back
+        );
+      }
     }
   }
 }

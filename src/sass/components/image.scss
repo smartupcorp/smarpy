@@ -1,4 +1,6 @@
-.image {
+
+/// @group components
+:where(.image) {
   display: inline-block;
   vertical-align: middle;
   width: 100%;

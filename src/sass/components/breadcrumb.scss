@@ -3,39 +3,84 @@
 @use "../variables/index.scss" as variables;
 @use "../mixins/index.scss" as mixins;
 
-.breadcrumb {
+/// @group components
+:where(.breadcrumb) {
+  --#{variables.$prefix}breadcrumb-color-fore: var(
+    --#{variables.$prefix}color-default-breadcrumb-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}breadcrumb-selection-color-fore: var(
+    --#{variables.$prefix}color-default-breadcrumb-selection-fore,
+    var(--#{variables.$prefix}color-default-selection-fore)
+  );
+  --#{variables.$prefix}breadcrumb-selection-color-back: var(
+    --#{variables.$prefix}color-default-breadcrumb-selection-back,
+    var(--#{variables.$prefix}color-default-selection-back)
+  );
+
+  --#{variables.$prefix}breadcrumb-item-color-fore: var(
+    --#{variables.$prefix}color-default-breadcrumb-item-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+
+  --#{variables.$prefix}breadcrumb-divider-color-fore: var(
+    --#{variables.$prefix}color-default-breadcrumb-divider-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+
   @include mixins.base();
-  margin: 0;
-  padding: 0;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
+  color: var(--#{variables.$prefix}breadcrumb-color-fore);
+
+  &::selection {
+    color: var(--#{variables.$prefix}breadcrumb-selection-color-fore);
+    background-color: var(
+      --#{variables.$prefix}breadcrumb-selection-color-back
+    );
+  }
+
   > .breadcrumb-item {
     @include mixins.base();
     text-wrap: wrap;
-    color: var(--#{variables.$prefix}color-default-breadcrumb-fore);
+    color: var(--#{variables.$prefix}breadcrumb-item-color-fore);
     + .breadcrumb-item {
       &::before {
         @include mixins.base();
         content: var(--#{variables.$prefix}breadcrumb-divider);
         margin: 0 0.5rem;
-        color: var(--#{variables.$prefix}color-default-breadcrumb-divider-fore);
+        color: var(--#{variables.$prefix}breadcrumb-divider-color-fore);
         user-select: none;
       }
     }
   }
 
-  @each $color in variables.$colors {
-    &.is-#{$color} {
-      > .breadcrumb-item {
-        color: var(--#{variables.$prefix}color-#{$color}-breadcrumb-fore);
-        + .breadcrumb-item {
-          &::before {
-            color: var(
-              --#{variables.$prefix}color-#{$color}-breadcrumb-divider-fore
-            );
-          }
-        }
+  @if (variables.$output-color-class) {
+    @each $color in variables.$colors {
+      &.is-#{$color} {
+        --#{variables.$prefix}breadcrumb-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-breadcrumb-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+        --#{variables.$prefix}breadcrumb-selection-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-breadcrumb-selection-fore,
+          var(--#{variables.$prefix}color-#{$color}-selection-fore)
+        );
+        --#{variables.$prefix}breadcrumb-selection-color-back: var(
+          --#{variables.$prefix}color-#{$color}-breadcrumb-selection-back,
+          var(--#{variables.$prefix}color-#{$color}-selection-back)
+        );
+
+        --#{variables.$prefix}breadcrumb-item-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-breadcrumb-item-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
+
+        --#{variables.$prefix}breadcrumb-divider-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-breadcrumb-divider-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
+        );
       }
     }
   }
