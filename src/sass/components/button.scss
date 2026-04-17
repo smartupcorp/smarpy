@@ -16,6 +16,11 @@
     var(--#{variables.$prefix}color-default-border)
   );
 
+  // --#{variables.$prefix}button-box-shadow: light-dark(
+  //   var(--#{variables.$prefix}color-gray-950),
+  //   var(--#{variables.$prefix}color-gray-050)
+  // );
+
   --#{variables.$prefix}button-focus-color-fore: var(
     --#{variables.$prefix}color-default-button-focus-fore,
     var(--#{variables.$prefix}color-default-focus-fore)
@@ -72,7 +77,7 @@
   background-color: var(--#{variables.$prefix}button-color-back);
   border-color: var(--#{variables.$prefix}button-color-border);
   border-radius: 0.5rem;
-  border-style: solid;
+  border-style: none;
   touch-action: manipulation;
   color: var(--#{variables.$prefix}button-color-fore);
   cursor: pointer;
@@ -86,6 +91,11 @@
   user-select: none;
   vertical-align: top;
   word-spacing: 0px;
+  // box-shadow: inset 0rem 0rem 0.5rem -0.125rem
+  //   oklch(
+  //     from var(--#{variables.$prefix}button-box-shadow) l c
+  //       h / 0.75
+  //   );
   &:focus,
   &.is-focus,
   &.is-focused {

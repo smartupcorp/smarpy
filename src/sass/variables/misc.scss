@@ -9,6 +9,11 @@ $prefix: "smarpy-" !default;
 /// @group variables
 $output-color-class: true !default;
 
+/// output gutter class
+/// @type Boolean
+/// @group variables
+$output-gutter-class: true !default;
+
 /// output size class
 /// @type Boolean
 /// @group variables

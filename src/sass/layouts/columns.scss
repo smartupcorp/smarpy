@@ -6,8 +6,8 @@
 $columns-count: 12;
 
 :where(.columns) {
-  --#{variables.$prefix}columns-gutter-x: 0;
-  --#{variables.$prefix}columns-gutter-y: 0;
+  --#{variables.$prefix}columns-gutter-x: 0rem;
+  --#{variables.$prefix}columns-gutter-y: 0rem;
   --#{variables.$prefix}columns-gutter-top: var(--#{variables.$prefix}columns-gutter-y);
   --#{variables.$prefix}columns-gutter-bottom: var(--#{variables.$prefix}columns-gutter-y);
   --#{variables.$prefix}columns-gutter-right: var(--#{variables.$prefix}columns-gutter-x);
