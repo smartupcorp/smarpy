@@ -24,6 +24,12 @@
   color: var(--#{variables.$prefix}smaroot-color-fore);
   background-color: var(--#{variables.$prefix}smaroot-color-back);
   z-index: var(--#{variables.$prefix}z-index-smaroot);
+  line-height: 1.5;
+  letter-spacing: 0.02rem;
+  text-autospace: normal;
+  text-size-adjust: 100%;
+  text-spacing-trim: trim-start;
+
   &::selection {
     color: var(--#{variables.$prefix}smaroot-selection-color-fore);
     background-color: var(--#{variables.$prefix}smaroot-selection-color-back);

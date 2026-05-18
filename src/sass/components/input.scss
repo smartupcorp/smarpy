@@ -42,7 +42,7 @@
       }
     }
   }
-  @each $color in variables.$colors {
+  @each $color in variables.$allColorNames{
     &.is-#{$color} {
       background-color: var(--#{variables.$prefix}color-#{$color}-back);
       border-color: var(--#{variables.$prefix}color-#{$color}-border);
@@ -112,7 +112,7 @@
       }
     }
   }
-  @each $color in variables.$colors {
+  @each $color in variables.$allColorNames{
     &.is-#{$color} {
       background-color: var(--#{variables.$prefix}color-#{$color}-back);
       border-color: var(--#{variables.$prefix}color-#{$color}-border);
@@ -280,7 +280,7 @@
     color: var(--#{variables.$prefix}input-disabled-color-fore);
   }
   @if (variables.$output-color-class) {
-    @each $color in variables.$colors {
+    @each $color in variables.$allColorNames{
       &.is-#{$color} {
         --#{variables.$prefix}input-color-fore: var(
           --#{variables.$prefix}color-#{$color}-input-fore,

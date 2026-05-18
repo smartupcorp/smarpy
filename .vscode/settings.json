@@ -5,17 +5,17 @@
     "smaroot",
     "smarpy",
     "smartupcorp",
+    "xlarge",
+    "xsmall",
     "xthick",
     "xthin",
-    "xxxxxsmall",
-    "xxxxsmall",
-    "xxxsmall",
-    "xxsmall",
-    "xsmall",
-    "xlarge",
     "xxlarge",
+    "xxsmall",
     "xxxlarge",
+    "xxxsmall",
     "xxxxlarge",
-    "xxxxxlarge"
+    "xxxxsmall",
+    "xxxxxlarge",
+    "xxxxxsmall"
   ]
 }

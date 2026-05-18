@@ -8,7 +8,7 @@
     $derived: "-#{$colorScheme}"
   }
 
-  @each $color in variables.$colors {
+  @each $color in variables.$allColorNames{
     $numStr: "000" !default;
     @for $p from 1 through 19 {
       $numStr: ($p * 5) + "0";

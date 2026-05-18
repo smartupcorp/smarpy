@@ -33,7 +33,7 @@
   }
 
   @if (variables.$output-color-class) {
-    @each $color in variables.$colors {
+    @each $color in variables.$allColorNames{
       &.has-shadow-#{$color} {
         filter: drop-shadow(
             2px 2px 1px var(--#{variables.$prefix}color-#{$color}-shadow)

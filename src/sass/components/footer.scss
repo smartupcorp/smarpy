@@ -32,7 +32,7 @@
   }
 
   @if (variables.$output-color-class) {
-    @each $color in variables.$colors {
+    @each $color in variables.$allColorNames{
       &.is-#{$color} {
         --#{variables.$prefix}footer-color-fore: var(
           --#{variables.$prefix}color-#{$color}-footer-fore,

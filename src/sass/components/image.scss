@@ -1,9 +1,10 @@
+@use "../mixins/index.scss" as mixins;
 
 /// @group components
 :where(.image) {
+  @include mixins.base();
   display: inline-block;
   vertical-align: middle;
   width: 100%;
   height: auto;
-  margin: 0;
 }

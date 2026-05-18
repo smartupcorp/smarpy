@@ -1,5 +1,6 @@
 @use "sass:color";
 @use "sass:map";
+@use "sass:list";
 
 //#region define color settings
 
@@ -19,13 +20,12 @@ $color-hue-violet: 294 !default;
 $color-hue-magenta: 324 !default;
 
 $color-chroma-gray: 0.04 !default;
-$color-chroma-colorful: 0.12 !default;
+$color-chroma-colorful-500: 0.12 !default;
 $color-chroma-colorful-offset-lighter: 0 !default;
 $color-chroma-colorful-offset-darker: 0 !default;
 
-$color-lightness-500: 60% !default;
-$color-lightness-offset-lighter: 4%;
-$color-lightness-offset-darker: 4%;
+$color-lightness-050: 24% !default;
+$color-lightness-950: 96% !default;
 
 $color-lightness-white: 98% !default;
 $color-lightness-black: 35% !default;
@@ -90,13 +90,13 @@ $color-dark-lightness-stripe-back: 50 !default;
 //#region color-lightness-accordion
 $color-light-lightness-accordion-fore: 300 !default;
 $color-light-lightness-accordion-back: 950 !default;
-$color-light-lightness-accordion-border: 600 !default;
+$color-light-lightness-accordion-border: 700 !default;
 $color-light-lightness-accordion-summary-fore: 50 !default;
-$color-light-lightness-accordion-summary-back: 600 !default;
-$color-light-lightness-accordion-summary-border: 600 !default;
+$color-light-lightness-accordion-summary-back: 700 !default;
+$color-light-lightness-accordion-summary-border: 700 !default;
 $color-light-lightness-accordion-details-fore: 50 !default;
 $color-light-lightness-accordion-details-back: 950 !default;
-$color-light-lightness-accordion-details-border: 600 !default;
+$color-light-lightness-accordion-details-border: 700 !default;
 
 $color-dark-lightness-accordion-fore: 700 !default;
 $color-dark-lightness-accordion-back: 50 !default;
@@ -204,38 +204,6 @@ $color-dark-lightness-card-footer-fore: 950 !default;
 $color-dark-lightness-card-footer-back: 50 !default;
 //#endregion color-lightness-card
 
-//#region color-lightness-dialog
-$color-light-lightness-dialog-fore: 50 !default;
-$color-light-lightness-dialog-back: 900 !default;
-$color-light-lightness-dialog-border: 900 !default;
-$color-light-lightness-dialog-shadow: 900 !default;
-$color-light-lightness-dialog-avatar-fore: 50 !default;
-$color-light-lightness-dialog-avatar-back: 900 !default;
-$color-light-lightness-dialog-avatar-border: 900 !default;
-$color-light-lightness-dialog-name-fore: 50 !default;
-$color-light-lightness-dialog-name-back: 900 !default;
-$color-light-lightness-dialog-name-border: 900 !default;
-$color-light-lightness-dialog-name-shadow: 900 !default;
-$color-light-lightness-dialog-message-fore: 50 !default;
-$color-light-lightness-dialog-message-back: 900 !default;
-$color-light-lightness-dialog-message-border: 900 !default;
-
-$color-dark-lightness-dialog-fore: 950 !default;
-$color-dark-lightness-dialog-back: 100 !default;
-$color-dark-lightness-dialog-border: 100 !default;
-$color-dark-lightness-dialog-shadow: 100 !default;
-$color-dark-lightness-dialog-avatar-fore: 950 !default;
-$color-dark-lightness-dialog-avatar-back: 100 !default;
-$color-dark-lightness-dialog-avatar-border: 100 !default;
-$color-dark-lightness-dialog-name-fore: 950 !default;
-$color-dark-lightness-dialog-name-back: 100 !default;
-$color-dark-lightness-dialog-name-border: 100 !default;
-$color-dark-lightness-dialog-name-shadow: 100 !default;
-$color-dark-lightness-dialog-message-fore: 950 !default;
-$color-dark-lightness-dialog-message-back: 100 !default;
-$color-dark-lightness-dialog-message-border: 100 !default;
-//#endregion color-lightness-dialog
-
 //#region color-lightness-header
 $color-light-lightness-header-fore: 50 !default;
 $color-light-lightness-header-back: 700 !default;
@@ -317,6 +285,38 @@ $color-light-lightness-progress-back: 950 !default;
 $color-dark-lightness-progress-fore: 300 !default;
 $color-dark-lightness-progress-back: 50 !default;
 //#endregion color-lightness-progress
+
+//#region color-lightness-speech-bubble
+$color-light-lightness-speech-bubble-fore: 50 !default;
+$color-light-lightness-speech-bubble-back: 900 !default;
+$color-light-lightness-speech-bubble-border: 900 !default;
+$color-light-lightness-speech-bubble-shadow: 900 !default;
+$color-light-lightness-speech-bubble-avatar-fore: 50 !default;
+$color-light-lightness-speech-bubble-avatar-back: 900 !default;
+$color-light-lightness-speech-bubble-avatar-border: 900 !default;
+$color-light-lightness-speech-bubble-name-fore: 50 !default;
+$color-light-lightness-speech-bubble-name-back: 900 !default;
+$color-light-lightness-speech-bubble-name-border: 900 !default;
+$color-light-lightness-speech-bubble-name-shadow: 900 !default;
+$color-light-lightness-speech-bubble-message-fore: 50 !default;
+$color-light-lightness-speech-bubble-message-back: 900 !default;
+$color-light-lightness-speech-bubble-message-border: 900 !default;
+
+$color-dark-lightness-speech-bubble-fore: 950 !default;
+$color-dark-lightness-speech-bubble-back: 100 !default;
+$color-dark-lightness-speech-bubble-border: 100 !default;
+$color-dark-lightness-speech-bubble-shadow: 100 !default;
+$color-dark-lightness-speech-bubble-avatar-fore: 950 !default;
+$color-dark-lightness-speech-bubble-avatar-back: 100 !default;
+$color-dark-lightness-speech-bubble-avatar-border: 100 !default;
+$color-dark-lightness-speech-bubble-name-fore: 950 !default;
+$color-dark-lightness-speech-bubble-name-back: 100 !default;
+$color-dark-lightness-speech-bubble-name-border: 100 !default;
+$color-dark-lightness-speech-bubble-name-shadow: 100 !default;
+$color-dark-lightness-speech-bubble-message-fore: 950 !default;
+$color-dark-lightness-speech-bubble-message-back: 100 !default;
+$color-dark-lightness-speech-bubble-message-border: 100 !default;
+//#endregion color-lightness-speech-bubble
 
 //#region color-lightness-progress
 $color-light-lightness-tile-fore: 50 !default;
@@ -653,68 +653,6 @@ $colorShades: (
           ),
         ),
       //#endregion card
-      //#region dialog
-      dialog: (
-          fore: (
-            light: $color-light-lightness-dialog-fore,
-            dark: $color-dark-lightness-dialog-fore,
-          ),
-          back: (
-            light: $color-light-lightness-dialog-back,
-            dark: $color-dark-lightness-dialog-back,
-          ),
-          border: (
-            light: $color-light-lightness-dialog-border,
-            dark: $color-dark-lightness-dialog-border,
-          ),
-          dialogAvatar: (
-            fore: (
-              light: $color-light-lightness-dialog-avatar-fore,
-              dark: $color-dark-lightness-dialog-avatar-fore,
-            ),
-            back: (
-              light: $color-light-lightness-dialog-avatar-back,
-              dark: $color-dark-lightness-dialog-avatar-back,
-            ),
-            border: (
-              light: $color-light-lightness-dialog-avatar-border,
-              dark: $color-dark-lightness-dialog-avatar-border,
-            ),
-          ),
-          dialogName: (
-            fore: (
-              light: $color-light-lightness-dialog-name-fore,
-              dark: $color-dark-lightness-dialog-name-fore,
-            ),
-            back: (
-              light: $color-light-lightness-dialog-name-back,
-              dark: $color-dark-lightness-dialog-name-back,
-            ),
-            border: (
-              light: $color-light-lightness-dialog-name-border,
-              dark: $color-dark-lightness-dialog-name-border,
-            ),
-            shadow: (
-              light: $color-light-lightness-dialog-name-shadow,
-              dark: $color-dark-lightness-dialog-name-shadow,
-            ),
-          ),
-          dialogMessage: (
-            fore: (
-              light: $color-light-lightness-dialog-message-fore,
-              dark: $color-dark-lightness-dialog-message-fore,
-            ),
-            back: (
-              light: $color-light-lightness-dialog-message-back,
-              dark: $color-dark-lightness-dialog-message-back,
-            ),
-            border: (
-              light: $color-light-lightness-dialog-message-border,
-              dark: $color-dark-lightness-dialog-message-border,
-            ),
-          ),
-        ),
-      //#endregion dialog
       //#region header
       header: (
           fore: (
@@ -853,34 +791,96 @@ $colorShades: (
             dark: $color-dark-lightness-progress-back,
           ),
         ),
-      tile: (
-        fore: (
-          light: $color-light-lightness-tile-fore,
-          dark: $color-dark-lightness-tile-fore,
-        ),
-        back: (
-          light: $color-light-lightness-tile-back,
-          dark: $color-dark-lightness-tile-back,
-        ),
-        shadow: (
-          light: $color-light-lightness-tile-shadow,
-          dark: $color-dark-lightness-tile-shadow,
-        ),
-        tileHeader: (
+      //#region speech-bubble
+      speechBubble: (
           fore: (
-            light: $color-light-lightness-tile-header-fore,
-            dark: $color-dark-lightness-tile-header-fore,
+            light: $color-light-lightness-speech-bubble-fore,
+            dark: $color-dark-lightness-speech-bubble-fore,
           ),
           back: (
-            light: $color-light-lightness-tile-header-back,
-            dark: $color-dark-lightness-tile-header-back,
+            light: $color-light-lightness-speech-bubble-back,
+            dark: $color-dark-lightness-speech-bubble-back,
           ),
           border: (
-            light: $color-light-lightness-tile-header-border,
-            dark: $color-dark-lightness-tile-header-border,
+            light: $color-light-lightness-speech-bubble-border,
+            dark: $color-dark-lightness-speech-bubble-border,
+          ),
+          speechBubbleAvatar: (
+            fore: (
+              light: $color-light-lightness-speech-bubble-avatar-fore,
+              dark: $color-dark-lightness-speech-bubble-avatar-fore,
+            ),
+            back: (
+              light: $color-light-lightness-speech-bubble-avatar-back,
+              dark: $color-dark-lightness-speech-bubble-avatar-back,
+            ),
+            border: (
+              light: $color-light-lightness-speech-bubble-avatar-border,
+              dark: $color-dark-lightness-speech-bubble-avatar-border,
+            ),
+          ),
+          speechBubbleName: (
+            fore: (
+              light: $color-light-lightness-speech-bubble-name-fore,
+              dark: $color-dark-lightness-speech-bubble-name-fore,
+            ),
+            back: (
+              light: $color-light-lightness-speech-bubble-name-back,
+              dark: $color-dark-lightness-speech-bubble-name-back,
+            ),
+            border: (
+              light: $color-light-lightness-speech-bubble-name-border,
+              dark: $color-dark-lightness-speech-bubble-name-border,
+            ),
+            shadow: (
+              light: $color-light-lightness-speech-bubble-name-shadow,
+              dark: $color-dark-lightness-speech-bubble-name-shadow,
+            ),
+          ),
+          speechBubbleMessage: (
+            fore: (
+              light: $color-light-lightness-speech-bubble-message-fore,
+              dark: $color-dark-lightness-speech-bubble-message-fore,
+            ),
+            back: (
+              light: $color-light-lightness-speech-bubble-message-back,
+              dark: $color-dark-lightness-speech-bubble-message-back,
+            ),
+            border: (
+              light: $color-light-lightness-speech-bubble-message-border,
+              dark: $color-dark-lightness-speech-bubble-message-border,
+            ),
           ),
         ),
-      ),
+      //#endregion speech-bubble
+      tile: (
+          fore: (
+            light: $color-light-lightness-tile-fore,
+            dark: $color-dark-lightness-tile-fore,
+          ),
+          back: (
+            light: $color-light-lightness-tile-back,
+            dark: $color-dark-lightness-tile-back,
+          ),
+          shadow: (
+            light: $color-light-lightness-tile-shadow,
+            dark: $color-dark-lightness-tile-shadow,
+          ),
+          tileHeader: (
+            fore: (
+              light: $color-light-lightness-tile-header-fore,
+              dark: $color-dark-lightness-tile-header-fore,
+            ),
+            back: (
+              light: $color-light-lightness-tile-header-back,
+              dark: $color-dark-lightness-tile-header-back,
+            ),
+            border: (
+              light: $color-light-lightness-tile-header-border,
+              dark: $color-dark-lightness-tile-header-border,
+            ),
+          ),
+        ),
       //#endregion components
     ),
   //#endregion plain
@@ -1560,5 +1560,192 @@ $colorsWithProperties: (
     "hue": $color-hue-magenta,
   )
 ) !default;
+
+/// @type List
+/// @group variables
+$semanticColors: (
+  // (
+  //   name: "base",
+  //   colorName: "gray",
+  //   lightnessOffset: 0,
+  // ),
+  (
+    name: "base-primary",
+    colorName: "gray",
+    lightnessOffset: 0,
+  ),
+  (
+    name: "base-secondary",
+    colorName: "gray",
+    lightnessOffset: 100,
+  ),
+  (
+    name: "base-tertiary",
+    colorName: "gray",
+    lightnessOffset: -100,
+  ),
+  // (
+  //   name: "main",
+  //   colorName: "cyan",
+  //   lightnessOffset: 0,
+  // ),
+  (
+    name: "main-primary",
+    colorName: "cyan",
+    lightnessOffset: 0,
+  ),
+  (
+    name: "main-secondary",
+    colorName: "cyan",
+    lightnessOffset: 100,
+  ),
+  (
+    name: "main-tertiary",
+    colorName: "cyan",
+    lightnessOffset: -100,
+  ),
+  // (
+  //   name: "accent",
+  //   colorName: "yellow",
+  //   lightnessOffset: 0,
+  // ),
+  (
+    name: "accent-primary",
+    colorName: "yellow",
+    lightnessOffset: 0,
+  ),
+  (
+    name: "accent-secondary",
+    colorName: "yellow",
+    lightnessOffset: 100,
+  ),
+  (
+    name: "accent-tertiary",
+    colorName: "yellow",
+    lightnessOffset: -100,
+  ),
+  // (
+  //   name: "info",
+  //   colorName: "blue",
+  //   lightnessOffset: 0,
+  // ),
+  (
+    name: "info-primary",
+    colorName: "blue",
+    lightnessOffset: 0,
+  ),
+  (
+    name: "info-secondary",
+    colorName: "blue",
+    lightnessOffset: 100,
+  ),
+  (
+    name: "info-tertiary",
+    colorName: "blue",
+    lightnessOffset: -100,
+  ),
+  // (
+  //   name: "success",
+  //   colorName: "green",
+  //   lightnessOffset: 0,
+  // ),
+  (
+    name: "success-primary",
+    colorName: "green",
+    lightnessOffset: 0,
+  ),
+  (
+    name: "success-secondary",
+    colorName: "green",
+    lightnessOffset: 100,
+  ),
+  (
+    name: "success-tertiary",
+    colorName: "green",
+    lightnessOffset: -100,
+  ),
+  // (
+  //   name: "warning",
+  //   colorName: "yellow",
+  //   lightnessOffset: 0,
+  // ),
+  (
+    name: "warning-primary",
+    colorName: "yellow",
+    lightnessOffset: 0,
+  ),
+  (
+    name: "warning-secondary",
+    colorName: "yellow",
+    lightnessOffset: 100,
+  ),
+  (
+    name: "warning-tertiary",
+    colorName: "yellow",
+    lightnessOffset: -100,
+  ),
+  // (
+  //   name: "danger",
+  //   colorName: "red",
+  //   lightnessOffset: 0,
+  // ),
+  (
+    name: "danger-primary",
+    colorName: "red",
+    lightnessOffset: 0,
+  ),
+  (
+    name: "danger-secondary",
+    colorName: "red",
+    lightnessOffset: 100,
+  ),
+  (
+    name: "danger-tertiary",
+    colorName: "red",
+    lightnessOffset: -100,
+  )
+) !default;
+
+
+/// @type List
+/// @group variables
+$semanticColorNames: (
+  // "base",
+  "base-primary",
+  "base-secondary",
+  "base-tertiary",
+  // "main",
+  "main-primary",
+  "main-secondary",
+  "main-tertiary",
+  // "accent",
+  "accent-primary",
+  "accent-secondary",
+  "accent-tertiary",
+  // "info",
+  "info-primary",
+  "info-secondary",
+  "info-tertiary",
+  // "success",
+  "success-primary",
+  "success-secondary",
+  "success-tertiary",
+  // "warning",
+  "warning-primary",
+  "warning-secondary",
+  "warning-tertiary",
+  // "danger",
+  "danger-primary",
+  "danger-secondary",
+  "danger-tertiary"
+) !default;
+
+/// @type List
+/// @group variables
+$allColors: list.join($colorsWithProperties, $semanticColors);
+
+/// @type List
+/// @group variables
+$allColorNames: list.join($colors, $semanticColorNames);
 
 //#endregion define colors array

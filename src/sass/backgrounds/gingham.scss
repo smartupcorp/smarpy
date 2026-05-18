@@ -38,7 +38,7 @@
   }
 
   @if (variables.$output-color-class) {
-    @each $color in variables.$colors {
+    @each $color in variables.$allColorNames{
       &.is-#{$color} {
         --#{variables.$prefix}gingham-color-fore: oklch(
           from var(--#{variables.$prefix}color-#{$color}-gingham-fore)

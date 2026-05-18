@@ -4,7 +4,4 @@
 :where(.paragraph) {
   @include mixins.base();
   display: block;
-  line-height: 1.5;
-  margin-block: 0.5rem;
-  margin-inline: 0;
 }

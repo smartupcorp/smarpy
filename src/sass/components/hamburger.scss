@@ -81,7 +81,7 @@ $hamburger-line-color: var(--#{variables.$prefix}color-default-border);
   }
 
   @if (variables.$output-color-class) {
-    @each $color in variables.$colors {
+    @each $color in variables.$allColorNames{
       &.is-#{$color} {
         color: var(--#{variables.$prefix}color-#{$color}-fore);
         .upperpatty {

@@ -41,7 +41,7 @@
   }
 
   @if (variables.$output-color-class) {
-    @each $color in variables.$colors {
+    @each $color in variables.$allColorNames{
       &.is-#{$color} {
         --#{variables.$prefix}modal-color-back: oklch(
           from var(

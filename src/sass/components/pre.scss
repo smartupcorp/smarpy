@@ -9,7 +9,7 @@
   white-space: pre;
   word-wrap: normal;
   @if (variables.$output-color-class) {
-    @each $color in variables.$colors {
+    @each $color in variables.$allColorNames{
       &.is-#{$color} {
         background-color: var(--#{variables.$prefix}color-#{$color}-code-back);
         color: var(--#{variables.$prefix}color-#{$color}-fore);

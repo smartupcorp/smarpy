@@ -43,7 +43,7 @@
   }
 
   @if (variables.$output-color-class) {
-    @each $color in variables.$colors {
+    @each $color in variables.$allColorNames{
       &.is-#{$color} {
         --#{variables.$prefix}dot-color-fore: oklch(
           from var(--#{variables.$prefix}color-#{$color}-dot-fore) l c h / 0.5
