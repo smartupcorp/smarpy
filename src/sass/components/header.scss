@@ -3,11 +3,33 @@
 
 /// @group components
 :where(.header) {
+  --#{variables.$prefix}header-color-fore: var(
+    --#{variables.$prefix}color-default-header-fore,
+    var(--#{variables.$prefix}color-default-fore)
+  );
+  --#{variables.$prefix}header-color-shadow: var(
+    --#{variables.$prefix}color-default-header-shadow,
+    var(--#{variables.$prefix}color-default-shadow)
+  );
+  --#{variables.$prefix}header-selection-color-fore: var(
+    --#{variables.$prefix}color-default-header-selection-fore,
+    var(--#{variables.$prefix}color-default-selection-fore)
+  );
+  --#{variables.$prefix}header-selection-color-back: var(
+    --#{variables.$prefix}color-default-header-selection-back,
+    var(--#{variables.$prefix}color-default-selection-back)
+  );
   @include mixins.base();
+  color: var(--#{variables.$prefix}header-color-fore);
   display: block;
   width: 100%;
-  box-shadow: 0 0 0.5rem var(--#{variables.$prefix}color-default-shadow);
+  box-shadow: 0 0 0.5rem var(--#{variables.$prefix}header-color-shadow);
   backdrop-filter: var(--#{variables.$prefix}header-backdrop-filter);
+
+  &::selection {
+    color: var(--#{variables.$prefix}header-selection-color-fore);
+    background-color: var(--#{variables.$prefix}header-selection-color-back);
+  }
 
   &.is-sticky {
     position: sticky;
@@ -26,16 +48,26 @@
   }
 
   @if (variables.$output-color-class) {
-    @each $color in variables.$colors {
+    @each $color in variables.$allColorNames {
       &.is-#{$color} {
-        color: var(--#{variables.$prefix}color-#{$color}-fore);
-        background-color: oklch(
-          from var(--#{variables.$prefix}color-#{$color}-back) l c h / 0.75
+        --#{variables.$prefix}header-color-fore: var(
+          --#{variables.$prefix}color-#{$color}-header-fore,
+          var(--#{variables.$prefix}color-#{$color}-fore)
         );
-        box-shadow: 0
-          0
-          0.5rem
-          var(--#{variables.$prefix}color-#{$color}-shadow);
+        --#{variables.$prefix}header-color-shadow: var(
+          --#{variables.$prefix}color-#{$color}-header-shadow,
+          var(--#{variables.$prefix}color-#{$color}-shadow)
+        );
+        background-color: oklch(
+          from var(
+              --#{variables.$prefix}color-#{$color}-header-back,
+              --#{variables.$prefix}color-#{$color}-back
+            )
+            l
+            c
+            h /
+            0.75
+        );
       }
     }
   }

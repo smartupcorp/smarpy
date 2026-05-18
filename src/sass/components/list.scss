@@ -1,6 +1,7 @@
 @use "../mixins/index.scss" as mixins;
 
 /// @group components
+/// @deprecated
 :where(.list) {
   @include mixins.base();
   display: block;

@@ -27,6 +27,7 @@
   @include mixins.base();
   color: var(--#{variables.$prefix}link-color-fore);
   text-decoration: none;
+  cursor: pointer;
 
   &::selection {
     color: var(--#{variables.$prefix}link-selection-color-fore);
@@ -44,7 +45,7 @@
   }
 
   @if (variables.$output-color-class) {
-    @each $color in variables.$colors {
+    @each $color in variables.$allColorNames{
       &.is-#{$color} {
         --#{variables.$prefix}link-color-fore: var(
           --#{variables.$prefix}color-#{$color}-link-fore,

@@ -70,8 +70,8 @@ function changeColor(color) {
     elem.className = `code ${color}`;
   });
 
-  document.querySelectorAll(".dialog").forEach((elem) => {
-    elem.className = `dialog is-left is-avatar-circle ${color}`;
+  document.querySelectorAll(".speech-bubble").forEach((elem) => {
+    elem.className = `speech-bubble avatar-has-border is-left is-avatar-circle ${color}`;
   });
 
   document.querySelectorAll(".input").forEach((elem) => {

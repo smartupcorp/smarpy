@@ -1,0 +1,46 @@
+@use "sass:map";
+@use "../variables/index.scss" as variables;
+@use "../mixins/index.scss" as mixins;
+
+:where(.description-list) {
+  --#{variables.$prefix}description-list-gutter-y: 1rem;
+  --#{variables.$prefix}description-details-indent: 1rem;
+  @include mixins.base();
+  display: grid;
+  gap: var(--#{variables.$prefix}description-list-gutter-y) 0;
+
+  &.has-marker {
+    > :where(.description-list-item) {
+      display: list-item;
+      list-style-type: disc;
+      margin-left: var(--#{variables.$prefix}description-details-indent);
+      > :where(.description-details) {
+        @include mixins.base();
+        margin-left: 0;
+      }
+    }
+  }
+
+  > :where(.description-list-item) {
+    @include mixins.base();
+    display: block;
+
+    &.has-separator {
+      > :where(.description-term) {
+        &::after {
+          content: ":";
+        }
+      }
+    }
+
+    > :where(.description-term) {
+      @include mixins.base();
+      font-weight: var(--#{variables.$prefix}font-weight-semibold);
+    }
+
+    > :where(.description-details) {
+      @include mixins.base();
+      margin-left: var(--#{variables.$prefix}description-details-indent);
+    }
+  }
+}

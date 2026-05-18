@@ -81,21 +81,27 @@ $columns-count: 12;
       width: 100%;
     }
   }
-  @for $num from 1 through $columns-count {
+  @for $num from 0 through $columns-count {
     :where(.column-#{$num}) {
       @include mixins.column();
       flex-basis: math.percentage(math.div($num, $columns-count));
       max-width: math.percentage(math.div($num, $columns-count));
       width: math.percentage(math.div($num, $columns-count));
+      @if ($num == 0) {
+        display: none;
+      }
     }
   }
   :where(.column),
   [class^="column-"] {
-    @for $num from 1 through $columns-count {
+    @for $num from 0 through $columns-count {
       @include mixins.is-responsive("-" + $num) {
         flex-basis: math.percentage(math.div($num, $columns-count));
         max-width: math.percentage(math.div($num, $columns-count));
         width: math.percentage(math.div($num, $columns-count));
+        @if ($num == 0) {
+          display: none;
+        }
       }
     }
   }

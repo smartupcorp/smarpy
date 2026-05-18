@@ -27,12 +27,8 @@
     $light: map.get($fore, "light");
     $dark: map.get($fore, "dark");
     @if ($light != null and $dark != null) {
-      $lightStr: functions.lightnessNumberToString(
-        $light + $lightnessOffset
-      );
-      $darkStr: functions.lightnessNumberToString(
-        $dark + $lightnessOffset
-      );
+      $lightStr: functions.lightnessNumberToString($light + $lightnessOffset);
+      $darkStr: functions.lightnessNumberToString($dark + $lightnessOffset);
       --#{variables.$prefix}color-#{$destColorName}#{$component}#{$destPseudoClassName}-fore: light-dark(
         var(--#{variables.$prefix}color-#{$srcColorName}-#{$lightStr}),
         var(--#{variables.$prefix}color-#{$srcColorName}-#{$darkStr})
@@ -45,12 +41,8 @@
     $light: map.get($back, "light");
     $dark: map.get($back, "dark");
     @if ($light != null and $dark != null) {
-      $lightStr: functions.lightnessNumberToString(
-        $light + $lightnessOffset
-      );
-      $darkStr: functions.lightnessNumberToString(
-        $dark + $lightnessOffset
-      );
+      $lightStr: functions.lightnessNumberToString($light + $lightnessOffset);
+      $darkStr: functions.lightnessNumberToString($dark + $lightnessOffset);
       --#{variables.$prefix}color-#{$destColorName}#{$component}#{$destPseudoClassName}-back: light-dark(
         var(--#{variables.$prefix}color-#{$srcColorName}-#{$lightStr}),
         var(--#{variables.$prefix}color-#{$srcColorName}-#{$darkStr})
@@ -63,12 +55,8 @@
     $light: map.get($border, "light");
     $dark: map.get($border, "dark");
     @if ($light != null and $dark != null) {
-      $lightStr: functions.lightnessNumberToString(
-        $light + $lightnessOffset
-      );
-      $darkStr: functions.lightnessNumberToString(
-        $dark + $lightnessOffset
-      );
+      $lightStr: functions.lightnessNumberToString($light + $lightnessOffset);
+      $darkStr: functions.lightnessNumberToString($dark + $lightnessOffset);
       --#{variables.$prefix}color-#{$destColorName}#{$component}#{$destPseudoClassName}-border: light-dark(
         var(--#{variables.$prefix}color-#{$srcColorName}-#{$lightStr}),
         var(--#{variables.$prefix}color-#{$srcColorName}-#{$darkStr})
@@ -81,12 +69,8 @@
     $light: map.get($placeholder, "light");
     $dark: map.get($placeholder, "dark");
     @if ($light != null and $dark != null) {
-      $lightStr: functions.lightnessNumberToString(
-        $light + $lightnessOffset
-      );
-      $darkStr: functions.lightnessNumberToString(
-        $dark + $lightnessOffset
-      );
+      $lightStr: functions.lightnessNumberToString($light + $lightnessOffset);
+      $darkStr: functions.lightnessNumberToString($dark + $lightnessOffset);
       --#{variables.$prefix}color-#{$destColorName}#{$component}#{$destPseudoClassName}-placeholder: light-dark(
         var(--#{variables.$prefix}color-#{$srcColorName}-#{$lightStr}),
         var(--#{variables.$prefix}color-#{$srcColorName}-#{$darkStr})
@@ -99,12 +83,8 @@
     $light: map.get($shadow, "light");
     $dark: map.get($shadow, "dark");
     @if ($light != null and $dark != null) {
-      $lightStr: functions.lightnessNumberToString(
-        $light + $lightnessOffset
-      );
-      $darkStr: functions.lightnessNumberToString(
-        $dark + $lightnessOffset
-      );
+      $lightStr: functions.lightnessNumberToString($light + $lightnessOffset);
+      $darkStr: functions.lightnessNumberToString($dark + $lightnessOffset);
       --#{variables.$prefix}color-#{$destColorName}#{$component}#{$destPseudoClassName}-shadow: light-dark(
         var(--#{variables.$prefix}color-#{$srcColorName}-#{$lightStr}),
         var(--#{variables.$prefix}color-#{$srcColorName}-#{$darkStr})
@@ -117,12 +97,8 @@
     $light: map.get($outline, "light");
     $dark: map.get($outline, "dark");
     @if ($light != null and $dark != null) {
-      $lightStr: functions.lightnessNumberToString(
-        $light + $lightnessOffset
-      );
-      $darkStr: functions.lightnessNumberToString(
-        $dark + $lightnessOffset
-      );
+      $lightStr: functions.lightnessNumberToString($light + $lightnessOffset);
+      $darkStr: functions.lightnessNumberToString($dark + $lightnessOffset);
       --#{variables.$prefix}color-#{$destColorName}#{$component}#{$destPseudoClassName}-outline: light-dark(
         var(--#{variables.$prefix}color-#{$srcColorName}-#{$lightStr}),
         var(--#{variables.$prefix}color-#{$srcColorName}-#{$darkStr})
@@ -420,56 +396,6 @@
   }
   //#endregion card
 
-  //#region dialog
-  $dialog: map.get($colorShade, "dialog");
-  @if ($dialog != null) {
-    @include setColor(
-      $dialog,
-      $lightnessOffset,
-      $srcColorName,
-      $destColorName,
-      $pseudoClassName,
-      "dialog"
-    );
-
-    $dialogAvatar: map.get($dialog, "dialogAvatar");
-    @if ($dialogAvatar != null) {
-      @include setColor(
-        $dialogAvatar,
-        $lightnessOffset,
-        $srcColorName,
-        $destColorName,
-        $pseudoClassName,
-        "dialog-avatar"
-      );
-    }
-
-    $dialogName: map.get($dialog, "dialogName");
-    @if ($dialogName != null) {
-      @include setColor(
-        $dialogName,
-        $lightnessOffset,
-        $srcColorName,
-        $destColorName,
-        $pseudoClassName,
-        "dialog-name"
-      );
-    }
-
-    $dialogMessage: map.get($dialog, "dialogMessage");
-    @if ($dialogMessage != null) {
-      @include setColor(
-        $dialogMessage,
-        $lightnessOffset,
-        $srcColorName,
-        $destColorName,
-        $pseudoClassName,
-        "dialog-message"
-      );
-    }
-  }
-  //#endregion dialog
-
   //#region footer
   $footer: map.get($colorShade, "footer");
   @if ($footer != null) {
@@ -670,6 +596,56 @@
   }
   //#endregion progress
 
+  //#region speech-bubble
+  $speechBubble: map.get($colorShade, "speechBubble");
+  @if ($speechBubble != null) {
+    @include setColor(
+      $speechBubble,
+      $lightnessOffset,
+      $srcColorName,
+      $destColorName,
+      $pseudoClassName,
+      "speech-bubble"
+    );
+
+    $speechBubbleAvatar: map.get($speechBubble, "speechBubbleAvatar");
+    @if ($speechBubbleAvatar != null) {
+      @include setColor(
+        $speechBubbleAvatar,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "speech-bubble-avatar"
+      );
+    }
+
+    $speechBubbleName: map.get($speechBubble, "speechBubbleName");
+    @if ($speechBubbleName != null) {
+      @include setColor(
+        $speechBubbleName,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "speech-bubble-name"
+      );
+    }
+
+    $speechBubbleMessage: map.get($speechBubble, "speechBubbleMessage");
+    @if ($speechBubbleMessage != null) {
+      @include setColor(
+        $speechBubbleMessage,
+        $lightnessOffset,
+        $srcColorName,
+        $destColorName,
+        $pseudoClassName,
+        "speech-bubble-message"
+      );
+    }
+  }
+  //#endregion speech-bubble
+
   //#region tile
   $tile: map.get($colorShade, "tile");
   @if ($tile != null) {
@@ -710,6 +686,18 @@
   //#endregion components
 }
 
+@function getColorFromColors($colors, $colorName) {
+  @each $color in variables.$colorsWithProperties {
+    $name: map.get($color, "name");
+
+    @if ($name == $colorName) {
+      @return $color;
+    }
+  }
+
+  @return null;
+}
+
 @mixin setColorShades($colorShades) {
   @each $colorShade in $colorShades {
     $pseudoClassName: map.get($colorShade, "name");
@@ -725,6 +713,98 @@
         $pseudoClassName
       );
     }
+
+    @each $semanticColor in variables.$semanticColors {
+      $semanticColorName: map.get($semanticColor, "name");
+      $semanticColorColorName: map.get($semanticColor, "colorName");
+      $semanticColorLightnessOffset: map.get(
+        $semanticColor,
+        "lightnessOffset"
+      );
+      $color: getColorFromColors(
+        variables.$colors,
+        $semanticColorColorName
+      );
+      @if ($color != null) {
+        @include setColorShade(
+          $colorShade,
+          $semanticColorLightnessOffset,
+          $semanticColorColorName,
+          $semanticColorName,
+          $pseudoClassName
+        );
+      }
+    }
+  }
+}
+
+@mixin setColorVariables($color) {
+  $name: map.get($color, "name");
+  $hue: map.get($color, "hue");
+
+  $p: "0";
+  @for $i from 1 through 19 {
+    $p: "" + ($i * 50);
+    @if (string.length($p) == 2) {
+      $p: "0" + $p;
+    }
+    $chroma: var(--#{variables.$prefix}color-chroma-colorful-#{$p});
+
+    @if ($name == "default" or $name == "gray") {
+      $chroma: var(--#{variables.$prefix}color-chroma-gray);
+    }
+
+    $oklch: var(--#{variables.$prefix}color-lightness-#{$p})
+      #{$chroma}
+      var(--#{variables.$prefix}color-hue-#{$name});
+
+    // NOTE: Declaring oklch individually would make the definition too large, so it's commented out.
+    // --#{variables.$prefix}color-#{$name}-#{$p}-oklch: #{$oklch};
+    // --#{variables.$prefix}color-#{$name}-#{$p}: oklch(var(--#{variables.$prefix}color-#{$name}-#{$p}-oklch));
+    --#{variables.$prefix}color-#{$name}-#{$p}: oklch(#{$oklch});
+  }
+}
+
+@mixin setColorLightnessCssVariables() {
+  $steps: 18;
+  $value-step: calc(
+    (variables.$color-lightness-950 - variables.$color-lightness-050) / $steps
+  );
+  @for $i from 0 through $steps {
+    $current-label: calc(50 + ($i * 50));
+
+    $formatted-label: "#{$current-label}";
+
+    @if ($current-label < 100) {
+      $formatted-label: "0#{$current-label}";
+    }
+
+    $current-value: calc(variables.$color-lightness-050 + ($value-step * $i));
+
+    --#{variables.$prefix}color-lightness-#{$formatted-label}: #{$current-value};
+  }
+}
+
+@mixin setColorColorfulChromaCssVariables() {
+  $p: "0";
+  @for $i from 1 through 19 {
+    $p: "" + ($i * 50);
+    @if (string.length($p) == 2) {
+      $p: "0" + $p;
+    }
+    $chroma: variables.$color-chroma-colorful-500;
+
+    @if ($i < 10) {
+      $chroma-offset: (10 - $i) *
+        variables.$color-chroma-colorful-offset-darker;
+      $chroma: variables.$color-chroma-colorful-500 + $chroma-offset;
+    } @else if ($i > 10) {
+      $chroma-offset: (10 - $i) *
+        variables.$color-chroma-colorful-offset-lighter;
+      $chroma: variables.$color-chroma-colorful-500 + $chroma-offset;
+    }
+
+    --#{variables.$prefix}color-chroma-colorful-#{$p}: #{$chroma};
   }
 }
 
@@ -741,46 +821,26 @@
   --#{variables.$prefix}color-black-oklch: #{$black-oklch};
   --#{variables.$prefix}color-black: oklch(#{$black-oklch});
 
-  @each $colorProperties in variables.$colorsWithProperties {
-    $name: map.get($colorProperties, "name");
-    $hue: map.get($colorProperties, "hue");
+  --#{variables.$prefix}color-hue-gray: #{variables.$color-hue-gray};
+  --#{variables.$prefix}color-hue-red: #{variables.$color-hue-red};
+  --#{variables.$prefix}color-hue-coral: #{variables.$color-hue-coral};
+  --#{variables.$prefix}color-hue-orange: #{variables.$color-hue-orange};
+  --#{variables.$prefix}color-hue-yellow: #{variables.$color-hue-yellow};
+  --#{variables.$prefix}color-hue-lime: #{variables.$color-hue-lime};
+  --#{variables.$prefix}color-hue-green: #{variables.$color-hue-green};
+  --#{variables.$prefix}color-hue-cyan: #{variables.$color-hue-cyan};
+  --#{variables.$prefix}color-hue-blue: #{variables.$color-hue-blue};
+  --#{variables.$prefix}color-hue-violet: #{variables.$color-hue-violet};
+  --#{variables.$prefix}color-hue-magenta: #{variables.$color-hue-magenta};
 
-    $p: "000" !default;
-    @for $i from 1 through 19 {
-      $p: ($i * 5) + "0";
-      @if (string.length($p) == 2) {
-        $p: "0" + $p;
-      }
-      $lightness: variables.$color-lightness-500;
-      $chroma: variables.$color-chroma-gray;
-      @if ($i < 10) {
-        $lightness-offset: (10 - $i) * variables.$color-lightness-offset-darker;
-        $lightness: variables.$color-lightness-500 - $lightness-offset;
-        @if ($name != "gray") {
-          $chroma-offset: (10 - $i) *
-            variables.$color-chroma-colorful-offset-darker;
-          $chroma: variables.$color-chroma-colorful + $chroma-offset;
-        }
-      } @else if ($i > 10) {
-        $lightness-offset: ($i - 10) *
-          variables.$color-lightness-offset-lighter;
-        $lightness: variables.$color-lightness-500 + $lightness-offset;
-        @if ($name != "gray") {
-          $chroma-offset: ($i - 10) *
-            variables.$color-chroma-colorful-offset-lighter;
-          $chroma: variables.$color-chroma-colorful + $chroma-offset;
-        }
-      } @else {
-        @if ($name != "gray") {
-          $chroma: variables.$color-chroma-colorful;
-        }
-      }
+  @include setColorLightnessCssVariables();
 
-      $oklch: #{$lightness} #{$chroma} #{$hue};
+  --#{variables.$prefix}color-chroma-gray: #{variables.$color-chroma-gray};
+  @include setColorColorfulChromaCssVariables();
 
-      --#{variables.$prefix}color-#{$name}-#{$p}-oklch: #{$oklch};
-      --#{variables.$prefix}color-#{$name}-#{$p}: oklch(#{$oklch});
-    }
+  @each $color in variables.$colorsWithProperties {
+    $name: map.get($color, "name");
+    @include setColorVariables($color);
   }
 
   @include setColorShades(variables.$colorShades);

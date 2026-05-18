@@ -1,0 +1,20 @@
+@use "sass:map";
+@use "../variables/index.scss" as variables;
+@use "../mixins/index.scss" as mixins;
+
+:where(.unordered-list) {
+  --#{variables.$prefix}unordered-list-gutter-y: 1rem;
+  @include mixins.base();
+  display: grid;
+  gap: var(--#{variables.$prefix}unordered-list-gutter-y) 0;
+  margin-block-start: 1rem;
+  margin-block-end: 1rem;
+  padding-inline-start: 1rem;
+  > :where(.unordered-list-item) {
+    @include mixins.base();
+    display: list-item;
+    &::marker {
+      @include mixins.base();
+    }
+  }
+}

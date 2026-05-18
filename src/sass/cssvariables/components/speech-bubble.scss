@@ -1,0 +1,17 @@
+@use "../../variables/index.scss" as variables;
+
+/// components/speech-bubble settings
+/// @group cssvariables
+:where(:root) {
+  --#{variables.$prefix}speech-bubble-avatar-size-default: #{variables.$speech-bubble-avatar-size-default};
+  --#{variables.$prefix}speech-bubble-avatar-size-small: #{variables.$speech-bubble-avatar-size-small};
+  --#{variables.$prefix}speech-bubble-avatar-size-large: #{variables.$speech-bubble-avatar-size-large};
+  --#{variables.$prefix}speech-bubble-avatar-top-offset: #{variables.$speech-bubble-avatar-top-offset};
+  --#{variables.$prefix}speech-bubble-name-font-size: #{variables.$speech-bubble-name-font-size};
+  --#{variables.$prefix}speech-bubble-name-padding-x: #{variables.$speech-bubble-name-padding-x};
+  --#{variables.$prefix}speech-bubble-name-padding-y: #{variables.$speech-bubble-name-padding-y};
+  --#{variables.$prefix}speech-bubble-message-arrow-width: #{variables.$speech-bubble-message-arrow-width};
+  --#{variables.$prefix}speech-bubble-message-arrow-height: #{variables.$speech-bubble-message-arrow-height};
+  --#{variables.$prefix}speech-bubble-message-inner-padding-x: #{variables.$speech-bubble-message-inner-padding-x};
+  --#{variables.$prefix}speech-bubble-message-inner-padding-y: #{variables.$speech-bubble-message-inner-padding-y};
+}

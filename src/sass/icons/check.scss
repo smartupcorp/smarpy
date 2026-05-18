@@ -11,7 +11,7 @@
   height: 1rem;
   transform: rotate(45deg);
   width: 0.5rem;
-  @each $color in variables.$colors {
+  @each $color in variables.$allColorNames{
     &.is-#{$color} {
       border-color: var(--#{variables.$prefix}color-#{$color}-fore);
     }
